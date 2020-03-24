@@ -27,6 +27,11 @@
            VerticalOptions="CenterAndExpand"
            HorizontalOptions="CenterAndExpand"
            />
+
+      <Image
+
+          Source="/Users/sydneykeating/Projects/BooksForAll/BooksForAll/BooksForAll.iOS/Resources/BookCover.jpg"
+          />
       
   </StackLayout>  
 </ContentPage>

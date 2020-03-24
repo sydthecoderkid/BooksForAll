@@ -15,30 +15,63 @@ namespace BooksForAll
         public MyTabbedPage()
         {
 
-            var layout = new StackLayout();
-            var button = new Button
+            this.Children.Add(new ContentPage
             {
-                Text = "StackLayout",
-                FontSize = 24,
-                VerticalOptions = LayoutOptions.Center,
-                Margin = 50,
-                HorizontalOptions = LayoutOptions.Center
-            };
-            Image bookholder = new Image()
+                Title = "BOOKS",
+                Content = new StackLayout
+                {
+
+                    Children =
+                        {
+                            new Label
+                            {
+                                FontSize = 20,
+                                Text = "Books",
+                                TextColor = Color.Black,
+                                FontAttributes = FontAttributes.Bold,
+                                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                                VerticalOptions = LayoutOptions.CenterAndExpand
+                            },
+
+
+                            new Image
+                            {
+                                WidthRequest = 683,
+                                HeightRequest = 347,
+                                Aspect = Aspect.AspectFit,
+                                Source = ImageSource.FromFile("BookCover.jpg"),
+                            }
+                        }
+                },
+
+            }
+       ); ;
+            ;
+
+            this.Children.Add(new ContentPage
             {
-                // IsVisible = true,
-                //Aspect = Aspect.AspectFit,
-                Source = ImageSource.FromFile("/Users/sydneykeating/Projects/BooksForAll/BooksForAll/BooksForAll.iOS/Resources/BookCover.jpg"),
-                HorizontalOptions = LayoutOptions.Start,
-                VerticalOptions = LayoutOptions.CenterAndExpand,
+                Title = "Movies",
+                Content = new Label
+                {
+                    FontSize = 24,
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.CenterAndExpand,
+                    Text = "Movies"
+                },
 
-            };
 
+            }
+            ) ;
 
-            layout.Children.Add(button);
-            layout.Children.Add(bookholder);
-            layout.Spacing = 0;
-            InitializeComponent();
+            this.Children.Add(new ContentPage
+            {
+
+                Title = "Podcasts",
+
+            }
+           );
+
+           //  InitializeComponent();
         }
     }
 }
