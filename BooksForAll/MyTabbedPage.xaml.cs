@@ -30,23 +30,18 @@ namespace BooksForAll
                                 TextColor = Color.Black,
                                 FontAttributes = FontAttributes.Bold,
                                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                                VerticalOptions = LayoutOptions.CenterAndExpand
+                                VerticalOptions = LayoutOptions.Start
                             },
 
 
-                            new Image
-                            {
-                                WidthRequest = 683,
-                                HeightRequest = 347,
-                                Aspect = Aspect.AspectFit,
-                                Source = ImageSource.FromFile("BookCover.jpg"),
-                            }
+                            new BookCover("BookCover.jpg", -120, 100), //Creates a new bookcover at specificed X and Y values.
+                            new BookCover("BookCover.jpg",  -120, 170),
                         }
                 },
 
             }
        ); ;
-            ;
+            
 
             this.Children.Add(new ContentPage
             {
@@ -56,7 +51,7 @@ namespace BooksForAll
                     FontSize = 24,
                     HorizontalOptions = LayoutOptions.Center,
                     VerticalOptions = LayoutOptions.CenterAndExpand,
-                    Text = "Movies"
+                    Text = "Movies" 
                 },
 
 
@@ -70,8 +65,6 @@ namespace BooksForAll
 
             }
            );
-
-           //  InitializeComponent();
         }
     }
 }

@@ -4,27 +4,23 @@ using Xamarin.Forms;
 using System.Collections.Generic;
 namespace BooksForAll
 {
-    public class BookCover : ContentPage
+    public class BookCover : Image
     {
 
         public String filelocation;
         public int xposition;
         public Image image;
 
-        public BookCover(String filelocation)
+        public BookCover(String filelocation, int xvalue, int yvalue)
         {
-             image = new Image
-            {
-                Source = new UriImageSource
-                {
-                    Uri = new Uri(filelocation)
-                },
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
 
-            // Build the page.
-          
+
+            this.WidthRequest = 250;
+            this.HeightRequest = 250;
+            this.TranslateTo(xvalue, yvalue);
+            this.Aspect = Aspect.AspectFit;
+            this.Source = ImageSource.FromFile(filelocation);
+       
 
         }
     }
