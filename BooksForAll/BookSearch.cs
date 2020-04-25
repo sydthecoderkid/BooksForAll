@@ -38,9 +38,7 @@ namespace BooksForAll
             if (result != null && result.Items != null)
             {
                 var book = result.Items.First();
-                //Console.WriteLine(book.VolumeInfo.Authors.FirstOrDefault());
                 MainPage.authorname = book.VolumeInfo.Authors.FirstOrDefault();
-                Console.WriteLine(MainPage.authorname + " authorname");
                 return book;
             }
 
