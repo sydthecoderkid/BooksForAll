@@ -53,16 +53,20 @@ namespace BooksForAll
                                TranslationX = 90,
                                TranslationY = 650
                              },
-                            new Image {
-                                Source = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRSyKVTjLq0GPFdi7h9if0qeTa4K1uDvA72FO6eoVLJJ__rNuXRtw"
-                                     WidthRequest = 250,
-                                     HeightRequest = 250
-        }
+                           new Image
+                           {
+                              
+                               TranslationX = 70,
+                               TranslationY =100,
+                               Source = "BookCover.jpg"
+
+
+                           }
                     }
                 },
 
             }
-       ) ;
+       );
             
 
             this.Children.Add(new ContentPage

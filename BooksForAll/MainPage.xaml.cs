@@ -24,7 +24,7 @@ namespace BooksForAll
         {
 
             CurrentBook currentbook = new CurrentBook();
-            thisbook = currentbook; 
+            thisbook = currentbook;
             BookSearch.SearchISBN(currentbook.isbn);
             InitializeComponent();
 

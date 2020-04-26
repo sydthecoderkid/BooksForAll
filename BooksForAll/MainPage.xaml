@@ -28,10 +28,9 @@
              BackgroundColor="DarkBlue"
              Clicked="OnButtonClicked"
              />
-
         
 
-        
+     
 
      </StackLayout>
 
