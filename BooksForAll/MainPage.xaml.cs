@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
-
+using System.Threading;
+using System.Threading.Tasks;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Books.v1;
+using Google.Apis.Books.v1.Data;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
 namespace BooksForAll
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -11,22 +18,22 @@ namespace BooksForAll
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-         
+        public static CurrentBook thisbook;
 
         public MainPage()
         {
 
-         
-
-           
+            CurrentBook currentbook = new CurrentBook();
+            thisbook = currentbook; 
+            BookSearch.SearchISBN(currentbook.isbn);
             InitializeComponent();
+
 
         }
 
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-            
             await Navigation.PushModalAsync(new MyTabbedPage());
         }
     }

@@ -30,7 +30,7 @@
 
       <Image
 
-          Source="/Users/sydneykeating/Projects/BooksForAll/BooksForAll/BooksForAll.iOS/Resources/BookCover.jpg"
+          Source="Resources/BookCover.jpg"
           />
       
   </StackLayout>  

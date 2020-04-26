@@ -11,6 +11,7 @@ using Google.Apis.Books.v1;
 using Google.Apis.Books.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using Xamarin.Forms;
 
 namespace BooksForAll
 {
@@ -38,7 +39,10 @@ namespace BooksForAll
             if (result != null && result.Items != null)
             {
                 var book = result.Items.First();
-                MainPage.authorname = book.VolumeInfo.Authors.FirstOrDefault();
+                MainPage.thisbook.authorname = book.VolumeInfo.Authors.FirstOrDefault();
+                MainPage.thisbook.bookname = book.VolumeInfo.Title;
+         
+
                 return book;
             }
 

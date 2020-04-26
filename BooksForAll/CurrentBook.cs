@@ -10,6 +10,7 @@ namespace BooksForAll
         public string filelocation = "BookCover.jpg";
        public int xposition;
         public string bookname;
+        public UriImageSource imagesource; 
         public string authorname;
         public CurrentBook()
         {
@@ -17,7 +18,7 @@ namespace BooksForAll
             this.HeightRequest = 500;
             this.TranslateTo(8, 80);
             this.Aspect = Aspect.AspectFit;
-            this.Source = ImageSource.FromFile(filelocation);
+            
 
         }
     }

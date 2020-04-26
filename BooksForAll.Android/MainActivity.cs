@@ -14,6 +14,7 @@ namespace BooksForAll.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
