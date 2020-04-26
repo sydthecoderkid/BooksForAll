@@ -39,10 +39,9 @@ namespace BooksForAll
             if (result != null && result.Items != null)
             {
                 var book = result.Items.First();
-                MainPage.thisbook.authorname = book.VolumeInfo.Authors.FirstOrDefault();
+                MainPage.thisbook.authorname = book.VolumeInfo.Authors.First();
                 MainPage.thisbook.bookname = book.VolumeInfo.Title;
-         
-
+                MainPage.thisbook.imagesource = book.VolumeInfo.ImageLinks.SmallThumbnail;
                 return book;
             }
 

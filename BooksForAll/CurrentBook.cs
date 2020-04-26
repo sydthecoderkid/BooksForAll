@@ -10,7 +10,7 @@ namespace BooksForAll
         public string filelocation = "BookCover.jpg";
         public int xposition;
         public string bookname;
-        public UriImageSource imagesource;
+        public string imagesource;
         public string authorname;
         public CurrentBook()
         {

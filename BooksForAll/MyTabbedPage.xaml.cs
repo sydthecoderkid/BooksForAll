@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FFImageLoading;
+using FFImageLoading.Cache;
+using FFImageLoading.Forms;
+using System.Reflection;
+
+
 
 namespace BooksForAll
 {
@@ -52,21 +58,23 @@ namespace BooksForAll
                                 FontAttributes = FontAttributes.Bold,
                                TranslationX = 90,
                                TranslationY = 650
-                             },
-                           new Image
-                           {
-                              
-                               TranslationX = 70,
-                               TranslationY =100,
-                               Source = "BookCover.jpg"
+                              },
 
+                             new CachedImage
+                             {
+                                 TranslationX = 0,
+                                 TranslationY = 15,
+                                 VerticalOptions = LayoutOptions.Center,
+                                 WidthRequest = 500,
+                                 HeightRequest = 500,
+                                 Source = MainPage.thisbook.imagesource
+                             }
 
-                           }
                     }
                 },
 
             }
-       );
+       ) ;
             
 
             this.Children.Add(new ContentPage
