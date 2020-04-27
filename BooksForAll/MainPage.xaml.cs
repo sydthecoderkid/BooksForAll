@@ -11,6 +11,7 @@ using Google.Apis.Books.v1;
 using Google.Apis.Books.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using Realms;
 namespace BooksForAll
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -25,6 +26,8 @@ namespace BooksForAll
 
             CurrentBook currentbook = new CurrentBook();
             thisbook = currentbook;
+            var realm = Realm.GetInstance();
+            Console.WriteLine($"Realm is located at: {realm.Config.DatabasePath}");
             BookSearch.SearchISBN(currentbook.isbn);
             InitializeComponent();
 

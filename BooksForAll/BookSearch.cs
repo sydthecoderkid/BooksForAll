@@ -12,6 +12,7 @@ using Google.Apis.Books.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Xamarin.Forms;
+using Realms;
 
 namespace BooksForAll
 {
