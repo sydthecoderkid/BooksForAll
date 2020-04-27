@@ -41,7 +41,7 @@ namespace BooksForAll
                 var book = result.Items.First();
                 MainPage.thisbook.authorname = book.VolumeInfo.Authors.First();
                 MainPage.thisbook.bookname = book.VolumeInfo.Title;
-                MainPage.thisbook.imagesource = book.VolumeInfo.ImageLinks.SmallThumbnail;
+                MainPage.thisbook.imagesource = book.VolumeInfo.ImageLinks.Thumbnail;
                 return book;
             }
 

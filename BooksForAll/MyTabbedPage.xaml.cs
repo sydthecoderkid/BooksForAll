@@ -62,19 +62,21 @@ namespace BooksForAll
 
                              new CachedImage
                              {
+                                 IsOpaque = true,
                                  TranslationX = 0,
                                  TranslationY = 15,
                                  VerticalOptions = LayoutOptions.Center,
                                  WidthRequest = 500,
                                  HeightRequest = 500,
                                  Source = MainPage.thisbook.imagesource
+                                 
                              }
 
                     }
                 },
 
             }
-       ) ;
+       ); ;
             
 
             this.Children.Add(new ContentPage
