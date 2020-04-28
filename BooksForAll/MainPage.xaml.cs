@@ -19,16 +19,15 @@ namespace BooksForAll
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        public static CurrentBook thisbook;
+        public static Book thisbook;
 
         public MainPage()
         {
 
-            CurrentBook currentbook = new CurrentBook();
-            thisbook = currentbook;
-            var realm = Realm.GetInstance();
-            Console.WriteLine($"Realm is located at: {realm.Config.DatabasePath}");
-            BookSearch.SearchISBN(currentbook.isbn);
+            thisbook = new Book();
+          //  var realm = Realm.GetInstance();
+           // Console.WriteLine($"Realm is located at: {realm.Config.DatabasePath}");
+            BookSearch.SearchISBN(thisbook.isbn);
             InitializeComponent();
 
 

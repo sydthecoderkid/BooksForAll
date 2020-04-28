@@ -3,6 +3,7 @@ using System.Collections;
 using Xamarin.Forms;
 using System.Collections.Generic;
 using Realms;
+using UIKit;
 
 namespace BooksForAll
 {
@@ -19,8 +20,11 @@ namespace BooksForAll
             this.HeightRequest = 500;
             this.TranslateTo(8, 80);
             this.Aspect = Aspect.AspectFit;
+             
 
         }
+
+    
 
 
     }

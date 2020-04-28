@@ -46,37 +46,38 @@ namespace BooksForAll
                                 Text = MainPage.thisbook.authorname,
                                 TextColor = Color.Black,
                                 FontAttributes = FontAttributes.Bold,
-                               TranslationX = 90,
-                               TranslationY = 750
+                               TranslationX = 30,
+                               TranslationY = 660 //NOTE: The Higher the number, the lower the text. Fucking Stupid.
                              },
 
                               new Label //Book title
                              {
+
                                 FontSize = 25,
-                                Text = MainPage.thisbook.bookname,
+                                Text = MainPage.thisbook.booktitle,
                                 TextColor = Color.Black,
                                 FontAttributes = FontAttributes.Bold,
-                               TranslationX = 90,
-                               TranslationY = 650
+                               TranslationX = 30,
+                               TranslationY = 590
                               },
 
                              new CachedImage
                              {
+
                                  IsOpaque = true,
-                                 TranslationX = 0,
-                                 TranslationY = 15,
+                                 TranslationX = -25,
+                                 TranslationY = 400, //NOTE: Same with the text. Higher number, lower text. 
                                  VerticalOptions = LayoutOptions.Center,
-                                 WidthRequest = 500,
-                                 HeightRequest = 500,
+                                 Scale = 6,
                                  Source = MainPage.thisbook.imagesource
-                                 
+
                              }
 
                     }
                 },
 
             }
-       ); ;
+       ); ; ;
             
 
             this.Children.Add(new ContentPage
