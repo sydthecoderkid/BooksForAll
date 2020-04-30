@@ -12,7 +12,7 @@ using Google.Apis.Books.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Realms;
-using Realms.Sync;
+
 
 namespace BooksForAll
 {
@@ -27,8 +27,11 @@ namespace BooksForAll
         {
 
             thisbook = new Book();
+
             BookSearch.SearchISBN(thisbook.isbn);
-            Test.tester();
+        
+
+
             InitializeComponent();
 
 
@@ -40,6 +43,5 @@ namespace BooksForAll
             await Navigation.PushModalAsync(new MyTabbedPage());
         }
     }
-
 
 }
