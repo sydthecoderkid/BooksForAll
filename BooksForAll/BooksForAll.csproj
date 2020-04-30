@@ -23,6 +23,14 @@
     <PackageReference Include="Xabe.FFmpeg" Version="3.6.2" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
     <PackageReference Include="Realm" Version="4.3.0" />
+    <PackageReference Include="Realm.Fody" Version="4.3.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="FirebaseAdmin" Version="1.11.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="6.6.6" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Analytics" Version="6.4.1" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="EmptyCSharpFile.cs" />

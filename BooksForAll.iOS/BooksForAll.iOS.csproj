@@ -134,6 +134,14 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore">
       <Version>3.0.3</Version>
     </PackageReference>
+    <PackageReference Include="Realm.Fody">
+      <Version>4.3.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="FirebaseDatabase.net">
+      <Version>4.0.4</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

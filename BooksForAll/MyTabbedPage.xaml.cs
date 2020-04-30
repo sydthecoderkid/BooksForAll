@@ -64,11 +64,10 @@ namespace BooksForAll
                              new CachedImage
                              {
 
-                                 IsOpaque = true,
+            
                                  TranslationX = -25,
-                                 TranslationY = 400, //NOTE: Same with the text. Higher number, lower text. 
-                                 VerticalOptions = LayoutOptions.Center,
-                                 Scale = 6,
+                                 TranslationY = 250, //NOTE: Same with the text. Higher number, lower text. 
+                                 Scale = 5.8,
                                  Source = MainPage.thisbook.imagesource
 
                              }
@@ -77,7 +76,7 @@ namespace BooksForAll
                 },
 
             }
-       ); ; ;
+       ); ; 
             
 
             this.Children.Add(new ContentPage
