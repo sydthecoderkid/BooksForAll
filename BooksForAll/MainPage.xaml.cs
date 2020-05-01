@@ -13,7 +13,6 @@ using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Realms;
 
-
 namespace BooksForAll
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -28,8 +27,10 @@ namespace BooksForAll
 
             thisbook = new Book();
 
+
             BookSearch.SearchISBN(thisbook.isbn);
         
+
 
 
             InitializeComponent();

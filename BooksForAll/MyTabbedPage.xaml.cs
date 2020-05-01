@@ -66,10 +66,14 @@ namespace BooksForAll
 
 
 
+
                                  TranslationX = -25,
                                  TranslationY = 250, //NOTE: Same with the text. Higher number, lower text. 
-                                 Scale = 5.8,
+                                 Scale = 4,
                                    IsOpaque = true,
+
+                            
+
                                  Source = MainPage.thisbook.imagesource
 
                              }
@@ -79,12 +83,9 @@ namespace BooksForAll
 
             }
 
-       
-        
-        
 
-       ); 
 
+       ); ; 
             
 
             this.Children.Add(new ContentPage
