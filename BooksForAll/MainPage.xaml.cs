@@ -29,12 +29,21 @@ namespace BooksForAll
 
 
             BookSearch.SearchISBN(thisbook.isbn);
+<<<<<<< HEAD
         
 
 
 
             InitializeComponent();
 
+=======
+
+
+            Test.calldatabase();
+
+            InitializeComponent();
+            //Note: nothing is displaying being the isbn has been removed! 
+>>>>>>> 815c59a... Initial check-in of module BooksForAll
 
         }
 

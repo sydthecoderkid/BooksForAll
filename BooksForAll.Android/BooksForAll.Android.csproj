@@ -99,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BooksForAll\BooksForAll.csproj">
-      <Project>{9D614B2A-0855-40D2-8E7F-751C62E1F781}</Project>
+      <Project>{E5EF9BD5-E42C-4277-999F-ED6BF45417E0}</Project>
       <Name>BooksForAll</Name>
     </ProjectReference>
   </ItemGroup>

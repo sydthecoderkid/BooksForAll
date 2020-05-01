@@ -10,7 +10,8 @@ namespace BooksForAll
         public string authorname;
         public string booktitle;
         public string imagesource;
-        public string isbn = "0807083704";
+        public string isbn { get; set; }
+
 
     }
 
