@@ -19,7 +19,12 @@ namespace BooksForAll
             var books = await firebase.Child("Books")
             .OnceAsync<Book>();
 
-
+            foreach (var book in books)
+            {
+                Console.WriteLine($"{ book.Key} is { book.Object.isbn } ");
+                MainPage.thisbook.isbn = book.Object.isbn;
+                BookSearch.SearchISBN(MainPage.thisbook.isbn);
+            }
         }
 
     }

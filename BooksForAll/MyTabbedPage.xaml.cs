@@ -71,10 +71,7 @@ namespace BooksForAll
                                  TranslationY = 250, //NOTE: Same with the text. Higher number, lower text. 
                                  Scale = 4,
                                    IsOpaque = true,
-
-                            
-
-                                 Source = MainPage.thisbook.imagesource
+                                  Source = MainPage.thisbook.imagesource
 
                              }
 

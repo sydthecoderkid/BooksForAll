@@ -27,29 +27,15 @@ namespace BooksForAll
 
             thisbook = new Book();
 
-
-            BookSearch.SearchISBN(thisbook.isbn);
-<<<<<<< HEAD
-        
-
-
-
-            InitializeComponent();
-
-=======
-
-
             Test.calldatabase();
 
-            InitializeComponent();
-            //Note: nothing is displaying being the isbn has been removed! 
->>>>>>> 815c59a... Initial check-in of module BooksForAll
-
+             InitializeComponent();
         }
 
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
+
             await Navigation.PushModalAsync(new MyTabbedPage());
         }
     }

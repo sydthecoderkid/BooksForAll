@@ -21,7 +21,7 @@ namespace BooksForAll
 
 
         private static string API_KEY = "AIzaSyCzAEOcV1P3U_ky3c5LuB4tUYPGlNk8B6g";
-
+        public static bool foundinfo;
 
 
 
@@ -35,6 +35,7 @@ namespace BooksForAll
 
         public static async Task<Volume> SearchISBN(string isbn)
         {
+
             Console.WriteLine("Executing a book search request for ISBN: {0} ...", isbn);
             var result = await service.Volumes.List(isbn).ExecuteAsync();
             if (result != null && result.Items != null)
@@ -43,6 +44,7 @@ namespace BooksForAll
                 MainPage.thisbook.authorname = book.VolumeInfo.Authors.First();
                 MainPage.thisbook.booktitle = book.VolumeInfo.Title;
                 MainPage.thisbook.imagesource = book.VolumeInfo.ImageLinks.Thumbnail;
+                foundinfo = true;
                 return book;
             }
 
