@@ -46,7 +46,7 @@ namespace BooksForAll
                                 Text = MainPage.thisbook.authorname,
                                 TextColor = Color.Black,
                                 FontAttributes = FontAttributes.Bold,
-                               TranslationX = 30,
+                               TranslationX = 130,
                                TranslationY = 660 //NOTE: The Higher the number, the lower the text. Fucking Stupid.
 
        
@@ -59,7 +59,7 @@ namespace BooksForAll
                                 Text = MainPage.thisbook.booktitle,
                                 TextColor = Color.Black,
                                 FontAttributes = FontAttributes.Bold,
-                               TranslationX = 30,
+                               TranslationX = 130,
                                TranslationY = 590
 
                               },
@@ -70,7 +70,7 @@ namespace BooksForAll
 
 
 
-                                 TranslationX = -25,
+                                 TranslationX = 0,
                                  TranslationY = 250, //NOTE: Same with the text. Higher number, lower text. 
                                  Scale = 4,
                                    IsOpaque = true,

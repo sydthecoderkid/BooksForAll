@@ -28,22 +28,18 @@ namespace BooksForAll
             thisbook = new Book();
 
             Test.calldatabase();
-<<<<<<< HEAD
 
              InitializeComponent();
-=======
-            InitializeComponent();
->>>>>>> abea6ae... Initial check-in of module BooksForAll
+
+
+
+
         }
 
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-<<<<<<< HEAD
 
-=======
-           
->>>>>>> abea6ae... Initial check-in of module BooksForAll
             await Navigation.PushModalAsync(new MyTabbedPage());
         }
     }
