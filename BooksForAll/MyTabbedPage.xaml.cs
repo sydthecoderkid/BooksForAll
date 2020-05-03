@@ -48,6 +48,8 @@ namespace BooksForAll
                                 FontAttributes = FontAttributes.Bold,
                                TranslationX = 30,
                                TranslationY = 660 //NOTE: The Higher the number, the lower the text. Fucking Stupid.
+
+       
                              },
 
                               new Label //Book title
@@ -59,6 +61,7 @@ namespace BooksForAll
                                 FontAttributes = FontAttributes.Bold,
                                TranslationX = 30,
                                TranslationY = 590
+
                               },
 
                              new CachedImage

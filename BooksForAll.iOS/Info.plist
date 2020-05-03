@@ -5,7 +5,10 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
+<<<<<<< HEAD
 		<integer>2</integer>
+=======
+>>>>>>> abea6ae... Initial check-in of module BooksForAll
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -22,6 +25,7 @@
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
+<<<<<<< HEAD
 	<key>CFBundleDisplayName</key>
 	<string>BooksForAll</string>
 	<key>CFBundleIdentifier</key>
@@ -34,5 +38,13 @@
 	<string>BooksForAll</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+=======
+	<key>CFBundleIdentifier</key>
+	<string>com.JNStudios.BooksForAll</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+>>>>>>> abea6ae... Initial check-in of module BooksForAll
 </dict>
 </plist>
