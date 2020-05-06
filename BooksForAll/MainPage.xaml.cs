@@ -40,7 +40,7 @@ namespace BooksForAll
 
         {
 
-            await Navigation.PushModalAsync(new MyTabbedPage());
+            await Navigation.PushModalAsync(new PreferencesPage());
         }
     }
 

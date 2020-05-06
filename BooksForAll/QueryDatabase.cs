@@ -16,19 +16,22 @@ namespace BooksForAll
 
         public static async void calldatabase()
         {
+            int index = 0;
             var books = await firebase.Child("Books")
             .OnceAsync<Book>();
 
             foreach (var book in books)
             {
-                    MainPage.thisbook.isbn = books.ElementAt(1).Object.isbn;
-                    MainPage.thisbook.race = books.ElementAt(1).Object.race;
+                if (books.ElementAt(index).Object.race.Equals("Black")){
+                    MainPage.thisbook.isbn = books.ElementAt(index).Object.isbn;
+                    MainPage.thisbook.race = books.ElementAt(index).Object.race;
                     BookSearch.SearchISBN(MainPage.thisbook.isbn);
+                    return;
+
+                }
+                index++;
 
             }
-         //   MainPage.thisbook.isbn = books.ElementAtOrDefault(0).Object.isbn;
-          //  MainPage.thisbook.race = books.ElementAtOrDefault(0).Object.race;
-
             
         }
 
