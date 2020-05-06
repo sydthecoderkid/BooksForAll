@@ -21,7 +21,6 @@ namespace BooksForAll
 
             foreach (var book in books)
             {
-               
                     MainPage.thisbook.isbn = books.ElementAt(1).Object.isbn;
                     MainPage.thisbook.race = books.ElementAt(1).Object.race;
                     BookSearch.SearchISBN(MainPage.thisbook.isbn);
