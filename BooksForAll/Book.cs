@@ -10,6 +10,7 @@ namespace BooksForAll
         public string authorname;
         public string booktitle;
         public string imagesource;
+        public string race { get; set; }
         public string isbn { get; set; }
 
 
