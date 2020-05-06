@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Firebase.Database;
 using Xamarin.Forms;
 
 namespace BooksForAll
@@ -13,7 +13,25 @@ namespace BooksForAll
         public string race { get; set; }
         public string isbn { get; set; }
 
+        public static explicit operator Book(FirebaseObject<Book> book)
+        {
+            
+            return (Book)book;
+        }
 
+        public static string checkstringlength(string title)
+        {
+            if (title.Length <= 13)
+            {
+                return title;
+            }
+            else
+            {
+                title = title.Substring(0, 17) + ".....";
+                return title;
+            }
+
+        }
     }
 
 }
