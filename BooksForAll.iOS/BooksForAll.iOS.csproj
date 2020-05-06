@@ -52,7 +52,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>Apple Development: Sydney Keating (6D6S24Z9VL)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignEntitlements>Info.plist</CodesignEntitlements>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <MtouchInterpreter>-all</MtouchInterpreter>
     <CodesignProvision>VS: WildCard Development</CodesignProvision>

@@ -27,7 +27,7 @@ namespace BooksForAll
 
             thisbook = new Book();
 
-            Test.calldatabase();
+            QueryDatabase.calldatabase();
 
              InitializeComponent();
 
