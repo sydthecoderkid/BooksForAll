@@ -21,13 +21,13 @@ namespace BooksForAll
 
         public static string checkstringlength(string title)
         {
-            if (title.Length <= 13)
+            if (title.Length <= 21)
             {
                 return title;
             }
             else
             {
-                title = title.Substring(0, 17) + ".....";
+                title = title.Substring(0, 21) + ".....";
                 return title;
             }
 

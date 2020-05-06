@@ -56,8 +56,7 @@ namespace BooksForAll
                              {
 
                                 FontSize = 25,
-                                Text = MainPage.thisbook.booktitle,
-                                TextColor = Color.Black,
+                                Text = Book.checkstringlength(MainPage.thisbook.booktitle),                                TextColor = Color.Black,
                                 FontAttributes = FontAttributes.Bold,
                                TranslationX = 110,
                                TranslationY = 450
@@ -85,7 +84,7 @@ namespace BooksForAll
 
 
 
-       ); ; 
+       );; ; 
             
 
             this.Children.Add(new ContentPage
