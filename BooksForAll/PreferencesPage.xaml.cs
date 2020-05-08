@@ -26,8 +26,18 @@ namespace BooksForAll
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 16,
                 HorizontalOptions = LayoutOptions.Center,
-                TranslationY = 250,   //Higher number, lower text
-                TranslationX = -80
+                TranslationX = -80,
+                TranslationY = 270   //Higher number, lower text
+            };
+
+            Label agedescription = new Label
+            {
+                Text = "•I want books for ages ",
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 16,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationX = -80,
+                TranslationY = 400   //Higher number, lower text
             };
             Label characters = new Label
             {
@@ -35,8 +45,8 @@ namespace BooksForAll
                 FontSize = 16,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
-                TranslationY = 122,   //Higher number, lower text
-                TranslationX = 142.8
+                TranslationX = 142.8,
+                TranslationY = 157,   //Higher number, lower text
             };
 
             Label underscore = new Label
@@ -44,38 +54,48 @@ namespace BooksForAll
                 Text = "_________",
                 FontSize = 18,
                 HorizontalOptions = LayoutOptions.Center,
-                TranslationY = 150,   //Higher number, lower text
-                TranslationX = 58
+                TranslationX = 58,
+                TranslationY = 182,   //Higher number, lower text
             };
 
             Label blacklabel = new Label
             {
                 Text = "Black",
-                FontSize = 19,
+                FontSize = 16,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
+                TranslationX = 45,
                 TranslationY = 145,   //Higher number, lower text
-                TranslationX = 45
             };
 
             Label asianlabel = new Label
             {
                 Text = "Asian",
-                FontSize = 19,
+                FontSize = 16,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
+                TranslationX = 45,
                 TranslationY = 100,   //Higher number, lower text
-                TranslationX = 45
             };
 
             Label latinolabel = new Label
             {
                 Text = "Latino",
-                FontSize = 19,
+                FontSize = 16,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
+                TranslationX = 48,
                 TranslationY = 55,   //Higher number, lower text
-                TranslationX = 48
+            };
+
+            Label pacificislanderlabel = new Label
+            {
+                Text = "Pacific Islander",
+                FontSize = 16,
+                FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationX = 20,
+                TranslationY = 17,   //Higher number, lower text
             };
 
             CheckBox blackbox = new CheckBox
@@ -112,6 +132,17 @@ namespace BooksForAll
 
             };
 
+            CheckBox pacificislanderbox = new CheckBox
+            {
+
+                TranslationX = 262,
+                TranslationY = -29
+
+
+
+
+            };
+
 
             this.Content = new StackLayout
             {
@@ -121,12 +152,15 @@ namespace BooksForAll
                     header,
                     underscore,
                     characters,
+                    agedescription,
                     blacklabel,
                      blackbox,
                      asianlabel,
                      asianbox,
                      latinolabel,
-                     latinobox
+                     latinobox,
+                     pacificislanderlabel,
+                     pacificislanderbox,
 
                 }
             };
