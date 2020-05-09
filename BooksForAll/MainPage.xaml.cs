@@ -11,7 +11,7 @@ using Google.Apis.Books.v1;
 using Google.Apis.Books.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
-
+using Xamarin.Essentials;
 
 namespace BooksForAll
 {
@@ -31,7 +31,8 @@ namespace BooksForAll
 
              InitializeComponent();
 
-
+            UserPreferences.setPreferences();
+            Console.WriteLine(Preferences.Get("Races", "Not there!"));
 
 
         }
