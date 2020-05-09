@@ -72,6 +72,7 @@ namespace BooksForAll
             {
                 Text = "Black",
                 FontSize = 16,
+                
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
                 TranslationX = 45,
@@ -143,11 +144,9 @@ namespace BooksForAll
             {
                 
                 TranslationX = 264,
-                TranslationY = 105
+                TranslationY = 105,
                 
-
-
-
+                
             };
 
             CheckBox asianbox = new CheckBox
@@ -207,12 +206,14 @@ namespace BooksForAll
                 Children =
                 {
                     racedescription,
+                   
                     header,
                     underscore,
                     characters,
                     agedescription,
                     blacklabel,
                      blackbox,
+                     
                      asianlabel,
                      asianbox,
                      latinolabel,
@@ -227,12 +228,23 @@ namespace BooksForAll
                      youngadultsbox,
                      adultsbox,
 
+           
 
 
                 }
-            };
+
+    };
 
         }
+
+       void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+       {
+       
+            Console.WriteLine("Clicked a box");
+       }
+
+        
     }
+    
 }
         

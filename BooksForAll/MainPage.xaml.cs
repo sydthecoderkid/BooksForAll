@@ -26,14 +26,8 @@ namespace BooksForAll
         {
 
             thisbook = new Book();
-
             QueryDatabase.calldatabase();
-
              InitializeComponent();
-
-            UserPreferences.setPreferences();
-            Console.WriteLine(Preferences.Get("Races", "Not there!"));
-
 
         }
 

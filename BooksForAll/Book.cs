@@ -12,6 +12,7 @@ namespace BooksForAll
         public string imagesource;
         public string race { get; set; }
         public string isbn { get; set; }
+        private static int characterlengtth = 21;
 
         public static explicit operator Book(FirebaseObject<Book> book)
         {
@@ -21,13 +22,13 @@ namespace BooksForAll
 
         public static string checkstringlength(string title)
         {
-            if (title.Length <= 21)
+            if (title.Length <= characterlengtth)
             {
                 return title;
             }
             else
             {
-                title = title.Substring(0, 21) + ".....";
+                title = title.Substring(0, characterlengtth) + ".....";
                 return title;
             }
 
