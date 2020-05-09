@@ -32,12 +32,12 @@ namespace BooksForAll
 
             Label agedescription = new Label
             {
-                Text = "•I want books for ages ",
+                Text = "•I want my books to be for ",
                 FontAttributes = FontAttributes.Bold,
                 FontSize = 16,
                 HorizontalOptions = LayoutOptions.Center,
                 TranslationX = -80,
-                TranslationY = 400   //Higher number, lower text
+                TranslationY = 380   //Higher number, lower text
             };
             Label characters = new Label
             {
@@ -49,14 +49,24 @@ namespace BooksForAll
                 TranslationY = 157,   //Higher number, lower text
             };
 
-            Label underscore = new Label
+            Label ageunderscore = new Label
             {
                 Text = "_________",
                 FontSize = 18,
                 HorizontalOptions = LayoutOptions.Center,
                 TranslationX = 58,
+                TranslationY = 55,   //Higher number, lower text
+            };
+
+            Label underscore = new Label
+            {
+                Text = "__________",
+                FontSize = 18,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationX = 58,
                 TranslationY = 182,   //Higher number, lower text
             };
+
 
             Label blacklabel = new Label
             {
@@ -90,18 +100,49 @@ namespace BooksForAll
 
             Label pacificislanderlabel = new Label
             {
-                Text = "Pacific Islander",
+                Text = "Native American",
                 FontSize = 16,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
-                TranslationX = 20,
-                TranslationY = 17,   //Higher number, lower text
+                TranslationX = 18,
+                TranslationY = 9,   //Higher number, lower text
             };
+
+            Label children = new Label
+            {
+                Text = "Children",
+                FontSize = 16,
+                FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationX = 40,
+                TranslationY = 60,   //Higher number, lower text
+            };
+
+            Label youngadults = new Label
+            {
+                Text = "Young Adults",
+                FontSize = 16,
+                FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationX = 40,
+                TranslationY = 60,   //Higher number, lower text
+            };
+
+            Label adults = new Label
+            {
+                Text = "Adults",
+                FontSize = 16,
+                FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationX = 40,
+                TranslationY = 60,   //Higher number, lower text
+            };
+
 
             CheckBox blackbox = new CheckBox
             {
                 
-                TranslationX = 260,
+                TranslationX = 264,
                 TranslationY = 105
                 
 
@@ -112,7 +153,7 @@ namespace BooksForAll
             CheckBox asianbox = new CheckBox
             {
 
-                TranslationX = 260,
+                TranslationX = 264,
                 TranslationY = 60
 
 
@@ -124,7 +165,7 @@ namespace BooksForAll
             CheckBox latinobox = new CheckBox
             {
 
-                TranslationX = 260,
+                TranslationX = 264,
                 TranslationY = 16
 
 
@@ -135,15 +176,32 @@ namespace BooksForAll
             CheckBox pacificislanderbox = new CheckBox
             {
 
-                TranslationX = 262,
-                TranslationY = -29
+                TranslationX = 264,
+                TranslationY = -30
+
+        };
 
 
+            CheckBox childrenbox = new CheckBox
+            {
 
-
+                TranslationX = 274,
+                TranslationY = -27
             };
 
+            CheckBox youngadultsbox = new CheckBox
+            {
 
+                TranslationX = 274,
+                TranslationY = -51
+            };
+
+            CheckBox adultsbox = new CheckBox
+            {
+
+                TranslationX = 274,
+                TranslationY = -78
+            };
             this.Content = new StackLayout
             {
                 Children =
@@ -161,6 +219,15 @@ namespace BooksForAll
                      latinobox,
                      pacificislanderlabel,
                      pacificislanderbox,
+                    ageunderscore,
+                     children,
+                     youngadults,
+                     adults,
+                     childrenbox,
+                     youngadultsbox,
+                     adultsbox,
+
+
 
                 }
             };
