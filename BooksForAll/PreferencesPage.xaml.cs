@@ -8,6 +8,9 @@ namespace BooksForAll
     public partial class PreferencesPage : ContentPage
     {
 
+        private bool blackbooks, asianbooks, latinobooks, nativeamericanbooks;
+
+        private bool childbooks, youngadultbooks, adultbooks;
 
         public PreferencesPage()
         {
@@ -37,7 +40,7 @@ namespace BooksForAll
                 FontSize = 16,
                 HorizontalOptions = LayoutOptions.Center,
                 TranslationX = -80,
-                TranslationY = 380   //Higher number, lower text
+                TranslationY = 355   //Lower number, higher text
             };
             Label characters = new Label
             {
@@ -55,7 +58,7 @@ namespace BooksForAll
                 FontSize = 18,
                 HorizontalOptions = LayoutOptions.Center,
                 TranslationX = 58,
-                TranslationY = 55,   //Higher number, lower text
+                TranslationY = 30,   //Lower number, higher text
             };
 
             Label underscore = new Label
@@ -99,7 +102,7 @@ namespace BooksForAll
                 TranslationY = 55,   //Higher number, lower text
             };
 
-            Label pacificislanderlabel = new Label
+            Label nativeamericanlabel = new Label
             {
                 Text = "Native American",
                 FontSize = 16,
@@ -116,7 +119,7 @@ namespace BooksForAll
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
                 TranslationX = 40,
-                TranslationY = 60,   //Higher number, lower text
+                TranslationY = 40,   //Higher number, lower text
             };
 
             Label youngadults = new Label
@@ -126,7 +129,7 @@ namespace BooksForAll
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
                 TranslationX = 40,
-                TranslationY = 60,   //Higher number, lower text
+                TranslationY = 40,   //Higher number, lower text
             };
 
             Label adults = new Label
@@ -136,7 +139,7 @@ namespace BooksForAll
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.Center,
                 TranslationX = 40,
-                TranslationY = 60,   //Higher number, lower text
+                TranslationY = 40,   //Higher number, lower text
             };
 
 
@@ -172,7 +175,7 @@ namespace BooksForAll
 
             };
 
-            CheckBox pacificislanderbox = new CheckBox
+            CheckBox nativeamericanbox = new CheckBox
             {
 
                 TranslationX = 264,
@@ -185,28 +188,142 @@ namespace BooksForAll
             {
 
                 TranslationX = 274,
-                TranslationY = -27
+                TranslationY = -51
             };
 
             CheckBox youngadultsbox = new CheckBox
             {
 
                 TranslationX = 274,
-                TranslationY = -51
+                TranslationY = -75
             };
+
+
 
             CheckBox adultsbox = new CheckBox
             {
 
                 TranslationX = 274,
-                TranslationY = -78
+                TranslationY = -97
             };
+
+            Button continuebutton = new Button
+            {
+
+                ScaleX = 0.2,
+                ScaleY = 0.4,
+                BackgroundColor = Color.Blue,
+                Text = "Continue!",
+                FontSize = 60,
+                BorderWidth = 3,
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Color.LightBlue,
+                TranslationX = 120,
+                TranslationY = 720,
+                
+
+            };
+
+            continuebutton.Clicked += OnButtonClicked;
+
+
+
+
+            adultsbox.CheckedChanged += (sender, e) =>
+            {
+                if (adultsbox.IsChecked)
+                {
+                    adultbooks = true;
+                }
+                else
+                {
+                    adultbooks = false;
+                }
+            };
+
+            youngadultsbox.CheckedChanged += (sender, e) =>
+            {
+                if (youngadultsbox.IsChecked)
+                {
+                    youngadultbooks = true;
+                }
+                else
+                {
+                    youngadultbooks = false;
+                }
+            };
+
+
+            childrenbox.CheckedChanged += (sender, e) =>
+            {
+                if (childrenbox.IsChecked)
+                {
+                    childbooks = true;
+                }
+                else
+                {
+                    childbooks = false;
+                }
+            };
+
+            blackbox.CheckedChanged += (sender, e) =>
+            {
+                if (blackbox.IsChecked)
+                {
+                    blackbooks = true;
+                }
+                else
+                {
+                    blackbooks = false;
+                }
+            };
+
+            asianbox.CheckedChanged += (sender, e) =>
+            {
+                if (asianbox.IsChecked)
+                {
+                    asianbooks = true;
+                }
+                else
+                {
+                    asianbooks = false;
+                }
+            };
+
+            latinobox.CheckedChanged += (sender, e) =>
+            {
+                if (latinobox.IsChecked)
+                {
+                    latinobooks = true;
+                }
+                else
+                {
+                    latinobooks = false;
+                }
+            };
+
+
+            nativeamericanbox.CheckedChanged += (sender, e) =>
+            {
+                if (nativeamericanbox.IsChecked)
+                {
+                    nativeamericanbooks = true;
+                }
+                else
+                {
+                    nativeamericanbooks = false;
+                }
+            };
+
+
+
+
             this.Content = new StackLayout
             {
                 Children =
                 {
+                    continuebutton,
                     racedescription,
-                   
                     header,
                     underscore,
                     characters,
@@ -218,8 +335,8 @@ namespace BooksForAll
                      asianbox,
                      latinolabel,
                      latinobox,
-                     pacificislanderlabel,
-                     pacificislanderbox,
+                     nativeamericanlabel,
+                     nativeamericanbox,
                     ageunderscore,
                      children,
                      youngadults,
@@ -237,13 +354,13 @@ namespace BooksForAll
 
         }
 
-       void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
-       {
-       
-            Console.WriteLine("Clicked a box");
-       }
+        async void OnButtonClicked(object sender, EventArgs args)
 
-        
+        {
+
+            await Navigation.PushModalAsync(new MyTabbedPage());
+        }
+
     }
     
 }

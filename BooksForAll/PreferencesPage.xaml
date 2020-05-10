@@ -7,7 +7,17 @@
 
      <StackLayout>
         
-           
+            <Button
+             Margin="20,35,20,20"
+             Text="Continue!"
+             FontSize="Title"
+             TextColor="LightBlue"
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="EndAndExpand"
+             BackgroundColor="DarkBlue"
+             Clicked="OnButtonClicked"
+             />
+       
        
      </StackLayout>
 
