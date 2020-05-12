@@ -12,6 +12,7 @@ namespace BooksForAll
         public string imagesource;
         public string race { get; set; }
         public string isbn { get; set; }
+        public string test = "Test";
         private static int characterlengtth = 21;
 
         public static explicit operator Book(FirebaseObject<Book> book)
