@@ -43,7 +43,6 @@ namespace BooksForAll
                 MainPage.thisbook.authorname = book.VolumeInfo.Authors.First();
                 MainPage.thisbook.booktitle = book.VolumeInfo.Title;
                 MainPage.thisbook.imagesource = book.VolumeInfo.ImageLinks.Thumbnail;
-            
                 foundinfo = true;
                 return book;
             }

@@ -4,6 +4,7 @@ using System.Linq;
 using FFImageLoading.Forms.Platform;
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace BooksForAll.iOS
 {
@@ -23,6 +24,7 @@ namespace BooksForAll.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            Forms.SetFlags("CollectionView_Experimental");
             global::FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             global::Xamarin.Forms.Forms.Init();
             CachedImageRenderer.InitImageSourceHandler();

@@ -26,9 +26,10 @@ namespace BooksForAll
                     MainPage.thisbook.isbn = books.ElementAt(index).Object.isbn;
                     MainPage.thisbook.race = books.ElementAt(index).Object.race;
                     BookSearch.SearchISBN(MainPage.thisbook.isbn);
+                    MainPage.books.Add(book);
                     return;
-
                 }
+
                 index++;
 
             }

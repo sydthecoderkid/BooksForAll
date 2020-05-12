@@ -12,6 +12,7 @@ using Google.Apis.Books.v1.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Xamarin.Essentials;
+using System.Collections;
 
 namespace BooksForAll
 {
@@ -21,13 +22,18 @@ namespace BooksForAll
     public partial class MainPage : ContentPage
     {
         public static Book thisbook;
+        public static Book testbook;
+        public static ArrayList books = new ArrayList();
 
         public MainPage()
         {
 
             thisbook = new Book();
             QueryDatabase.calldatabase();
-             InitializeComponent();
+            testbook = thisbook;
+            books.Add(thisbook);
+            books.Add(testbook);
+            InitializeComponent();
 
         }
 

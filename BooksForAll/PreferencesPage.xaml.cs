@@ -318,7 +318,7 @@ namespace BooksForAll
 
 
 
-            this.Content = new StackLayout
+            Content = new StackLayout
             {
                 Children =
                 {
@@ -358,7 +358,7 @@ namespace BooksForAll
 
         {
 
-            await Navigation.PushModalAsync(new MyTabbedPage());
+            await Navigation.PushModalAsync(new Reccomendation());
         }
 
     }
