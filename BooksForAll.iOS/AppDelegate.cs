@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using FFImageLoading.Forms.Platform;
 using Foundation;
+using PanCardView.iOS;
 using UIKit;
 using Xamarin.Forms;
+
 
 namespace BooksForAll.iOS
 {
@@ -28,6 +30,7 @@ namespace BooksForAll.iOS
             global::FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             global::Xamarin.Forms.Forms.Init();
             CachedImageRenderer.InitImageSourceHandler();
+            CardsViewRenderer.Preserve();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

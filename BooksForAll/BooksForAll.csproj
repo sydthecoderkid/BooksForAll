@@ -31,6 +31,8 @@
     <PackageReference Include="Xamarin.Forms.StateSquid" Version="1.1.3" />
     <PackageReference Include="Syncfusion.Xamarin.SfCarousel" Version="18.1.0.48" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.48" />
+    <PackageReference Include="Xamd.Plugins.Forms.ImageCarousel" Version="1.0.2" />
+    <PackageReference Include="CardsView" Version="2.6.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="EmptyCSharpFile.cs" />

@@ -1,46 +1,29 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
+using PanCardView;
 
 namespace BooksForAll
 {
+
+  
     public partial class Reccomendation : ContentPage
     {
+        PanCardView.CarouselView carouselView = new PanCardView.CarouselView();
+        ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
+
         public Reccomendation()
         {
-
-            CarouselView carouselView = new CarouselView();
-            carouselView.SetBinding(ItemsView.ItemsSourceProperty, "TestCovers");
-
-            carouselView.ItemTemplate = new DataTemplate(() =>
+            bookcovers.Add(new BookCover(MainPage.thisbook.imagesource));
+            bookcovers.Add(new BookCover("https://homepages.cae.wisc.edu/~ece533/images/airplane.png"));
+            carouselView.ItemsSource = bookcovers;
+            TranslationY = 550;
+            Scale = 1.8;
+            Content = new StackLayout
             {
-
-                Image image = new Image {};
-                image.SetBinding(Image.SourceProperty, MainPage.thisbook.imagesource);
-
-
-
-                StackLayout stackLayout = new StackLayout
-                {
-                    Children = {  image, }
-                };
-
-                Frame frame = new Frame { };
-                StackLayout rootStackLayout = new StackLayout
-                {
-                    Children = { frame }
-                };
-
-                return rootStackLayout;
-            });
-
-
-
-            Content = new StackLayout()
-            {
-
-                
                 Children =
                 {
                     carouselView,
@@ -48,8 +31,8 @@ namespace BooksForAll
             };
         }
 
-      
-        
 
     }
 }
+    
+
