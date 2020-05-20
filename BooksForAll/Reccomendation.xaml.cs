@@ -17,8 +17,11 @@ namespace BooksForAll
 
         public Reccomendation()
         {
-            bookcovers.Add(new BookCover(MainPage.thisbook.imagesource));
-            bookcovers.Add(new BookCover("https://homepages.cae.wisc.edu/~ece533/images/airplane.png"));
+            for(int i = 0; i < MainPage.books.Count; i++){
+                Console.WriteLine("Heyo");
+                Book book = (Book) MainPage.books[i];
+                bookcovers.Add(book.bookCover);
+            }
             carouselView.ItemsSource = bookcovers;
             TranslationY = 550;
             Scale = 1.8;

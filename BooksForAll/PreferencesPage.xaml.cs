@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.StateSquid;
 namespace BooksForAll
@@ -300,6 +300,7 @@ namespace BooksForAll
                 {
                     latinobooks = false;
                 }
+                 
             };
 
 
@@ -317,7 +318,7 @@ namespace BooksForAll
 
 
 
-
+           
             Content = new StackLayout
             {
                 Children =
@@ -357,7 +358,9 @@ namespace BooksForAll
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-
+            UserPreferences.setPreferences(blackbooks, asianbooks, nativeamericanbooks, latinobooks);
+            UserPreferences.getPreferences();
+            Console.WriteLine(MainPage.books.Count);
             await Navigation.PushModalAsync(new Reccomendation());
         }
 

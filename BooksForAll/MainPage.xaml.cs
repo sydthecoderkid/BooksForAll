@@ -21,26 +21,19 @@ namespace BooksForAll
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        public static Book thisbook;
-        public static Book testbook;
         public static ArrayList books = new ArrayList();
 
         public MainPage()
         {
+          
 
-            thisbook = new Book();
-            QueryDatabase.calldatabase();
-            testbook = thisbook;
-            books.Add(thisbook);
-            books.Add(testbook);
             InitializeComponent();
-
         }
 
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-
+            QueryDatabase.calldatabase();
             await Navigation.PushModalAsync(new PreferencesPage());
         }
     }
