@@ -8,8 +8,7 @@ namespace BooksForAll
 {
    
     public class BookCover:Image
-    {    
-
+    {
 
         public BookCover(string imagesource) {
 

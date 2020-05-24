@@ -33,8 +33,7 @@ namespace BooksForAll
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-            QueryDatabase.calldatabase();
-            await Navigation.PushModalAsync(new PreferencesPage());
+            await Navigation.PushModalAsync(new Reccomendation());
         }
     }
 

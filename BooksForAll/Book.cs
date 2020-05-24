@@ -14,6 +14,7 @@ namespace BooksForAll
         public string isbn { get; set; }
         private static int characterlengtth = 21;
         public BookCover bookCover { get; set; }
+        public BookSearch BookSearch = new BookSearch();
 
         public Book() {
 

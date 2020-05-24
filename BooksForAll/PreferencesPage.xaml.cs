@@ -360,7 +360,6 @@ namespace BooksForAll
         {
             UserPreferences.setPreferences(blackbooks, asianbooks, nativeamericanbooks, latinobooks);
             UserPreferences.getPreferences();
-            Console.WriteLine(MainPage.books.Count);
             await Navigation.PushModalAsync(new Reccomendation());
         }
 

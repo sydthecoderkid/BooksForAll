@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Forms;
 using PanCardView;
+using CarouselView = PanCardView.CarouselView;
 
 namespace BooksForAll
 {
@@ -12,30 +13,62 @@ namespace BooksForAll
   
     public partial class Reccomendation : ContentPage
     {
-        PanCardView.CarouselView carouselView = new PanCardView.CarouselView();
-        ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
-
+       CarouselView carouselView = new CarouselView();
+       public static ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
+        public static ArrayList booktypes = new ArrayList();
         public Reccomendation()
         {
-            for(int i = 0; i < MainPage.books.Count; i++){
-                Console.WriteLine("Heyo");
-                Book book = (Book) MainPage.books[i];
-                bookcovers.Add(book.bookCover);
-            }
+            booktypes.Add("Black");
+            booktypes.Add("LGBTQ");
+            QueryDatabase.calldatabase();
             carouselView.ItemsSource = bookcovers;
-            TranslationY = 550;
-            Scale = 1.8;
-            Content = new StackLayout
+
+
+
+            carouselView.TranslationY = 400;
+            carouselView.Scale = 3;
+            Picker picker = new Picker
             {
-                Children =
+                Title = "Book Type",
+                TranslationY = 100,
+                };
+
+                foreach (string types in booktypes)
                 {
-                    carouselView,
+                    picker.Items.Add(types);
                 }
-            };
-        }
 
 
+
+            
+                picker.SelectedIndexChanged += (sender, args) =>
+                {
+                   
+                        string preference1 = picker.Items[picker.SelectedIndex];
+                       
+                    
+                };
+
+                // Accomodate iPhone status bar.
+                this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
+
+                // Build the page.
+                this.Content = new StackLayout
+                {
+                    Children = {
+
+                    picker,
+                    carouselView,
+
+                    }
+                 
+                };
+
+            }
+        
     }
 }
-    
+
+
+ 
 

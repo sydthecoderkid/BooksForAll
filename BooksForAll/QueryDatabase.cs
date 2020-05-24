@@ -15,6 +15,7 @@ namespace BooksForAll
         public static ChildQuery bookholder;
         private static int booksgotten;
 
+
         public static async void calldatabase()
         {
             int index = 0;
@@ -23,31 +24,18 @@ namespace BooksForAll
 
             foreach (var book in books)
             {
-                if(booksgotten == 3)
-                {
-                    return;
-                }
-              
-                    if (books.ElementAt(index).Object.race.Equals("Black"))
-                    {
-                        Book thisbook = new Book();
+                Book thisbook = new Book();
                         thisbook.isbn = books.ElementAt(index).Object.isbn;
                         thisbook.race = books.ElementAt(index).Object.race;
-                        BookSearch.SearchISBN(thisbook.isbn);
-                        MainPage.books.Add(thisbook);
-                        booksgotten++;
-                        
-                    }
+                        BookSearch.SearchISBN(thisbook.isbn, thisbook);
                 
 
-             
                 index++;
+       
+
 
             }
-            if(booksgotten < 3)
-            {
-                Console.WriteLine("No boooooks!");
-            }
+          
             
         }
 
