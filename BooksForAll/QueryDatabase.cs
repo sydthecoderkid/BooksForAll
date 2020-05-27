@@ -13,7 +13,6 @@ namespace BooksForAll
 
         public static FirebaseClient firebase = new FirebaseClient("https://booksforall.firebaseio.com/");
         public static ChildQuery bookholder;
-        private static int booksgotten;
 
 
         public static async void calldatabase()
@@ -30,7 +29,7 @@ namespace BooksForAll
                         BookSearch.SearchISBN(thisbook.isbn, thisbook);
                 
 
-                index++;
+                         index++;
        
 
 
