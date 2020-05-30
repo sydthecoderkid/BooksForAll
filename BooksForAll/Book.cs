@@ -10,7 +10,7 @@ namespace BooksForAll
         public string authorname;
         public string booktitle;
         public string imagesource;
-        public string race { get; set; }
+        public string Race { get; set; }
         public string isbn { get; set; }
         private static int characterlengtth = 21;
         public BookCover bookCover { get; set; }

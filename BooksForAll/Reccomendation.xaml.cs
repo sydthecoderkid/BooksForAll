@@ -20,7 +20,7 @@ namespace BooksForAll
         public static ArrayList genders = new ArrayList();
 
 
-        public string racepreference;
+        public static string racepreference;
 
         public string agepreference;
 
@@ -99,12 +99,12 @@ namespace BooksForAll
             {
                  racepreference = race.Items[race.SelectedIndex];
                 racepreference = parsepreference(racepreference);
-                Console.WriteLine(racepreference);
                 checkiffilled();
             };
             age.SelectedIndexChanged += (sender, args) =>
             {
                  agepreference = age.Items[age.SelectedIndex];
+                agepreference = parsepreference(agepreference);
                 checkiffilled();
             };
            
@@ -146,7 +146,7 @@ namespace BooksForAll
                     holder += preference[i];
                 }
 
-                else if (char.IsWhiteSpace(held)) {
+                else if (char.IsWhiteSpace(held) || i == 7) {
                     preference = holder;
                     return preference;
 
