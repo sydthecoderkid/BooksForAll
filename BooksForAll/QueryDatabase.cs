@@ -13,31 +13,26 @@ namespace BooksForAll
 
         public static FirebaseClient firebase = new FirebaseClient("https://booksforall.firebaseio.com/");
         public static ChildQuery bookholder;
-
+        public static bool grabbedbooks;
 
         public static async void calldatabase()
         {
-            int index = 0;
             var books = await firebase.Child("Books")
             .OnceAsync<Book>();
 
-            foreach (var book in books)
+            for(int i = 0; i < books.Count; i++)
             {
                 Book thisbook = new Book();
-                        thisbook.isbn = books.ElementAt(index).Object.isbn;
-                        thisbook.race = books.ElementAt(index).Object.race;
-                        BookSearch.SearchISBN(thisbook.isbn, thisbook);
-                
-
-                         index++;
-       
-
+                thisbook.isbn = books.ElementAt(i).Object.isbn;
+                thisbook.race = books.ElementAt(i).Object.race;
+                BookSearch.SearchISBN(thisbook.isbn, thisbook);
 
             }
-          
-            
+            Reccomendation.generatebooks.Text = "";
+            return;
         }
 
+        
     }
 
 
