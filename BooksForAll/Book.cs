@@ -12,6 +12,7 @@ namespace BooksForAll
         public string imagesource;
         public string Race { get; set; }
         public string isbn { get; set; }
+        public string Age { get; set;  }
         private static int characterlengtth = 21;
         public BookCover bookCover { get; set; }
         public BookSearch BookSearch = new BookSearch();

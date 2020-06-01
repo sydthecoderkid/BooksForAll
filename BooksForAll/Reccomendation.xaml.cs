@@ -22,9 +22,9 @@ namespace BooksForAll
 
         public static string racepreference;
 
-        public string agepreference;
+        public static string agepreference;
 
-        public string genderpreference;
+        public static string genderpreference;
 
         public static Label generatebooks = new Label()
         {
@@ -76,13 +76,12 @@ namespace BooksForAll
 
 
             genders.Add("Any gender");
-            genders.Add("Male");
-            genders.Add("Female");
-            genders.Add("Non-Binary");
+            genders.Add("Male Leads");
+            genders.Add("Female Leads");
 
 
 
-            carouselView.TranslationY = 400;
+            carouselView.TranslationY = 350;
             carouselView.Scale = 3;
 
 
@@ -97,14 +96,26 @@ namespace BooksForAll
 
             race.SelectedIndexChanged += (sender, args) =>
             {
+                QueryDatabase.anyrace = false;
+
                  racepreference = race.Items[race.SelectedIndex];
                 racepreference = parsepreference(racepreference);
+                if (racepreference.Equals("Any"))
+                {
+                    QueryDatabase.anyrace = true;
+                   
+                }
                 checkiffilled();
             };
             age.SelectedIndexChanged += (sender, args) =>
             {
+                QueryDatabase.anyage = false;
                  agepreference = age.Items[age.SelectedIndex];
                 agepreference = parsepreference(agepreference);
+                if (agepreference.Equals("Any"))
+                {
+                    QueryDatabase.anyage = true;
+                }
                 checkiffilled();
             };
            
@@ -163,11 +174,27 @@ namespace BooksForAll
         {
             if (racepreference != null && agepreference != null && genderpreference != null)
             {
-                generatebooks.Text = "Grabbing books...";
+                if(bookcovers.Count == 0)
+                {
+                    generatebooks.Text = "Grabbing books...";
+                }
+                else
+                {
+                    generatebooks.Text = "";
+                }
+               while(bookcovers.Count > 0)
+                {
+                    for (int i = 0; i < bookcovers.Count; i++)
+                    {
+                        bookcovers.RemoveAt(i);
+                      
+                     }
+                }
+               carouselView.ItemsSource = bookcovers;
+                
                 QueryDatabase.calldatabase();
                 carouselView.ItemsSource = bookcovers;
-                
-                
+               
 
             }
         }
