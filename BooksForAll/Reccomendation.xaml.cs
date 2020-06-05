@@ -14,7 +14,11 @@ namespace BooksForAll
     public partial class Reccomendation : ContentPage
     {
         CarouselView carouselView = new CarouselView();
+        CarouselView titletexts = new CarouselView();
+        CarouselView authortexts = new CarouselView();
         public static ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
+        public static ObservableCollection<BookCover> bookauthors = new ObservableCollection<BookCover>();
+        public static ObservableCollection<BookCover> booktitles = new ObservableCollection<BookCover>();
         public static ArrayList racetypes = new ArrayList();
         public static ArrayList agetypes = new ArrayList();
         public static ArrayList genders = new ArrayList();
@@ -26,6 +30,8 @@ namespace BooksForAll
 
         public static string genderpreference;
 
+
+
         public static Label generatebooks = new Label()
         {
             Text = "Fill in the tags to generate books!",
@@ -33,6 +39,7 @@ namespace BooksForAll
             TextColor = Color.SlateGray,
             VerticalOptions = LayoutOptions.CenterAndExpand,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
+           
         };
 
 
@@ -45,7 +52,7 @@ namespace BooksForAll
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
-
+        
         public static Label AuthorName = new Label()
         {
             Text = "Author Name",
@@ -71,6 +78,7 @@ namespace BooksForAll
             TranslationY = 110,
         };
 
+        
 
 
         private Picker gender = new Picker
@@ -81,7 +89,7 @@ namespace BooksForAll
 
 
 
-
+        
         public Reccomendation()
         {
 
@@ -166,8 +174,8 @@ namespace BooksForAll
                     gender,
                     carouselView,
                     generatebooks,
-                    BookTitle,
-                    AuthorName
+                    titletexts,
+                    authortexts,
                     }
 
             };
@@ -228,9 +236,10 @@ namespace BooksForAll
                     }
                 }
                 carouselView.ItemsSource = bookcovers;
-
+                carouselView.ItemsSource = booktitles;
+                carouselView.ItemsSource = bookauthors;
                 QueryDatabase.calldatabase();
-                carouselView.ItemsSource = bookcovers;
+
 
 
             }
