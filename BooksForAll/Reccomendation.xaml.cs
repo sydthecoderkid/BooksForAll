@@ -10,11 +10,11 @@ using CarouselView = PanCardView.CarouselView;
 namespace BooksForAll
 {
 
-  
+
     public partial class Reccomendation : ContentPage
     {
-       CarouselView carouselView = new CarouselView();
-       public static ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
+        CarouselView carouselView = new CarouselView();
+        public static ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
         public static ArrayList racetypes = new ArrayList();
         public static ArrayList agetypes = new ArrayList();
         public static ArrayList genders = new ArrayList();
@@ -35,7 +35,28 @@ namespace BooksForAll
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
-       public Picker race = new Picker
+
+        public static Label BookTitle = new Label()
+        {
+            Text = "Book title",
+            FontSize = 25,
+            TextColor = Color.SlateGray,
+            TranslationY = -120,
+            HorizontalOptions = LayoutOptions.CenterAndExpand,
+        };
+
+
+        public static Label AuthorName = new Label()
+        {
+            Text = "Author Name",
+            FontSize = 25,
+            TextColor = Color.SlateGray,
+            TranslationY = -120,
+            HorizontalOptions = LayoutOptions.CenterAndExpand,
+        };
+
+
+        public Picker race = new Picker
         {
             Title = "Race",
 
@@ -43,7 +64,7 @@ namespace BooksForAll
 
         };
 
-       private Picker age = new Picker
+        private Picker age = new Picker
         {
             Title = "Age",
 
@@ -52,7 +73,7 @@ namespace BooksForAll
 
 
 
-       private Picker gender = new Picker
+        private Picker gender = new Picker
         {
             Title = "Gender",
             TranslationY = 110,
@@ -86,7 +107,7 @@ namespace BooksForAll
             carouselView.Scale = 3;
 
 
-         
+
 
             age.ItemsSource = agetypes;
 
@@ -99,19 +120,19 @@ namespace BooksForAll
             {
                 QueryDatabase.anyrace = false;
 
-                 racepreference = race.Items[race.SelectedIndex];
+                racepreference = race.Items[race.SelectedIndex];
                 racepreference = parsepreference(racepreference);
                 if (racepreference.Equals("Any"))
                 {
                     QueryDatabase.anyrace = true;
-                   
+
                 }
                 checkiffilled();
             };
             age.SelectedIndexChanged += (sender, args) =>
             {
                 QueryDatabase.anyage = false;
-                 agepreference = age.Items[age.SelectedIndex];
+                agepreference = age.Items[age.SelectedIndex];
                 agepreference = parsepreference(agepreference);
                 if (agepreference.Equals("Any"))
                 {
@@ -119,11 +140,11 @@ namespace BooksForAll
                 }
                 checkiffilled();
             };
-           
+
             gender.SelectedIndexChanged += (sender, args) =>
             {
                 QueryDatabase.anygender = false;
-                 genderpreference = gender.Items[gender.SelectedIndex];
+                genderpreference = gender.Items[gender.SelectedIndex];
                 genderpreference = parsepreference(genderpreference);
                 if (genderpreference.Equals("Any"))
                 {
@@ -132,8 +153,8 @@ namespace BooksForAll
                 checkiffilled();
             };
 
-           
-            
+
+
             // Accomodate iPhone status bar.
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
@@ -145,7 +166,8 @@ namespace BooksForAll
                     gender,
                     carouselView,
                     generatebooks,
-
+                    BookTitle,
+                    AuthorName
                     }
 
             };
@@ -155,14 +177,14 @@ namespace BooksForAll
 
         private string parsepreference(string preference)
         {
-           
+
             string holder = "";
             if (preference.Equals("Children's books"))
             {
                 holder = "Children";
                 return holder;
             }
-           
+
             for (int i = 0; i < preference.Length; i++)
             {
                 char held = preference[i];
@@ -171,24 +193,25 @@ namespace BooksForAll
                     holder += preference[i];
                 }
 
-                else if (char.IsWhiteSpace(held)) {
+                else if (char.IsWhiteSpace(held))
+                {
                     preference = holder;
                     return preference;
 
                 }
 
-               
+
 
 
             }
-           return preference;
+            return preference;
         }
 
         void checkiffilled()
         {
             if (racepreference != null && agepreference != null && genderpreference != null)
             {
-                if(bookcovers.Count == 0)
+                if (bookcovers.Count == 0)
                 {
                     generatebooks.Text = "Grabbing books...";
                 }
@@ -196,19 +219,19 @@ namespace BooksForAll
                 {
                     generatebooks.Text = "";
                 }
-               while(bookcovers.Count > 0)
+                while (bookcovers.Count > 0)
                 {
                     for (int i = 0; i < bookcovers.Count; i++)
                     {
                         bookcovers.RemoveAt(i);
-                      
-                     }
+
+                    }
                 }
-               carouselView.ItemsSource = bookcovers;
-                
+                carouselView.ItemsSource = bookcovers;
+
                 QueryDatabase.calldatabase();
                 carouselView.ItemsSource = bookcovers;
-               
+
 
             }
         }
@@ -216,9 +239,9 @@ namespace BooksForAll
 
     }
 
-    
+
 }
 
 
- 
+
 

@@ -42,10 +42,8 @@ namespace BooksForAll
                     {
                         if (gender.Equals(Reccomendation.genderpreference) || anygender) {
                             Book thisbook = new Book();
-
                             thisbook.isbn = books.ElementAt(i).Object.isbn;
                             thisbook.Race = books.ElementAt(i).Object.Race;
-
                             BookSearch.SearchISBN(thisbook.isbn, thisbook);
                         }
                     }
@@ -53,8 +51,9 @@ namespace BooksForAll
                 }
                
             }
+
+
             Reccomendation.generatebooks.Text = "";
-            return;
         }
 
 
