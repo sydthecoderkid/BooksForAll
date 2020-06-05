@@ -46,6 +46,7 @@ namespace BooksForAll
        private Picker age = new Picker
         {
             Title = "Age",
+
             TranslationY = 110,
         };
 
@@ -121,7 +122,13 @@ namespace BooksForAll
            
             gender.SelectedIndexChanged += (sender, args) =>
             {
+                QueryDatabase.anygender = false;
                  genderpreference = gender.Items[gender.SelectedIndex];
+                genderpreference = parsepreference(genderpreference);
+                if (genderpreference.Equals("Any"))
+                {
+                    QueryDatabase.anygender = true;
+                }
                 checkiffilled();
             };
 
@@ -148,7 +155,14 @@ namespace BooksForAll
 
         private string parsepreference(string preference)
         {
+           
             string holder = "";
+            if (preference.Equals("Children's books"))
+            {
+                holder = "Children";
+                return holder;
+            }
+           
             for (int i = 0; i < preference.Length; i++)
             {
                 char held = preference[i];
@@ -157,7 +171,7 @@ namespace BooksForAll
                     holder += preference[i];
                 }
 
-                else if (char.IsWhiteSpace(held) || i == 7) {
+                else if (char.IsWhiteSpace(held)) {
                     preference = holder;
                     return preference;
 

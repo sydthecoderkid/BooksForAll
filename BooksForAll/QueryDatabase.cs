@@ -15,6 +15,7 @@ namespace BooksForAll
         public static ChildQuery bookholder;
         public static bool anyage;
         public static bool anyrace;
+        public static bool anygender;
 
         public static async void calldatabase()
         {
@@ -33,32 +34,27 @@ namespace BooksForAll
             {
                 race = books.ElementAt(i).Object.Race;
                 age = books.ElementAt(i).Object.Age;
-
-
+                gender = books.ElementAt(i).Object.Gender;
                 if (age.Equals(Reccomendation.agepreference) || anyage)
                 {
-                    Console.WriteLine(age);
-
+                  
                     if (race.Equals(Reccomendation.racepreference) || anyrace)
                     {
-                        Console.WriteLine(race);
-                        Book thisbook = new Book();
+                        if (gender.Equals(Reccomendation.genderpreference) || anygender) {
+                            Book thisbook = new Book();
 
-                        thisbook.isbn = books.ElementAt(i).Object.isbn;
-                        thisbook.Race = books.ElementAt(i).Object.Race;
+                            thisbook.isbn = books.ElementAt(i).Object.isbn;
+                            thisbook.Race = books.ElementAt(i).Object.Race;
 
-                        BookSearch.SearchISBN(thisbook.isbn, thisbook);
+                            BookSearch.SearchISBN(thisbook.isbn, thisbook);
+                        }
                     }
                     
                 }
-                
-
+               
             }
-             
             Reccomendation.generatebooks.Text = "";
             return;
-
-
         }
 
 
