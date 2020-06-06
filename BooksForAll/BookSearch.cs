@@ -45,7 +45,9 @@ namespace BooksForAll
                 bookcalled.imagesource = book.VolumeInfo.ImageLinks.Thumbnail;
                 bookcalled.bookCover = new BookCover(bookcalled.imagesource);
 
+                 
                 Reccomendation.bookcovers.Add(bookcalled.bookCover);
+
             }
 
             return null;

@@ -16,6 +16,8 @@ namespace BooksForAll
         public static bool anyage;
         public static bool anyrace;
         public static bool anygender;
+        public static int booksindexed;
+
 
         public static async void calldatabase()
         {
@@ -25,38 +27,48 @@ namespace BooksForAll
 
 
 
+
             var books = await firebase.Child("Books")
             .OnceAsync<Book>();
 
-            
 
-            for (int i = 0; i < books.Count; i++)
+
+            for (int i = booksindexed; i < books.Count; i++)
             {
+                
                 race = books.ElementAt(i).Object.Race;
                 age = books.ElementAt(i).Object.Age;
                 gender = books.ElementAt(i).Object.Gender;
                 if (age.Equals(Reccomendation.agepreference) || anyage)
                 {
-                  
+
                     if (race.Equals(Reccomendation.racepreference) || anyrace)
                     {
-                        if (gender.Equals(Reccomendation.genderpreference) || anygender) {
+                        if (gender.Equals(Reccomendation.genderpreference) || anygender )
+                        {
                             Book thisbook = new Book();
+
                             thisbook.isbn = books.ElementAt(i).Object.isbn;
                             thisbook.Race = books.ElementAt(i).Object.Race;
+
                             BookSearch.SearchISBN(thisbook.isbn, thisbook);
+                            booksindexed++;
+
                         }
+
                     }
-                    
+                    if (booksindexed % 5 == 0 && booksindexed > 0)
+                    {
+                        return;
+                    }
                 }
-               
+
+
+                Reccomendation.generatebooks.Text = "";
             }
 
 
-            Reccomendation.generatebooks.Text = "";
+
         }
-
-
-
     }
 }
