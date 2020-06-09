@@ -15,12 +15,13 @@ namespace BooksForAll
     {
         CarouselView carouselView = new CarouselView();
         public static ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
-        public static ObservableCollection<BookCover> bookauthors = new ObservableCollection<BookCover>();
-        public static ObservableCollection<BookCover> booktitles = new ObservableCollection<BookCover>();
+        public static ObservableCollection<string> bookauthors = new ObservableCollection<string>();
+        public static ObservableCollection<string> booktitles = new ObservableCollection<string>();
         public static ArrayList racetypes = new ArrayList();
         public static ArrayList agetypes = new ArrayList();
         public static ArrayList genders = new ArrayList();
-        public int bookspulled = 0;
+        private int bookspulled = 0;
+        private int bookswiped = 2;
 
         public static string racepreference;
 
@@ -161,7 +162,7 @@ namespace BooksForAll
 
             carouselView.ItemSwiped += (sender, args) =>
             {
-                if (bookspulled % 2 == 0)
+                if (bookspulled % bookswiped == 0)
                 {
                     QueryDatabase.calldatabase();
                 }

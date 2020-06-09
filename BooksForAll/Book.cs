@@ -15,6 +15,7 @@ namespace BooksForAll
         public string Age { get; set;  }
         public string Gender { get; set; }
         private static int characterlengtth = 21;
+        public string summary;
         public BookCover bookCover { get; set; }
         public BookSearch BookSearch = new BookSearch();
 

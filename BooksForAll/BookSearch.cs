@@ -43,7 +43,8 @@ namespace BooksForAll
                 bookcalled.authorname = book.VolumeInfo.Authors.First();
                 bookcalled.booktitle = book.VolumeInfo.Title;
                 bookcalled.imagesource = book.VolumeInfo.ImageLinks.Thumbnail;
-                bookcalled.bookCover = new BookCover(bookcalled.imagesource);
+                bookcalled.bookCover = new BookCover(bookcalled.imagesource, bookcalled);
+                bookcalled.summary = book.VolumeInfo.Description;
 
                  
                 Reccomendation.bookcovers.Add(bookcalled.bookCover);

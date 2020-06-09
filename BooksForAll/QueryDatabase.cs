@@ -48,6 +48,7 @@ namespace BooksForAll
                         {
                             Book thisbook = new Book();
 
+                            Console.WriteLine(age);
                             thisbook.isbn = books.ElementAt(i).Object.isbn;
                             thisbook.Race = books.ElementAt(i).Object.Race;
 
