@@ -3,61 +3,57 @@ using Xamarin.Forms;
 
 namespace BooksForAll
 {
-    public class BookInfo: ContentPage
+    public class BookInfo : ContentPage
     {
         public BookInfo(BookCover bookcover)
         {
-            string booktextone = bookcover.thisbook.summary;
+            string summary = bookcover.thisbook.summary;
+
+            string booktextone = "";
 
             string booktextwo = "";
 
             string booktextthree = "";
 
-           
-            if(booktextone.Length >= 1200)
-            {
-                booktextthree = booktextone;
+            string booktexfour = "";
 
-                int maxlength = (booktextone.Length / 2) ;
-                booktextone = booktextone.Substring(0, maxlength ) + ".......";
-                booktextwo = "";
+
+            if (summary.Length >= 1200)
+            {
+                int currentindex = 0;
+                int maxlength = (summary.Length);
+                booktextone = summary.Substring(0, (maxlength / 4));
+                booktextwo = summary.Substring(booktextone.Length, (maxlength / 4));
+                currentindex += (booktextwo.Length + booktextone.Length);
+                booktextthree = summary.Substring(currentindex, (maxlength / 4));
+                currentindex += booktextthree.Length;
+                booktexfour = summary.Substring(currentindex, maxlength / 4);
+
+                if (!booktexfour.EndsWith("."))
+                {
+                    booktexfour += ".";
+                }
+
             }
+
+            else
+            {
+                if (!booktextone.EndsWith("."))
+                {
+                    booktextone += ".";
+                }
+                booktextone = summary;
+            }
+
 
             Label booksummary = new Label
             {
-                 
-                Text = booktextone,
-                TranslationY = 300,
+
+                Text = summary,
+                TranslationY = 3,
                 FontSize = 18,
                 HorizontalOptions = LayoutOptions.Center,
-                
-            };
 
-            Label whitepsace = new Label
-            {
-
-                Text = booktextwo,
-                TranslationY = 300,
-                FontSize = 60,
-                HorizontalOptions = LayoutOptions.Center,
-
-            };
-
-            Label booksumaryparttwo = new Label
-            {
-                Text = booktextthree,
-                TranslationY = 300,
-                FontSize = 18,
-                HorizontalOptions = LayoutOptions.Center,
-            };
-
-            Button seemore = new Button
-            {
-                Text = "See more",
-                BackgroundColor = Color.LightBlue,
-                TranslationY = 300,
-                FontSize = 18,
-                HorizontalOptions = LayoutOptions.Center,
             };
 
 
@@ -65,26 +61,56 @@ namespace BooksForAll
             {
                 Source = bookcover.imagesource,
                 Scale = 3.8,
-               TranslationY = 150,
-                HorizontalOptions = LayoutOptions.Center,
+                TranslationY = 200,
             };
 
-            var stack = new StackLayout();
+            Label Synopsis = new Label
+            {
 
-            stack.Children.Add(bookimage);
-            stack.Children.Add(booksummary);
-            stack.Children.Add(whitepsace);
-            stack.Children.Add(seemore);
+                Text = "Synopsis",
+                FontSize = 25,
+                TranslationY = 450,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+            };
 
-            Content = new ScrollView { Content = stack };
-            
+            ScrollView scrollView = new ScrollView
+            {
+
+                Content = new StackLayout
+                {
+                    HeightRequest = 1500,
+                    Children =
+                    {
+                         Synopsis,
+                        bookimage,
+                        new Label { Text = booktextone, TranslationY = 520},
+                        new Label {Text = booktextwo, TranslationY = 520},
+                        new Label {Text = booktextthree, TranslationY = 520},
+                        new Label {Text = booktexfour, TranslationY = 520},
+                    }
+                }
+            };
+
+            this.Content = new StackLayout
+            {
+
+
+                Children = {
+
+                    scrollView,
+
+                }
+
+            };
+
+
 
 
         }
 
-        
+
 
     }
 
-    
+
 }
