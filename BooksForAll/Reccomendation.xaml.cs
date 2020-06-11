@@ -47,7 +47,7 @@ namespace BooksForAll
             Text = "Book title",
             FontSize = 25,
             TextColor = textcolor,
-            TranslationY = -110, //Go closer to one hundred to lower text
+            TranslationY = -50, //Go closer to one hundred to lower text
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
@@ -57,7 +57,7 @@ namespace BooksForAll
             Text = "Author Name",
             FontSize = 25,
             TextColor = textcolor,
-            TranslationY = -110,
+            TranslationY = -50,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
@@ -66,15 +66,18 @@ namespace BooksForAll
         {
             Title = "Race",
             TitleColor = textcolor,
+            TextColor = textcolor,
             TranslationY = 110,
-
+            WidthRequest = 30,
         };
 
         private Picker age = new Picker
         {
             Title = "Age",
             TitleColor = textcolor,
+            TextColor = textcolor,
             TranslationY = 110,
+
         };
 
 
@@ -84,25 +87,30 @@ namespace BooksForAll
         {
             Title = "Gender",
             TitleColor = textcolor,
+            TextColor = textcolor,
             TranslationY = 110,
         };
 
 
         public static Button ReadMore = new Button
         {
+            FontFamily = "Montserrat-Light",
+            Margin = new Thickness(60, 35, 60, 20),
             Text = "Read More",
             Font = Font.SystemFontOfSize(NamedSize.Title),
             FontSize = 20,
-            ScaleX = 1.2,
+            //ScaleX = 1.2,
             HorizontalOptions = LayoutOptions.Center,
-            TranslationY = -110,
+            TranslationY = -40,
             BackgroundColor = Color.LightBlue,
             TextColor = Color.Black,
             IsVisible = false,
 
         };
 
-       
+
+
+
 
 
 
@@ -194,7 +202,7 @@ namespace BooksForAll
 
             this.Content = new StackLayout
             {
-                BackgroundColor = Color.AliceBlue,
+                BackgroundColor = Color.AliceBlue, //Default is Alice Blue
 
                 Children = {
 

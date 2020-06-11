@@ -18,17 +18,20 @@ namespace BooksForAll
             this.imagesource = imagesource;
             this.thisbook = thisbook;
 
-            HasShadow = true;
+            
             Margin = 10;
-            BorderColor = Color.Black;
+            BorderColor = Color.LightGray;
             CornerRadius = 3;
             HeightRequest = 53;
             WidthRequest = 25;
-            IsClippedToBounds = true;
+
+            
+            HasShadow = true;
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
             this.Content = new Image
             {
+               
                 Source = imagesource,
                 Aspect = Aspect.AspectFill,
                 Margin = -20,

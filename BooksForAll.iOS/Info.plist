@@ -19,5 +19,7 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
+	<key>UIAppFonts</key>
+	<string>Montserrat-Light.ttf</string>
 </dict>
 </plist>
