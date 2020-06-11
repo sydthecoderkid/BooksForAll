@@ -1,1 +1,5 @@
 Project started 3/19/20
+
+This is an app designed to allow People of Color from all ages to filter through books from a large database, and find ones that they
+are interested in. This is done by using Google's Firebase cloud storage, along with using the Google books API. The app is 
+being developed in Xamarin, and written in C# using the .NET Framework.
