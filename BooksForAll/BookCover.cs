@@ -7,31 +7,41 @@ using System.Collections.Generic;
 namespace BooksForAll
 {
 
-    public class BookCover : ImageButton
+    public class BookCover : Frame
     {
         public string imagesource;
         public Book thisbook;
         public BookCover(string imagesource, Book thisbook)
         {
 
-            this.Source = imagesource;
+
             this.imagesource = imagesource;
             this.thisbook = thisbook;
-            this.Clicked += (object o, EventArgs e) => {
-                OnImageButtonClicked();
+
+            HasShadow = true;
+            Margin = 10;
+            BorderColor = Color.Black;
+            CornerRadius = 3;
+            HeightRequest = 53;
+            WidthRequest = 25;
+            IsClippedToBounds = true;
+            HorizontalOptions = LayoutOptions.Center;
+            VerticalOptions = LayoutOptions.Center;
+            this.Content = new Image
+            {
+                Source = imagesource,
+                Aspect = Aspect.AspectFill,
+                Margin = -20,
+                HeightRequest = 15,
+                WidthRequest = 15
             };
-
         }
-
-
-
-     
-       async void OnImageButtonClicked()
-        {
-             await Navigation.PushModalAsync(new BookInfo(this));
-        }
-
-
 
     }
+
 }
+
+     
+
+    
+

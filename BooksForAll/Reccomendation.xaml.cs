@@ -29,13 +29,13 @@ namespace BooksForAll
 
         public static string genderpreference;
 
-
-
+        public  static Color textcolor = Color.DarkBlue;
+        
         public static Label generatebooks = new Label()
         {
             Text = "Fill in the tags to generate books!",
             FontSize = 25,
-            TextColor = Color.SlateGray,
+            TextColor = textcolor,
             VerticalOptions = LayoutOptions.CenterAndExpand,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
 
@@ -46,8 +46,8 @@ namespace BooksForAll
         {
             Text = "Book title",
             FontSize = 25,
-            TextColor = Color.SlateGray,
-            TranslationY = -120,
+            TextColor = textcolor,
+            TranslationY = -110, //Go closer to one hundred to lower text
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
@@ -56,8 +56,8 @@ namespace BooksForAll
         {
             Text = "Author Name",
             FontSize = 25,
-            TextColor = Color.SlateGray,
-            TranslationY = -120,
+            TextColor = textcolor,
+            TranslationY = -110,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
@@ -65,7 +65,7 @@ namespace BooksForAll
         public Picker race = new Picker
         {
             Title = "Race",
-
+            TitleColor = textcolor,
             TranslationY = 110,
 
         };
@@ -73,7 +73,7 @@ namespace BooksForAll
         private Picker age = new Picker
         {
             Title = "Age",
-
+            TitleColor = textcolor,
             TranslationY = 110,
         };
 
@@ -83,15 +83,33 @@ namespace BooksForAll
         private Picker gender = new Picker
         {
             Title = "Gender",
+            TitleColor = textcolor,
             TranslationY = 110,
         };
 
+
+        public static Button ReadMore = new Button
+        {
+            Text = "Read More",
+            Font = Font.SystemFontOfSize(NamedSize.Title),
+            FontSize = 20,
+            ScaleX = 1.2,
+            HorizontalOptions = LayoutOptions.Center,
+            TranslationY = -110,
+            BackgroundColor = Color.LightBlue,
+            TextColor = Color.Black,
+            IsVisible = false,
+
+        };
+
+       
 
 
 
         public Reccomendation()
         {
 
+            
             racetypes.Add("Any race");
             racetypes.Add("Black characters");
             racetypes.Add("Asian characters");
@@ -110,8 +128,8 @@ namespace BooksForAll
 
 
 
-            carouselView.TranslationY = 350;
-            carouselView.Scale = 3;
+            carouselView.TranslationY = 235;
+            carouselView.Scale = 3.6;
 
 
 
@@ -172,18 +190,22 @@ namespace BooksForAll
 
 
             // Accomodate iPhone status bar.
-            this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
+           // this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
             this.Content = new StackLayout
             {
+                BackgroundColor = Color.AliceBlue,
+
                 Children = {
+
                     race,
                     age,
                     gender,
                     carouselView,
                     generatebooks,
                     BookTitle,
-                    AuthorName
+                    AuthorName,
+                    ReadMore,
                     }
 
             };
@@ -244,6 +266,7 @@ namespace BooksForAll
                 carouselView.ItemsSource = bookcovers;
                 QueryDatabase.calldatabase();
 
+                ReadMore.IsVisible = true;
 
 
             }
