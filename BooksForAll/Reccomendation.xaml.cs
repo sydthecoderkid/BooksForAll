@@ -6,6 +6,7 @@ using System.Linq;
 using Xamarin.Forms;
 using PanCardView;
 using CarouselView = PanCardView.CarouselView;
+using System.Collections.Specialized;
 
 namespace BooksForAll
 {
@@ -13,16 +14,16 @@ namespace BooksForAll
 
     public partial class Reccomendation : ContentPage
     {
-        CarouselView carouselView = new CarouselView();
+        public static CarouselView carouselView = new CarouselView();
         public static ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
-        public static ObservableCollection<string> bookauthors = new ObservableCollection<string>();
-        public static ObservableCollection<string> booktitles = new ObservableCollection<string>();
         public static ArrayList racetypes = new ArrayList();
         public static ArrayList agetypes = new ArrayList();
         public static ArrayList genders = new ArrayList();
         private int bookspulled = 0;
-        private int bookswiped = 2;
+        private int bookswiped = 0;
+        private int maxbooks = 2;
 
+        private static bool firstbook = true; 
         public static string racepreference;
 
         public static string agepreference;
@@ -30,6 +31,8 @@ namespace BooksForAll
         public static string genderpreference;
 
         public  static Color textcolor = Color.DarkBlue;
+
+        public int swipedindex=0;
         
         public static Label generatebooks = new Label()
         {
@@ -117,7 +120,7 @@ namespace BooksForAll
         public Reccomendation()
         {
 
-            
+           
             racetypes.Add("Any race");
             racetypes.Add("Black characters");
             racetypes.Add("Asian characters");
@@ -139,7 +142,7 @@ namespace BooksForAll
             carouselView.TranslationY = 235;
             carouselView.Scale = 3.6;
 
-
+            bookcovers.CollectionChanged += booksretrieved;
 
 
             age.ItemsSource = agetypes;
@@ -188,13 +191,47 @@ namespace BooksForAll
 
             carouselView.ItemSwiped += (sender, args) =>
             {
-                if (bookspulled % bookswiped == 0)
+
+                int index = 1;
+
+
+                BookCover thisbookcover = (BookCover)carouselView.SelectedItem;
+
+                /*
+                if (thisbookcover == bookcovers[0] || index > 1)
+                {
+                    
+                    Book thisbook = new Book();
+                    thisbook = bookcovers[index].thisbook;
+                    BookTitle.Text = thisbook.booktitle;
+                    AuthorName.Text = thisbook.authorname;
+                    index++;
+                }
+                */
+               
+                    
+                    Book thisbook = new Book();
+                    thisbook = thisbookcover.thisbook;
+                    BookTitle.Text = thisbook.booktitle;
+                    AuthorName.Text = thisbook.authorname;
+                
+
+               
+                
+                if (bookspulled % maxbooks == 0)
                 {
                     QueryDatabase.calldatabase();
                 }
 
                 bookspulled++;
+
+                
+               
+             
             };
+
+
+
 
 
             // Accomodate iPhone status bar.
@@ -211,7 +248,7 @@ namespace BooksForAll
                     gender,
                     carouselView,
                     generatebooks,
-                    BookTitle,
+                 //   BookTitle,
                     AuthorName,
                     ReadMore,
                     }
@@ -219,6 +256,17 @@ namespace BooksForAll
             };
 
 
+        }
+
+        public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (firstbook)
+            {
+                BookTitle.Text = bookcovers[0].thisbook.booktitle;
+                AuthorName.Text = bookcovers[0].thisbook.authorname;
+                carouselView.SelectedItem = bookcovers[0];
+                firstbook = false;
+            }
         }
 
         private string parsepreference(string preference)
@@ -273,6 +321,9 @@ namespace BooksForAll
                 }
                 carouselView.ItemsSource = bookcovers;
                 QueryDatabase.calldatabase();
+
+
+            
 
                 ReadMore.IsVisible = true;
 

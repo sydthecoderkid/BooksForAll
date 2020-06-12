@@ -11,6 +11,7 @@ namespace BooksForAll
     {
         public string imagesource;
         public Book thisbook;
+
         public BookCover(string imagesource, Book thisbook)
         {
 
@@ -29,14 +30,29 @@ namespace BooksForAll
             HasShadow = true;
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
-            this.Content = new Image
+            Image thisimage = new Image
             {
-               
                 Source = imagesource,
                 Aspect = Aspect.AspectFill,
                 Margin = -20,
-                HeightRequest = 15,
-                WidthRequest = 15
+                HeightRequest = 93,
+                WidthRequest = 93
+            };
+
+            Label booktitle = new Label
+            {
+                FontSize = 6,
+                VerticalOptions = LAYOUT
+                Text = thisbook.booktitle
+            };
+            Content = new StackLayout
+            {
+                Children = {
+                 
+                 thisimage,
+                  booktitle,
+
+                }
             };
         }
 

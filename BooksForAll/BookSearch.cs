@@ -48,6 +48,8 @@ namespace BooksForAll
                  
                 Reccomendation.bookcovers.Add(bookcalled.bookCover);
 
+
+
             }
 
             return null;

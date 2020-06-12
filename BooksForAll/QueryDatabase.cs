@@ -59,15 +59,18 @@ namespace BooksForAll
                     }
                     if (booksindexed % 5 == 0 && booksindexed > 0)
                     {
+                        
+                        Reccomendation.generatebooks.Text = "";
                         return;
                     }
                 }
 
 
-                Reccomendation.generatebooks.Text = "";
+               
             }
 
-
+            
+            
 
         }
     }

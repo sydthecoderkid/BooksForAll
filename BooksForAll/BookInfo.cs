@@ -103,12 +103,21 @@ namespace BooksForAll
 
             };
 
-
-
+           
 
         }
 
 
+        public static string getauthor(Book thisbook)
+        {
+
+            return thisbook.authorname;
+        }
+
+        public static string getbooktitle(Book thisbook)
+        {
+            return thisbook.booktitle;
+        }
 
     }
 
