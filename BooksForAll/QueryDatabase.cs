@@ -51,7 +51,7 @@ namespace BooksForAll
                             thisbook.isbn = books.ElementAt(i).Object.isbn;
                             thisbook.Race = books.ElementAt(i).Object.Race;
 
-                            BookSearch.SearchISBN(thisbook.isbn, thisbook);
+                            BookSearch.SearchISBN(thisbook.isbn, thisbook); //Adding an await causes issues. 
                             booksindexed++;
 
                         }

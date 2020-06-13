@@ -24,6 +24,9 @@ namespace BooksForAll
         private int maxbooks = 2;
         private static int temp;
 
+        public static BookCover disappearingbook;
+
+
         private static bool firstbook = true;
         public static string racepreference;
 
@@ -190,34 +193,19 @@ namespace BooksForAll
                 checkiffilled();
             };
 
+            
             carouselView.ItemSwiped += (sender, args) =>
             {
 
-                Console.WriteLine(temp);
-                Console.WriteLine(carouselView.SelectedIndex);
+            
 
-                if (swipedindex == bookcovers.Count)
-                {
-                    swipedindex = 0;
-                }
-
-                if(temp < carouselView.SelectedIndex )
-                {
-                    swipedindex -= 1;
-                }
-                BookCover thisbookcover = bookcovers[swipedindex];
-                Book thisbook = new Book();
-                thisbook = bookcovers[swipedindex].thisbook;
-                BookTitle.Text = thisbook.booktitle;
-                AuthorName.Text = thisbook.authorname;
-
-                    swipedindex += 1; //It adds a one to the swipe index in anticipation of a swipe.
-                
-                
+               // swipedindex += 1; //It adds a one to the swipe index in anticipation of a swipe.
 
 
 
-               
+
+
+
 
 
 
@@ -228,13 +216,20 @@ namespace BooksForAll
 
                 bookspulled++;
 
-                 temp = carouselView.SelectedIndex;
 
 
             };
 
+            carouselView.ItemDisappearing += (sender, args) =>
+            {
 
+                disappearingbook = (BookCover) carouselView.SelectedItem;
+                BookTitle.Text = disappearingbook.thisbook.booktitle;
+                AuthorName.Text = disappearingbook.thisbook.authorname;
+                
 
+            };
+            
 
 
             // Accomodate iPhone status bar.
@@ -334,10 +329,14 @@ namespace BooksForAll
 
             }
         }
+        void OnSwiped(object sender, SwipedEventArgs e)
+        {
 
 
+            Console.WriteLine("Left swipe");
+
+        }
     }
-
 
 }
 
