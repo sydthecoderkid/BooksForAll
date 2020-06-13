@@ -19,14 +19,14 @@ namespace BooksForAll
             this.imagesource = imagesource;
             this.thisbook = thisbook;
 
-            
+
             Margin = 10;
             BorderColor = Color.LightGray;
             CornerRadius = 3;
             HeightRequest = 53;
             WidthRequest = 25;
 
-            
+
             HasShadow = true;
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
@@ -39,19 +39,13 @@ namespace BooksForAll
                 WidthRequest = 93
             };
 
-            Label booktitle = new Label
-            {
-                FontSize = 6,
-                VerticalOptions = LAYOUT
-                Text = thisbook.booktitle
-            };
+             
             Content = new StackLayout
             {
                 Children = {
-                 
-                 thisimage,
-                  booktitle,
 
+                 thisimage,
+                   
                 }
             };
         }
@@ -60,7 +54,7 @@ namespace BooksForAll
 
 }
 
-     
 
-    
+
+
 

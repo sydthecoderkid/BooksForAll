@@ -22,18 +22,19 @@ namespace BooksForAll
         private int bookspulled = 0;
         private int bookswiped = 0;
         private int maxbooks = 2;
+        private static int temp;
 
-        private static bool firstbook = true; 
+        private static bool firstbook = true;
         public static string racepreference;
 
         public static string agepreference;
 
         public static string genderpreference;
 
-        public  static Color textcolor = Color.DarkBlue;
+        public static Color textcolor = Color.DarkBlue;
 
-        public int swipedindex=0;
-        
+        public static int swipedindex = 0;
+
         public static Label generatebooks = new Label()
         {
             Text = "Fill in the tags to generate books!",
@@ -120,7 +121,7 @@ namespace BooksForAll
         public Reccomendation()
         {
 
-           
+
             racetypes.Add("Any race");
             racetypes.Add("Black characters");
             racetypes.Add("Asian characters");
@@ -192,32 +193,34 @@ namespace BooksForAll
             carouselView.ItemSwiped += (sender, args) =>
             {
 
-                int index = 1;
+                Console.WriteLine(temp);
+                Console.WriteLine(carouselView.SelectedIndex);
 
-
-                BookCover thisbookcover = (BookCover)carouselView.SelectedItem;
-
-                /*
-                if (thisbookcover == bookcovers[0] || index > 1)
+                if (swipedindex == bookcovers.Count)
                 {
-                    
-                    Book thisbook = new Book();
-                    thisbook = bookcovers[index].thisbook;
-                    BookTitle.Text = thisbook.booktitle;
-                    AuthorName.Text = thisbook.authorname;
-                    index++;
+                    swipedindex = 0;
                 }
-                */
-               
-                    
-                    Book thisbook = new Book();
-                    thisbook = thisbookcover.thisbook;
-                    BookTitle.Text = thisbook.booktitle;
-                    AuthorName.Text = thisbook.authorname;
+
+                if(temp < carouselView.SelectedIndex )
+                {
+                    swipedindex -= 1;
+                }
+                BookCover thisbookcover = bookcovers[swipedindex];
+                Book thisbook = new Book();
+                thisbook = bookcovers[swipedindex].thisbook;
+                BookTitle.Text = thisbook.booktitle;
+                AuthorName.Text = thisbook.authorname;
+
+                    swipedindex += 1; //It adds a one to the swipe index in anticipation of a swipe.
+                
                 
 
+
+
                
-                
+
+
+
                 if (bookspulled % maxbooks == 0)
                 {
                     QueryDatabase.calldatabase();
@@ -225,9 +228,9 @@ namespace BooksForAll
 
                 bookspulled++;
 
-                
-               
-             
+                 temp = carouselView.SelectedIndex;
+
+
             };
 
 
@@ -235,7 +238,7 @@ namespace BooksForAll
 
 
             // Accomodate iPhone status bar.
-           // this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
+            // this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
             this.Content = new StackLayout
             {
@@ -248,7 +251,7 @@ namespace BooksForAll
                     gender,
                     carouselView,
                     generatebooks,
-                 //   BookTitle,
+                    BookTitle,
                     AuthorName,
                     ReadMore,
                     }
@@ -265,6 +268,7 @@ namespace BooksForAll
                 BookTitle.Text = bookcovers[0].thisbook.booktitle;
                 AuthorName.Text = bookcovers[0].thisbook.authorname;
                 carouselView.SelectedItem = bookcovers[0];
+                swipedindex = 1;
                 firstbook = false;
             }
         }
@@ -323,7 +327,7 @@ namespace BooksForAll
                 QueryDatabase.calldatabase();
 
 
-            
+
 
                 ReadMore.IsVisible = true;
 
