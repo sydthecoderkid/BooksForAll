@@ -106,7 +106,6 @@ namespace BooksForAll
             Text = "Read More",
             Font = Font.SystemFontOfSize(NamedSize.Title),
             FontSize = 20,
-            //ScaleX = 1.2,
             HorizontalOptions = LayoutOptions.Center,
             TranslationY = -40,
             BackgroundColor = Color.LightBlue,
@@ -114,6 +113,18 @@ namespace BooksForAll
             IsVisible = false,
 
         };
+
+        public static Image arrowimage = new Image
+        {
+            Source = ImageSource.FromFile("Arrow.png"),
+            Scale = 0.3,
+            TranslationY = 25,
+            TranslationX = 100,
+
+        };
+        
+
+
 
 
 
@@ -123,7 +134,9 @@ namespace BooksForAll
 
         public Reccomendation()
         {
+            arrowimage.Opacity = 0;
 
+            ReadMore.Clicked += OnButtonClicked;
 
             racetypes.Add("Any race");
             racetypes.Add("Black characters");
@@ -143,7 +156,7 @@ namespace BooksForAll
 
 
 
-            carouselView.TranslationY = 235;
+            carouselView.TranslationY = 30;
             carouselView.Scale = 3.6;
 
             bookcovers.CollectionChanged += booksretrieved;
@@ -197,17 +210,6 @@ namespace BooksForAll
             carouselView.ItemSwiped += (sender, args) =>
             {
 
-            
-
-               // swipedindex += 1; //It adds a one to the swipe index in anticipation of a swipe.
-
-
-
-
-
-
-
-
 
                 if (bookspulled % maxbooks == 0)
                 {
@@ -215,9 +217,6 @@ namespace BooksForAll
                 }
 
                 bookspulled++;
-
-
-
             };
 
             carouselView.ItemDisappearing += (sender, args) =>
@@ -229,8 +228,11 @@ namespace BooksForAll
                 
 
             };
-            
 
+
+
+
+           
 
             // Accomodate iPhone status bar.
             // this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
@@ -244,6 +246,7 @@ namespace BooksForAll
                     race,
                     age,
                     gender,
+                    arrowimage,
                     carouselView,
                     generatebooks,
                     BookTitle,
@@ -253,7 +256,7 @@ namespace BooksForAll
 
             };
 
-
+            
         }
 
         public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
@@ -263,8 +266,11 @@ namespace BooksForAll
                 BookTitle.Text = bookcovers[0].thisbook.booktitle;
                 AuthorName.Text = bookcovers[0].thisbook.authorname;
                 carouselView.SelectedItem = bookcovers[0];
+                generatebooks.Text = "";
                 swipedindex = 1;
                 firstbook = false;
+                arrowimage.IsEnabled = true;
+                FadeOutArrow();
             }
         }
 
@@ -329,13 +335,24 @@ namespace BooksForAll
 
             }
         }
-        void OnSwiped(object sender, SwipedEventArgs e)
+         public static async void FadeOutArrow()
         {
 
-
-            Console.WriteLine("Left swipe");
+            arrowimage.Opacity = 1;
+            await arrowimage.TranslateTo(-100, 25, 1000);
+            await arrowimage.FadeTo(0, 1000);
+            
 
         }
+
+        async void OnButtonClicked(object sender, EventArgs args)
+
+        {
+            Console.WriteLine("Clicked");
+            await Navigation.PushModalAsync(new BookInfo(disappearingbook));
+        }
+
+
     }
 
 }

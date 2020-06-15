@@ -17,6 +17,7 @@ namespace BooksForAll
 
             string booktexfour = "";
 
+             int textheight = summary.Length;
 
             if (summary.Length >= 1200)
             {
@@ -29,20 +30,22 @@ namespace BooksForAll
                 currentindex += booktextthree.Length;
                 booktexfour = summary.Substring(currentindex, maxlength / 4);
 
-                if (!booktexfour.EndsWith("."))
+                
+                if (!booktexfour.EndsWith(".") && !booktexfour.EndsWith("?"))
                 {
                     booktexfour += ".";
                 }
+                
 
             }
 
             else
             {
+                booktextone = summary;
                 if (!booktextone.EndsWith("."))
                 {
                     booktextone += ".";
                 }
-                booktextone = summary;
             }
 
 
@@ -61,7 +64,7 @@ namespace BooksForAll
             {
                 Source = bookcover.imagesource,
                 Scale = 3.8,
-                TranslationY = 200,
+                TranslationY = 400,
             };
 
             Label Synopsis = new Label
@@ -69,28 +72,34 @@ namespace BooksForAll
 
                 Text = "Synopsis",
                 FontSize = 25,
-                TranslationY = 450,
+                TranslationY = 540,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
             };
 
+
+            textheight = setheight(textheight);
             ScrollView scrollView = new ScrollView
             {
 
+
                 Content = new StackLayout
                 {
-                    HeightRequest = 1500,
+                    HeightRequest = textheight,
                     Children =
                     {
-                         Synopsis,
+                        
                         bookimage,
-                        new Label { Text = booktextone, TranslationY = 520},
-                        new Label {Text = booktextwo, TranslationY = 520},
-                        new Label {Text = booktextthree, TranslationY = 520},
-                        new Label {Text = booktexfour, TranslationY = 520},
+                         Synopsis,
+                        new Label { Text = booktextone, TranslationY = 520,  Margin = new Thickness (20)},
+                        new Label {Text = booktextwo, TranslationY = 520,  Margin = new Thickness (20)},
+                        new Label {Text = booktextthree, TranslationY = 520,  Margin = new Thickness (20)},
+                        new Label {Text = booktexfour, TranslationY = 520,  Margin = new Thickness (20)},
                     }
                 }
+                
             };
 
+           
             this.Content = new StackLayout
             {
 
@@ -117,6 +126,22 @@ namespace BooksForAll
         public static string getbooktitle(Book thisbook)
         {
             return thisbook.booktitle;
+        }
+
+        public static int setheight(int textheight) {
+
+             if (textheight >= 1200){
+
+                textheight = 1700;
+            }
+            else
+            {
+                textheight = 1000;
+            }
+
+
+            return textheight;
+
         }
 
     }

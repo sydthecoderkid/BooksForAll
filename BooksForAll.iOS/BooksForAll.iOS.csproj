@@ -163,4 +163,8 @@
   <ItemGroup>
     <Folder Include="Assets.xcassets\BookCover.imageset\" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Arrow.jpg" />
+    <BundleResource Include="Resources\Arrow.png" />
+  </ItemGroup>
 </Project>
