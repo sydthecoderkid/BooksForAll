@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using Xamarin.Forms;
-using System.Threading;
-using System.Threading.Tasks;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Books.v1;
-using Google.Apis.Books.v1.Data;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
-using Xamarin.Essentials;
 using System.Collections;
 
 namespace BooksForAll
@@ -21,20 +10,120 @@ namespace BooksForAll
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        public static ArrayList books = new ArrayList();
+        private static bool buttonactive = false;
+
+ 
 
         public MainPage()
         {
-          
+           
+            Button Explore = new Button
+            {
 
-            InitializeComponent();
+                Margin = new Thickness(70, 35, 70, 20),
+                Text = "Explore Books",
+                Font = Font.SystemFontOfSize(NamedSize.Caption),
+                FontSize = 35,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationY = 190, //The closer to zero the lower the number
+                BackgroundColor = Color.LightBlue,
+                
+                TextColor = Color.DarkBlue,
+
+            };
+            Explore.Clicked += OnExploreClicked;
+
+            Button Saved = new Button
+            {
+
+                Margin = new Thickness(70, 35, 70, 20),
+                Text = "My Books",
+                Font = Font.SystemFontOfSize(NamedSize.Caption),
+                FontSize = 35,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationY = 190, //The closer to zero the lower the number
+                BackgroundColor = Color.LightBlue,
+                TextColor = Color.DarkBlue,
+
+            };
+
+            Saved.Clicked += OnSavedClicked;
+
+            Button Suggest = new Button
+            {
+
+                Margin = new Thickness(70, 35, 70, 20),
+                Text = "Suggest Books",
+                Font = Font.SystemFontOfSize(NamedSize.Caption),
+                FontSize = 35,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationY = 190, //The closer to zero the lower the number
+                BackgroundColor = Color.LightBlue,
+                TextColor = Color.DarkBlue,
+
+            };
+
+            Suggest.Clicked += OnSuggestClicked;
+
+            Label Welcome = new Label
+            {
+
+                Margin = new Thickness(60, 35, 60, 20),
+                Text = "Welcome!",
+                Font = Font.SystemFontOfSize(NamedSize.Title),
+                FontSize = 45,
+                HorizontalOptions = LayoutOptions.Center,
+                TranslationY = 130, //The closer to zero the lower the number
+                TextColor = Color.DarkBlue,
+
+            };
+
+            
+
+            Content = new StackLayout
+            {
+                BackgroundColor = Color.AliceBlue, //Default is Alice Blue
+
+                Children = {
+                    Welcome,
+                    Explore,
+                    Saved,
+                    Suggest,
+                    }
+
+            };
+
+           
+           
+
+
         }
 
-        async void OnButtonClicked(object sender, EventArgs args)
+        async void OnExploreClicked(object sender, EventArgs args)
 
         {
-            await Navigation.PushModalAsync(new Reccomendation());
-        }
-    }
+              await Navigation.PushModalAsync(new Reccomendation());
 
-}
+            
+        }
+
+        async void OnSuggestClicked(object sender, EventArgs args)
+
+        { 
+                await Navigation.PushModalAsync(new SuggestionPage());
+           
+            
+        }
+
+        async void OnSavedClicked(object sender, EventArgs args)
+
+        {
+             
+                await Navigation.PushModalAsync(new SavedPage());
+                
+            }
+
+        }
+
+       
+    }

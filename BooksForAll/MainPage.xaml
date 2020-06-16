@@ -20,17 +20,9 @@
                FontAttributes="Bold"
                TextColor="Blue" />
 
-         <Button
-             Margin="20,35,20,20"
-             Text="Click here!"
-             FontSize="Title"
-             TextColor="LightBlue"
-               VerticalOptions="CenterAndExpand"
-               HorizontalOptions="Center"
-             BackgroundColor="DarkBlue"
-             Clicked="OnButtonClicked"
-             />
-       
+          
+
+      
      
 
      </StackLayout>

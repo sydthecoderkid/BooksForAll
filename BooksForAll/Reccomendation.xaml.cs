@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using PanCardView;
 using CarouselView = PanCardView.CarouselView;
 using System.Collections.Specialized;
+using System.Threading.Tasks;
 
 namespace BooksForAll
 {
@@ -22,7 +23,9 @@ namespace BooksForAll
         private int bookspulled = 0;
         private int bookswiped = 0;
         private int maxbooks = 2;
-        private static int temp;
+
+        private int timescalled = 0;
+
 
         public static BookCover disappearingbook;
 
@@ -54,7 +57,7 @@ namespace BooksForAll
             Text = "Book title",
             FontSize = 25,
             TextColor = textcolor,
-            TranslationY = -50, //Go closer to one hundred to lower text
+            TranslationY = -50, //Go closer to negative one hundred to lower text
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
@@ -118,11 +121,24 @@ namespace BooksForAll
         {
             Source = ImageSource.FromFile("Arrow.png"),
             Scale = 0.3,
-            TranslationY = 25,
-            TranslationX = 100,
+            TranslationY = 58,
+            TranslationX = 160,
 
         };
-        
+
+        public static ImageButton homeicon = new ImageButton
+        {
+            Source = ImageSource.FromFile("House.png"),
+            Scale = 0.16,
+            TranslationY = -335, //Further negative is a higher image
+            TranslationX = -180,
+            
+           
+
+
+    };
+
+
 
 
 
@@ -136,7 +152,10 @@ namespace BooksForAll
         {
             arrowimage.Opacity = 0;
 
+            carouselView.ItemsSource = bookcovers;
+
             ReadMore.Clicked += OnButtonClicked;
+            homeicon.Clicked += BacktoHome;
 
             racetypes.Add("Any race");
             racetypes.Add("Black characters");
@@ -156,11 +175,11 @@ namespace BooksForAll
 
 
 
-            carouselView.TranslationY = 30;
+            carouselView.TranslationY = -100; //Larger the number, lower the image
             carouselView.Scale = 3.6;
 
             bookcovers.CollectionChanged += booksretrieved;
-
+         
 
             age.ItemsSource = agetypes;
 
@@ -206,7 +225,7 @@ namespace BooksForAll
                 checkiffilled();
             };
 
-            
+
             carouselView.ItemSwiped += (sender, args) =>
             {
 
@@ -222,17 +241,17 @@ namespace BooksForAll
             carouselView.ItemDisappearing += (sender, args) =>
             {
 
-                disappearingbook = (BookCover) carouselView.SelectedItem;
+                disappearingbook = (BookCover)carouselView.SelectedItem;
                 BookTitle.Text = disappearingbook.thisbook.booktitle;
                 AuthorName.Text = disappearingbook.thisbook.authorname;
-                
+
 
             };
 
 
 
 
-           
+
 
             // Accomodate iPhone status bar.
             // this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
@@ -247,6 +266,7 @@ namespace BooksForAll
                     age,
                     gender,
                     arrowimage,
+                    homeicon,
                     carouselView,
                     generatebooks,
                     BookTitle,
@@ -256,8 +276,10 @@ namespace BooksForAll
 
             };
 
-            
+
         }
+
+        
 
         public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -324,7 +346,6 @@ namespace BooksForAll
                     bookcovers.Clear();
                     QueryDatabase.booksindexed = 0;
                 }
-                carouselView.ItemsSource = bookcovers;
                 QueryDatabase.calldatabase();
 
 
@@ -335,21 +356,35 @@ namespace BooksForAll
 
             }
         }
-         public static async void FadeOutArrow()
+        public static async void FadeOutArrow()
         {
 
             arrowimage.Opacity = 1;
-            await arrowimage.TranslateTo(-100, 25, 1000);
+            await arrowimage.TranslateTo(-100, 58, 1500);
             await arrowimage.FadeTo(0, 1000);
-            
+
 
         }
 
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-            Console.WriteLine("Clicked");
+            
             await Navigation.PushModalAsync(new BookInfo(disappearingbook));
+        }
+
+        async void BacktoHome(object sender, EventArgs args)
+
+        {
+            if (timescalled == 0)
+            {
+                await Navigation.PushModalAsync(new MainPage());
+                Console.WriteLine("Going home");
+                timescalled += 1;
+
+            }
+           
+           
         }
 
 
