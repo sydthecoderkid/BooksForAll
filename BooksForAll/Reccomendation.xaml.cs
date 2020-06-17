@@ -20,7 +20,6 @@ namespace BooksForAll
         public static ArrayList racetypes = new ArrayList();
         public static ArrayList agetypes = new ArrayList();
         public static ArrayList genders = new ArrayList();
-        private int bookspulled = 0;
         private int bookswiped = 0;
         private int maxbooks = 2;
 
@@ -46,7 +45,7 @@ namespace BooksForAll
             Text = "Fill in the tags to generate books!",
             FontSize = 25,
             TextColor = textcolor,
-            VerticalOptions = LayoutOptions.CenterAndExpand,
+            TranslationY = -65,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
 
         };
@@ -57,7 +56,7 @@ namespace BooksForAll
             Text = "Book title",
             FontSize = 25,
             TextColor = textcolor,
-            TranslationY = -50, //Go closer to negative one hundred to lower text
+            TranslationY = 5, //Go closer to negative one hundred to lower text
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
@@ -67,7 +66,7 @@ namespace BooksForAll
             Text = "Author Name",
             FontSize = 25,
             TextColor = textcolor,
-            TranslationY = -50,
+            TranslationY = 5,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
         };
 
@@ -110,7 +109,7 @@ namespace BooksForAll
             Font = Font.SystemFontOfSize(NamedSize.Title),
             FontSize = 20,
             HorizontalOptions = LayoutOptions.Center,
-            TranslationY = -40,
+            TranslationY = -30,
             BackgroundColor = Color.LightBlue,
             TextColor = Color.Black,
             IsVisible = false,
@@ -230,12 +229,12 @@ namespace BooksForAll
             {
 
 
-                if (bookspulled % maxbooks == 0)
+                if (bookswiped % maxbooks == 0)
                 {
                     QueryDatabase.calldatabase();
                 }
 
-                bookspulled++;
+                bookswiped++;
             };
 
             carouselView.ItemDisappearing += (sender, args) =>
@@ -379,7 +378,6 @@ namespace BooksForAll
             if (timescalled == 0)
             {
                 await Navigation.PushModalAsync(new MainPage());
-                Console.WriteLine("Going home");
                 timescalled += 1;
 
             }
