@@ -118,7 +118,6 @@ namespace BooksForAll
         async void OnSavedClicked(object sender, EventArgs args)
 
         {
-             
                 await Navigation.PushModalAsync(new SavedPage());
                 
             }

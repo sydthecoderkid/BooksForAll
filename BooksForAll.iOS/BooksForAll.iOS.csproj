@@ -167,5 +167,7 @@
     <BundleResource Include="Resources\Arrow.jpg" />
     <BundleResource Include="Resources\Arrow.png" />
     <BundleResource Include="Resources\House.png" />
+    <BundleResource Include="Resources\FlippedArrow.png" />
+    <BundleResource Include="Resources\Home.png" />
   </ItemGroup>
 </Project>

@@ -22,8 +22,9 @@ namespace BooksForAll
         public static ArrayList genders = new ArrayList();
         private int bookswiped = 0;
         private int maxbooks = 2;
+        private static int timescalled = 0;
+        private static int timescalledhome = 0;
 
-        private int timescalled = 0;
 
 
         public static BookCover disappearingbook;
@@ -120,22 +121,22 @@ namespace BooksForAll
         {
             Source = ImageSource.FromFile("Arrow.png"),
             Scale = 0.3,
-            TranslationY = 58,
+            TranslationY = 48,
             TranslationX = 160,
 
         };
 
         public static ImageButton homeicon = new ImageButton
         {
-            Source = ImageSource.FromFile("House.png"),
-            Scale = 0.16,
-            TranslationY = -335, //Further negative is a higher image
-            TranslationX = -180,
-            
-           
+            Source = ImageSource.FromFile("FlippedArrow.png"),
+            Scale = 0.2,
+            TranslationY = -310, //Further negative is a higher image
+            TranslationX = -170, //Closer to zero means further to the right
 
 
-    };
+
+
+        };
 
 
 
@@ -149,6 +150,8 @@ namespace BooksForAll
 
         public Reccomendation()
         {
+            timescalled = 0;
+            timescalledhome = 0;
             arrowimage.Opacity = 0;
 
             carouselView.ItemsSource = bookcovers;
@@ -175,10 +178,10 @@ namespace BooksForAll
 
 
             carouselView.TranslationY = -100; //Larger the number, lower the image
-            carouselView.Scale = 3.6;
+            carouselView.Scale = 3;
 
             bookcovers.CollectionChanged += booksretrieved;
-         
+
 
             age.ItemsSource = agetypes;
 
@@ -239,10 +242,12 @@ namespace BooksForAll
 
             carouselView.ItemDisappearing += (sender, args) =>
             {
-
-                disappearingbook = (BookCover)carouselView.SelectedItem;
-                BookTitle.Text = disappearingbook.thisbook.booktitle;
-                AuthorName.Text = disappearingbook.thisbook.authorname;
+                if (bookcovers.Count > 0)
+                {
+                    disappearingbook = (BookCover)carouselView.SelectedItem;
+                    BookTitle.Text = disappearingbook.thisbook.booktitle;
+                    AuthorName.Text = disappearingbook.thisbook.authorname;
+                }
 
 
             };
@@ -278,7 +283,7 @@ namespace BooksForAll
 
         }
 
-        
+
 
         public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -368,21 +373,24 @@ namespace BooksForAll
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-            
-            await Navigation.PushModalAsync(new BookInfo(disappearingbook));
+            if (timescalled == 0)
+            {
+                await Navigation.PushModalAsync(new BookInfo(disappearingbook));
+                timescalled = 1;
+            }
         }
 
         async void BacktoHome(object sender, EventArgs args)
 
         {
-            if (timescalled == 0)
+            if (timescalledhome == 0)
             {
                 await Navigation.PushModalAsync(new MainPage());
-                timescalled += 1;
-
+                timescalledhome += 1;
             }
-           
-           
+                
+
+
         }
 
 

@@ -5,6 +5,7 @@ namespace BooksForAll
 {
     public class BookInfo : ContentPage
     {
+        private int timescalled = 0;
         public BookInfo(BookCover bookcover)
         {
             string summary = bookcover.thisbook.summary;
@@ -18,6 +19,11 @@ namespace BooksForAll
             string booktexfour = "";
 
              int textheight = summary.Length;
+
+
+      
+
+        int summaryheight = 140;
 
             if (summary.Length >= 1200)
             {
@@ -53,7 +59,7 @@ namespace BooksForAll
             {
 
                 Text = summary,
-                TranslationY = 3,
+                TranslationY = 0,
                 FontSize = 18,
                 HorizontalOptions = LayoutOptions.Center,
 
@@ -64,16 +70,28 @@ namespace BooksForAll
             {
                 Source = bookcover.imagesource,
                 Scale = 3.8,
-                TranslationY = 400,
+                TranslationY = -10,
             };
 
+            
+            ImageButton backbutton = new ImageButton
+            {
+                Source = ImageSource.FromFile("FlippedArrow.png"),
+                Scale = 0.3,
+                TranslationY = 0,
+                TranslationX =-100,
+            };
+
+            backbutton.Clicked += BackToReccomended;
             Label Synopsis = new Label
             {
 
                 Text = "Synopsis",
                 FontSize = 25,
-                TranslationY = 540,
+                TranslationY = 160,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
+                FontAttributes = FontAttributes.Bold,
+                TextDecorations = TextDecorations.Underline,
             };
 
 
@@ -87,13 +105,13 @@ namespace BooksForAll
                     HeightRequest = textheight,
                     Children =
                     {
-                        
+                        backbutton,
                         bookimage,
                          Synopsis,
-                        new Label { Text = booktextone, TranslationY = 520,  Margin = new Thickness (20)},
-                        new Label {Text = booktextwo, TranslationY = 520,  Margin = new Thickness (20)},
-                        new Label {Text = booktextthree, TranslationY = 520,  Margin = new Thickness (20)},
-                        new Label {Text = booktexfour, TranslationY = 520,  Margin = new Thickness (20)},
+                        new Label { Text = booktextone, TranslationY = summaryheight,  Margin = new Thickness (20)},
+                        new Label {Text = booktextwo, TranslationY = summaryheight,  Margin = new Thickness (20)},
+                        new Label {Text = booktextthree, TranslationY = summaryheight,  Margin = new Thickness (20)},
+                        new Label {Text = booktexfour, TranslationY = summaryheight,  Margin = new Thickness (20)},
                     }
                 }
                 
@@ -116,6 +134,17 @@ namespace BooksForAll
 
         }
 
+        async void BackToReccomended(object sender, EventArgs e)
+        {
+
+            if (timescalled == 0)
+            {
+                await Navigation.PushModalAsync(new Reccomendation());
+                timescalled += 1;
+            }
+                
+            
+        }
 
         public static string getauthor(Book thisbook)
         {
