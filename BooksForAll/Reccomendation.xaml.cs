@@ -22,9 +22,10 @@ namespace BooksForAll
         public static ArrayList genders = new ArrayList();
         private int bookswiped = 0;
         private int maxbooks = 2;
-        private static int timescalled = 0;
-        private static int timescalledhome = 0;
 
+        private int timescalled = 0;
+
+        public static bool canclick = true;
 
 
         public static BookCover disappearingbook;
@@ -121,7 +122,7 @@ namespace BooksForAll
         {
             Source = ImageSource.FromFile("Arrow.png"),
             Scale = 0.3,
-            TranslationY = 48,
+            TranslationY = 58,
             TranslationX = 160,
 
         };
@@ -131,10 +132,7 @@ namespace BooksForAll
             Source = ImageSource.FromFile("FlippedArrow.png"),
             Scale = 0.2,
             TranslationY = -310, //Further negative is a higher image
-            TranslationX = -170, //Closer to zero means further to the right
-
-
-
+            TranslationX = -170,
 
         };
 
@@ -150,12 +148,9 @@ namespace BooksForAll
 
         public Reccomendation()
         {
-            timescalled = 0;
-            timescalledhome = 0;
             arrowimage.Opacity = 0;
 
             carouselView.ItemsSource = bookcovers;
-
             ReadMore.Clicked += OnButtonClicked;
             homeicon.Clicked += BacktoHome;
 
@@ -242,12 +237,10 @@ namespace BooksForAll
 
             carouselView.ItemDisappearing += (sender, args) =>
             {
-                if (bookcovers.Count > 0)
-                {
-                    disappearingbook = (BookCover)carouselView.SelectedItem;
-                    BookTitle.Text = disappearingbook.thisbook.booktitle;
-                    AuthorName.Text = disappearingbook.thisbook.authorname;
-                }
+
+                disappearingbook = (BookCover)carouselView.SelectedItem;
+                BookTitle.Text = disappearingbook.thisbook.booktitle;
+                AuthorName.Text = disappearingbook.thisbook.authorname;
 
 
             };
@@ -373,22 +366,23 @@ namespace BooksForAll
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-            if (timescalled == 0)
+            if (canclick)
             {
                 await Navigation.PushModalAsync(new BookInfo(disappearingbook));
-                timescalled = 1;
+                canclick = false;
+                ReadMore.Clicked -= OnButtonClicked;
             }
         }
 
         async void BacktoHome(object sender, EventArgs args)
 
         {
-            if (timescalledhome == 0)
+            if (timescalled == 0)
             {
                 await Navigation.PushModalAsync(new MainPage());
-                timescalledhome += 1;
+                timescalled += 1;
+
             }
-                
 
 
         }

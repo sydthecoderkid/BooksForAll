@@ -20,7 +20,7 @@ namespace BooksForAll
 
              int textheight = summary.Length;
 
-
+            
       
 
         int summaryheight = 140;
@@ -79,7 +79,7 @@ namespace BooksForAll
                 Source = ImageSource.FromFile("FlippedArrow.png"),
                 Scale = 0.3,
                 TranslationY = 0,
-                TranslationX =-100,
+                TranslationX =-120,
             };
 
             backbutton.Clicked += BackToReccomended;
@@ -140,6 +140,7 @@ namespace BooksForAll
             if (timescalled == 0)
             {
                 await Navigation.PushModalAsync(new Reccomendation());
+                Reccomendation.canclick = true;
                 timescalled += 1;
             }
                 
