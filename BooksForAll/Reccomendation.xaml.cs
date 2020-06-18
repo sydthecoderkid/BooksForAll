@@ -301,17 +301,19 @@ namespace BooksForAll
 
         public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
         {
+            generatebooks.Text = " ";
             if (firstbook)
             {
                 BookTitle.Text = bookcovers[0].thisbook.booktitle;
                 AuthorName.Text = bookcovers[0].thisbook.authorname;
                 carouselView.SelectedItem = bookcovers[0];
-                generatebooks.Text = "";
                 swipedindex = 1;
                 firstbook = false;
                 arrowimage.IsEnabled = true;
                 FadeOutArrow();
             }
+
+           
         }
 
         private string parsepreference(string preference)
