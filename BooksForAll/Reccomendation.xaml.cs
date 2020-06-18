@@ -42,6 +42,8 @@ namespace BooksForAll
 
         public static int swipedindex = 0;
 
+        public static bool assignedlists = false;
+
         public static Label generatebooks = new Label()
         {
             Text = "Fill in the tags to generate books!",
@@ -164,21 +166,28 @@ namespace BooksForAll
                 clickhome = false;
             }
 
-            racetypes.Add("Any race");
-            racetypes.Add("Black characters");
-            racetypes.Add("Asian characters");
-            racetypes.Add("Latino characters");
-            racetypes.Add("Native American characters");
+            if (!assignedlists)
+            {
 
-            agetypes.Add("Any age");
-            agetypes.Add("Children's books");
-            agetypes.Add("Young Adult books");
-            agetypes.Add("Adult books");
+                racetypes.Add("Any race");
+                racetypes.Add("Black characters");
+                racetypes.Add("Asian characters");
+                racetypes.Add("Latino characters");
+                racetypes.Add("Native American characters");
+
+                agetypes.Add("Any age");
+                agetypes.Add("Children's books");
+                agetypes.Add("Young Adult books");
+                agetypes.Add("Adult books");
 
 
-            genders.Add("Any gender");
-            genders.Add("Male Leads");
-            genders.Add("Female Leads");
+                genders.Add("Any gender");
+                genders.Add("Male Leads");
+                genders.Add("Female Leads");
+
+                assignedlists = true;
+
+            }
 
 
 
@@ -247,10 +256,12 @@ namespace BooksForAll
 
             carouselView.ItemDisappearing += (sender, args) =>
             {
-
-                disappearingbook = (BookCover)carouselView.SelectedItem;
-                BookTitle.Text = disappearingbook.thisbook.booktitle;
-                AuthorName.Text = disappearingbook.thisbook.authorname;
+                if (bookcovers.Count > 0)
+                {
+                    disappearingbook = (BookCover)carouselView.SelectedItem;
+                    BookTitle.Text = disappearingbook.thisbook.booktitle;
+                    AuthorName.Text = disappearingbook.thisbook.authorname;
+                }
 
 
             };
@@ -353,6 +364,8 @@ namespace BooksForAll
                     bookcovers.Clear();
                     QueryDatabase.booksindexed = 0;
                 }
+
+                
                 QueryDatabase.calldatabase();
 
 
