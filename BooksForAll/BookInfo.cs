@@ -140,7 +140,6 @@ namespace BooksForAll
             if (timescalled == 0)
             {
                 await Navigation.PushModalAsync(new Reccomendation());
-                Reccomendation.canclick = true;
                 timescalled += 1;
             }
                 

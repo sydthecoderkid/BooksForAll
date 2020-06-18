@@ -102,6 +102,7 @@ namespace BooksForAll
         async void OnExploreClicked(object sender, EventArgs args)
 
         {
+
               await Navigation.PushModalAsync(new Reccomendation());
 
             

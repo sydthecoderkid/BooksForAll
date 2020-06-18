@@ -23,9 +23,9 @@ namespace BooksForAll
         private int bookswiped = 0;
         private int maxbooks = 2;
 
-        private int timescalled = 0;
+        public static bool moreinfo = true;
 
-        public static bool canclick = true;
+        public static bool clickhome = true;
 
 
         public static BookCover disappearingbook;
@@ -151,8 +151,18 @@ namespace BooksForAll
             arrowimage.Opacity = 0;
 
             carouselView.ItemsSource = bookcovers;
-            ReadMore.Clicked += OnButtonClicked;
-            homeicon.Clicked += BacktoHome;
+
+            if (moreinfo) {
+                ReadMore.Clicked += OnButtonClicked;
+                moreinfo = false;
+            }
+
+            if (clickhome)
+            {
+
+                homeicon.Clicked += BacktoHome;
+                clickhome = false;
+            }
 
             racetypes.Add("Any race");
             racetypes.Add("Black characters");
@@ -366,23 +376,17 @@ namespace BooksForAll
         async void OnButtonClicked(object sender, EventArgs args)
 
         {
-            if (canclick)
-            {
-                await Navigation.PushModalAsync(new BookInfo(disappearingbook));
-                canclick = false;
-                ReadMore.Clicked -= OnButtonClicked;
-            }
+            await Navigation.PushModalAsync(new BookInfo(disappearingbook));
+            return;
+
         }
 
         async void BacktoHome(object sender, EventArgs args)
 
         {
-            if (timescalled == 0)
-            {
                 await Navigation.PushModalAsync(new MainPage());
-                timescalled += 1;
-
-            }
+            return;
+            
 
 
         }
