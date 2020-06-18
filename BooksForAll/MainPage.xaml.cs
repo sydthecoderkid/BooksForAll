@@ -10,7 +10,7 @@ namespace BooksForAll
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        private static bool buttonactive = false;
+
 
  
 

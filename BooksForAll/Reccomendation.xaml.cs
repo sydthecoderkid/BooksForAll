@@ -287,7 +287,7 @@ namespace BooksForAll
                     homeicon,
                     carouselView,
                     generatebooks,
-                    BookTitle,
+                  //  BookTitle,
                     AuthorName,
                     ReadMore,
                     }
