@@ -8,10 +8,11 @@ namespace BooksForAll
     {
         public SuggestionPage()
         {
+            
             Content = new StackLayout
             {
                 Children = {
-                    new Label { Text = "Hello ContentPage" }
+                    
                 }
             };
         }

@@ -121,9 +121,9 @@ namespace BooksForAll
         {
                 await Navigation.PushModalAsync(new SavedPage());
                 
-            }
-
         }
+
+    }
 
        
     }

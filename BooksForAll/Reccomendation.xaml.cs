@@ -154,6 +154,8 @@ namespace BooksForAll
 
             carouselView.ItemsSource = bookcovers;
 
+            
+
             if (moreinfo) {
                 ReadMore.Clicked += OnButtonClicked;
                 moreinfo = false;
@@ -287,7 +289,7 @@ namespace BooksForAll
                     homeicon,
                     carouselView,
                     generatebooks,
-                  //  BookTitle,
+                    BookTitle,
                     AuthorName,
                     ReadMore,
                     }

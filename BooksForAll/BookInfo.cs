@@ -94,6 +94,12 @@ namespace BooksForAll
                 TextDecorations = TextDecorations.Underline,
             };
 
+            CheckBox savebox = new CheckBox
+            {
+                TranslationY = 120,
+                
+            };
+
 
             textheight = setheight(textheight);
             ScrollView scrollView = new ScrollView
@@ -108,6 +114,7 @@ namespace BooksForAll
                         backbutton,
                         bookimage,
                          Synopsis,
+                         savebox,
                         new Label { Text = booktextone, TranslationY = summaryheight,  Margin = new Thickness (20)},
                         new Label {Text = booktextwo, TranslationY = summaryheight,  Margin = new Thickness (20)},
                         new Label {Text = booktextthree, TranslationY = summaryheight,  Margin = new Thickness (20)},
