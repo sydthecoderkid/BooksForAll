@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
+using PanCardView;
+using CarouselView = PanCardView.CarouselView;
 
 namespace BooksForAll
 {
     public class SavedPage : ContentPage
     {
-        public static ArrayList savedBooks = new ArrayList();
+        public static ObservableCollection<BookCover> savedBooks = new ObservableCollection<BookCover>();
 
         public SavedPage()
         {
@@ -32,11 +35,15 @@ namespace BooksForAll
 
             CarouselView savedbooks = new CarouselView
             {
-                TranslationY = 500,
-
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
             };
 
             savedbooks.ItemsSource = savedBooks;
+
+
+
+
             backarrow.Clicked += backarrow_Clicked;
             Content = new StackLayout
             {

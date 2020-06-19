@@ -401,7 +401,7 @@ namespace BooksForAll
         async void BacktoHome(object sender, EventArgs args)
 
         {
-                await Navigation.PushModalAsync(new MainPage());
+               await Navigation.PushModalAsync(new MainPage());
             return;
             
 

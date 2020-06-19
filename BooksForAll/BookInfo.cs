@@ -5,7 +5,15 @@ namespace BooksForAll
 {
     public class BookInfo : ContentPage
     {
+        public BookCover bookcover;
         private int timescalled = 0;
+
+        public CheckBox savebox = new CheckBox
+        {
+            TranslationY = 40,
+            TranslationX = 90,
+        };
+
         public BookInfo(BookCover bookcover)
         {
             string summary = bookcover.thisbook.summary;
@@ -20,9 +28,9 @@ namespace BooksForAll
 
              int textheight = summary.Length;
 
-            
-      
 
+
+            this.bookcover = bookcover;
         int summaryheight = 140;
 
             if (summary.Length >= 1200)
@@ -94,14 +102,19 @@ namespace BooksForAll
                 TextDecorations = TextDecorations.Underline,
             };
 
-            CheckBox savebox = new CheckBox
+           
+            Label savelabel = new Label
             {
-                TranslationY = 120,
-                
+                TranslationY = 10,
+                TranslationX = 70,
+                Text = "Save Book",
             };
 
 
+
             textheight = setheight(textheight);
+            savebox.CheckedChanged += OnChecked;
+
             ScrollView scrollView = new ScrollView
             {
 
@@ -115,6 +128,7 @@ namespace BooksForAll
                         bookimage,
                          Synopsis,
                          savebox,
+                         savelabel,
                         new Label { Text = booktextone, TranslationY = summaryheight,  Margin = new Thickness (20)},
                         new Label {Text = booktextwo, TranslationY = summaryheight,  Margin = new Thickness (20)},
                         new Label {Text = booktextthree, TranslationY = summaryheight,  Margin = new Thickness (20)},
@@ -179,6 +193,27 @@ namespace BooksForAll
             return textheight;
 
         }
+
+        async void OnChecked(object sender, EventArgs args)
+
+        {
+            if (!SavedPage.savedBooks.Contains(bookcover) && savebox.IsChecked)
+            {
+                SavedPage.savedBooks.Add(bookcover);
+            }
+
+            else if(SavedPage.savedBooks.Contains(bookcover) && !savebox.IsChecked)
+            {
+                SavedPage.savedBooks.Remove(bookcover);
+            }
+
+
+
+            
+            return;
+
+        }
+
 
     }
 
