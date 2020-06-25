@@ -11,6 +11,7 @@ namespace BooksForAll
     {
         public static ObservableCollection<BookCover> savedBooks = new ObservableCollection<BookCover>();
 
+        public BookCover disappearingbook;
         public SavedPage()
         {
             Label Saved = new Label
@@ -53,7 +54,7 @@ namespace BooksForAll
             if (savedBooks.Count > 0)
             {
                 NoBooks.Text = "";
-
+                
             }
             ImageButton backarrow = new ImageButton
             {
@@ -64,7 +65,7 @@ namespace BooksForAll
 
             };
 
-            CarouselView savedbooks = new CarouselView
+            CarouselView savedbookimages = new CarouselView
             {
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
@@ -72,15 +73,15 @@ namespace BooksForAll
 
             
 
-            savedbooks.ItemsSource = savedBooks;
+            savedbookimages.ItemsSource = savedBooks;
 
 
 
             
             backarrow.Clicked += backarrow_Clicked;
 
-            savedbooks.Scale = 3;
-            savedbooks.TranslationX = 100;
+            savedbookimages.Scale = 3;
+            savedbookimages.TranslationX = 100;
 
             Content = new StackLayout
             {
@@ -89,18 +90,32 @@ namespace BooksForAll
                 Children = {
                    Saved,
                     backarrow,
-                    savedbooks,
+                    savedbookimages,
                     NoBooks,
+                    booktitle,
+                    author,
                 }
             };
 
-
-            async void backarrow_Clicked(object sender, EventArgs args)
-
+            savedbookimages.ItemDisappearing += (sender, args) =>
             {
-                await Navigation.PushModalAsync(new MainPage());
+                if (savedBooks.Count > 0)
+                {
+                    disappearingbook = (BookCover)savedbookimages.SelectedItem;
+                    booktitle.Text = disappearingbook.thisbook.booktitle;
+                    author.Text = disappearingbook.thisbook.authorname;
+                }
 
-            }
+
+            };
+
+        }
+
+        async void backarrow_Clicked(object sender, EventArgs args)
+
+        {
+            await Navigation.PushModalAsync(new MainPage());
+
         }
     }
 }
