@@ -24,7 +24,38 @@ namespace BooksForAll
                 
             };
 
-              ImageButton backarrow = new ImageButton
+            Label NoBooks = new Label
+            {
+                Text = "No books saved!",
+                FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
+                TextColor = Color.Blue,
+                FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+
+            };
+            Label booktitle = new Label
+            {
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                Text = "Book Title",
+
+            };
+
+            Label author = new Label
+            {
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                Text = "Author",
+
+            };
+
+            if (savedBooks.Count > 0)
+            {
+                NoBooks.Text = "";
+
+            }
+            ImageButton backarrow = new ImageButton
             {
                 TranslationX = -85,
                 TranslationY = -25,
@@ -39,12 +70,18 @@ namespace BooksForAll
                 HorizontalOptions = LayoutOptions.Center,
             };
 
+            
+
             savedbooks.ItemsSource = savedBooks;
 
 
 
-
+            
             backarrow.Clicked += backarrow_Clicked;
+
+            savedbooks.Scale = 3;
+            savedbooks.TranslationX = 100;
+
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand, 
@@ -53,6 +90,7 @@ namespace BooksForAll
                    Saved,
                     backarrow,
                     savedbooks,
+                    NoBooks,
                 }
             };
 

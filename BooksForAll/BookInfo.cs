@@ -14,6 +14,13 @@ namespace BooksForAll
             TranslationX = 90,
         };
 
+        public Label savelabel = new Label
+        {
+            TranslationY = 10,
+            TranslationX = 70,
+            Text = "Save Book",
+        };
+
         public BookInfo(BookCover bookcover)
         {
             string summary = bookcover.thisbook.summary;
@@ -103,17 +110,20 @@ namespace BooksForAll
             };
 
            
-            Label savelabel = new Label
-            {
-                TranslationY = 10,
-                TranslationX = 70,
-                Text = "Save Book",
-            };
+            
 
 
 
             textheight = setheight(textheight);
             savebox.CheckedChanged += OnChecked;
+
+            if (SavedPage.savedBooks.Contains(bookcover))
+            {
+                savebox.IsChecked = true;
+                Console.WriteLine("Already checked");
+                savelabel.Text = "Saved";
+                savelabel.TextColor = Color.Gray;
+            }
 
             ScrollView scrollView = new ScrollView
             {
@@ -197,13 +207,18 @@ namespace BooksForAll
         async void OnChecked(object sender, EventArgs args)
 
         {
+
             if (!SavedPage.savedBooks.Contains(bookcover) && savebox.IsChecked)
             {
                 SavedPage.savedBooks.Add(bookcover);
+                savelabel.Text = "Saved";
+                savelabel.TextColor = Color.Gray;
             }
 
             else if(SavedPage.savedBooks.Contains(bookcover) && !savebox.IsChecked)
             {
+                savelabel.Text = "Save Book";
+                savelabel.TextColor = Color.Black;
                 SavedPage.savedBooks.Remove(bookcover);
             }
 
