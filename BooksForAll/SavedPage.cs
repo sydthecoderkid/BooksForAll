@@ -21,8 +21,8 @@ namespace BooksForAll
                 TextColor = Color.Blue,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-               TranslationY = 45, 
-                
+                Margin = new Thickness(0, 45, 0, 0)
+
             };
 
             Label NoBooks = new Label
@@ -32,15 +32,15 @@ namespace BooksForAll
                 TextColor = Color.Blue,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand,
+                Margin = new Thickness(0, 60, 0, 0)
 
             };
             Label booktitle = new Label
             {
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center,
+                 
                 Text = "Book Title",
-
+                FontSize = 20,
+                TextColor = Color.DarkBlue,
             };
 
             Label author = new Label
@@ -48,7 +48,8 @@ namespace BooksForAll
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center,
                 Text = "Author",
-
+                FontSize = 20,
+                TextColor = Color.DarkBlue,
             };
 
             if (savedBooks.Count > 0)
@@ -67,8 +68,8 @@ namespace BooksForAll
 
             CarouselView savedbookimages = new CarouselView
             {
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center,
+               Scale = 3,
+                Margin = new Thickness(80, 40, 0, 0)
             };
 
             
@@ -80,8 +81,7 @@ namespace BooksForAll
             
             backarrow.Clicked += backarrow_Clicked;
 
-            savedbookimages.Scale = 3;
-            savedbookimages.TranslationX = 100;
+
 
             Content = new StackLayout
             {

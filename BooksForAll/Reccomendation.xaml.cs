@@ -15,7 +15,7 @@ namespace BooksForAll
 
     public partial class Reccomendation : ContentPage
     {
-        public static CarouselView carouselView = new CarouselView();
+       
         public static ObservableCollection<BookCover> bookcovers = new ObservableCollection<BookCover>();
         public static ArrayList racetypes = new ArrayList();
         public static ArrayList agetypes = new ArrayList();
@@ -52,6 +52,12 @@ namespace BooksForAll
             TranslationY = -65,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
 
+        };
+
+        public static CarouselView carouselView = new CarouselView
+        {
+            Margin = new Thickness(80, 40, 0, 0),
+            Scale = 3,
         };
 
 
@@ -123,7 +129,7 @@ namespace BooksForAll
         public static Image arrowimage = new Image
         {
             Source = ImageSource.FromFile("Arrow.png"),
-            Scale = 0.3,
+            Scale = 0.1,
             TranslationY = 58,
             TranslationX = 160,
 
@@ -193,8 +199,7 @@ namespace BooksForAll
 
 
 
-            carouselView.TranslationY = -100; //Larger the number, lower the image
-            carouselView.Scale = 3;
+          
 
             bookcovers.CollectionChanged += booksretrieved;
 
@@ -265,7 +270,6 @@ namespace BooksForAll
                     AuthorName.Text = disappearingbook.thisbook.authorname;
                 }
 
-
             };
 
 
@@ -278,22 +282,25 @@ namespace BooksForAll
 
             this.Content = new StackLayout
             {
+                 
                 BackgroundColor = Color.AliceBlue, //Default is Alice Blue
+                Orientation =  StackOrientation.Vertical,
 
+                
                 Children = {
-
+                   
                     race,
                     age,
                     gender,
-                    arrowimage,
-                    homeicon,
                     carouselView,
+                  //  homeicon,
+                    arrowimage,
                     generatebooks,
-                    BookTitle,
+                   // BookTitle,
                     AuthorName,
                     ReadMore,
                     }
-
+                
             };
 
 
