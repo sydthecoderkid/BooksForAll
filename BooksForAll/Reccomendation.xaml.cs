@@ -294,11 +294,11 @@ namespace BooksForAll
                     gender,
                     carouselView,
                   //  homeicon,
-                    arrowimage,
+                   // arrowimage,
                     generatebooks,
                    // BookTitle,
-                    AuthorName,
-                    ReadMore,
+                   // AuthorName,
+                   ReadMore,
                     }
                 
             };

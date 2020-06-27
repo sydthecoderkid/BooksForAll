@@ -18,28 +18,31 @@ namespace BooksForAll
 
             this.imagesource = imagesource;
             this.thisbook = thisbook;
-            Margin = 6;
+
+
+            Margin = 10;
             BorderColor = Color.LightGray;
             CornerRadius = 3;
-            HeightRequest = 80;
-            WidthRequest = 80;
-            IsClippedToBounds = true;
+            HeightRequest = 53;
+            WidthRequest = 25;
+
+
+            HasShadow = true;
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
             Image thisimage = new Image
             {
                 Source = imagesource,
+                Aspect = Aspect.AspectFill,
                 Margin = -20,
-                HeightRequest = 70,
-                WidthRequest = 70
-
+                HeightRequest = 93,
+                WidthRequest = 93
             };
 
 
             Content = new StackLayout
             {
-                
-               Children = {
+                Children = {
 
                  thisimage,
 
@@ -48,10 +51,4 @@ namespace BooksForAll
         }
 
     }
-
 }
-
-
-
-
-
