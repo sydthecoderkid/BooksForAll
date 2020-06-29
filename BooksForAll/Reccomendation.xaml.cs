@@ -54,6 +54,7 @@ namespace BooksForAll
             TitleColor = textcolor,
             TextColor = textcolor,
             VerticalOptions = LayoutOptions.Start,
+             
             Margin = 40,
 
         };
@@ -66,6 +67,7 @@ namespace BooksForAll
             TitleColor = textcolor,
             TextColor = textcolor,
              VerticalOptions = LayoutOptions.Start,
+             
             Margin = 40,
 
         };
@@ -78,27 +80,39 @@ namespace BooksForAll
             TitleColor = textcolor,
             TextColor = textcolor,
             VerticalOptions = LayoutOptions.Start,
-            Margin = 40,
+             Margin = 40,
         };
 
 
         public static CarouselView carouselView = new CarouselView
         {
-            Margin = new Thickness(80, 40, 0, 0),
-            Scale = 3,
+           Margin = new Thickness(80, 40, 0, 0),
+            VerticalOptions = LayoutOptions.Center,
             
+            Scale = 3,
         };
 
 
-       
+        public static Label generatebooks = new Label
+        {
+            Text = "Fill in the tags to generate books!",
+            VerticalOptions = LayoutOptions.End,
+            HorizontalOptions = LayoutOptions.Center,
+            FontSize = 25,
+            Margin = 90,
+            TextColor = Color.DarkBlue,
+        };
 
-      
 
 
-       
 
 
-       
+
+
+
+
+
+
 
 
 
@@ -235,17 +249,19 @@ namespace BooksForAll
 
             this.Content = new StackLayout
             {
-                 
-                BackgroundColor = Color.AliceBlue, //Default is Alice Blue
-                Orientation =  StackOrientation.Vertical,
 
+                BackgroundColor = Color.AliceBlue, //Default is Alice Blue
+                Orientation = StackOrientation.Vertical,
+
+                Margin = new Thickness(0),
+                Spacing = -45,
                 
                 Children = {
 
                     age,
                     race,
                     gender,
-
+                    generatebooks,
                     carouselView,
                      
                     }
@@ -259,7 +275,7 @@ namespace BooksForAll
 
         public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
         {
-           // generatebooks.Text = " ";
+            generatebooks.Text = " ";
             if (firstbook)
             {
                // BookTitle.Text = bookcovers[0].thisbook.booktitle;
