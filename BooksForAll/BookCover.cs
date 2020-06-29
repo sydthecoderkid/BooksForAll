@@ -20,8 +20,8 @@ namespace BooksForAll
             this.thisbook = thisbook;
             BorderColor = Color.LightGray;
             CornerRadius = 3;
-            HeightRequest = 85;
-            WidthRequest = 10;
+            HeightRequest = 65;
+            WidthRequest = 0;
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
             HasShadow = true;
@@ -29,7 +29,7 @@ namespace BooksForAll
             {
                 Source = imagesource,
                 Margin = -20,
-                HeightRequest = 80,
+                HeightRequest = 60,
                 WidthRequest = 80
 
             };

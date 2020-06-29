@@ -44,7 +44,43 @@ namespace BooksForAll
 
         public static bool assignedlists = false;
 
-        
+         
+
+
+      
+        private Picker age = new Picker
+        {
+            Title = "Age",
+            TitleColor = textcolor,
+            TextColor = textcolor,
+            VerticalOptions = LayoutOptions.Start,
+            Margin = 40,
+
+        };
+
+
+
+        public Picker race = new Picker
+        {
+            Title = "Race",
+            TitleColor = textcolor,
+            TextColor = textcolor,
+             VerticalOptions = LayoutOptions.Start,
+            Margin = 40,
+
+        };
+
+
+
+        private Picker gender = new Picker
+        {
+            Title = "Gender",
+            TitleColor = textcolor,
+            TextColor = textcolor,
+            VerticalOptions = LayoutOptions.Start,
+            Margin = 40,
+        };
+
 
         public static CarouselView carouselView = new CarouselView
         {
@@ -118,7 +154,7 @@ namespace BooksForAll
 
             bookcovers.CollectionChanged += booksretrieved;
 
-            /*
+            
 
             age.ItemsSource = agetypes;
 
@@ -164,7 +200,7 @@ namespace BooksForAll
                 checkiffilled();
             };
 
-            */
+            
 
             carouselView.ItemSwiped += (sender, args) =>
             {
@@ -205,9 +241,13 @@ namespace BooksForAll
 
                 
                 Children = {
-                   
+
+                    age,
+                    race,
+                    gender,
+
                     carouselView,
-                  
+                     
                     }
                 
             };

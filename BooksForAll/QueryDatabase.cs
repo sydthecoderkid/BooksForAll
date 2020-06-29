@@ -60,7 +60,7 @@ namespace BooksForAll
                     if (booksindexed % 5 == 0 && booksindexed > 0)
                     {
                         
-                        Reccomendation.generatebooks.Text = "";
+                       // Reccomendation.generatebooks.Text = "";
                         return;
                     }
                 }
