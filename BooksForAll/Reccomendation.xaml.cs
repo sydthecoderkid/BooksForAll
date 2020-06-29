@@ -44,110 +44,25 @@ namespace BooksForAll
 
         public static bool assignedlists = false;
 
-        public static Label generatebooks = new Label()
-        {
-            Text = "Fill in the tags to generate books!",
-            FontSize = 25,
-            TextColor = textcolor,
-            TranslationY = -65,
-            HorizontalOptions = LayoutOptions.CenterAndExpand,
-
-        };
+        
 
         public static CarouselView carouselView = new CarouselView
         {
             Margin = new Thickness(80, 40, 0, 0),
             Scale = 3,
+            
         };
 
 
-        public static Label BookTitle = new Label()
-        {
-            Text = "Book title",
-            FontSize = 25,
-            TextColor = textcolor,
-            TranslationY = 5, //Go closer to negative one hundred to lower text
-            HorizontalOptions = LayoutOptions.CenterAndExpand,
-        };
+       
+
+      
 
 
-        public static Label AuthorName = new Label()
-        {
-            Text = "Author Name",
-            FontSize = 25,
-            TextColor = textcolor,
-            TranslationY = 5,
-            HorizontalOptions = LayoutOptions.CenterAndExpand,
-        };
+       
 
 
-        public Picker race = new Picker
-        {
-            Title = "Race",
-            TitleColor = textcolor,
-            TextColor = textcolor,
-            TranslationY = 110,
-            WidthRequest = 30,
-        };
-
-        private Picker age = new Picker
-        {
-            Title = "Age",
-            TitleColor = textcolor,
-            TextColor = textcolor,
-            TranslationY = 110,
-
-        };
-
-
-
-
-        private Picker gender = new Picker
-        {
-            Title = "Gender",
-            TitleColor = textcolor,
-            TextColor = textcolor,
-            TranslationY = 110,
-        };
-
-
-        public static Button ReadMore = new Button
-        {
-            FontFamily = "Montserrat-Light",
-            Margin = new Thickness(60, 35, 60, 20),
-            Text = "Read More",
-            Font = Font.SystemFontOfSize(NamedSize.Title),
-            FontSize = 20,
-            HorizontalOptions = LayoutOptions.Center,
-            TranslationY = -30,
-            BackgroundColor = Color.LightBlue,
-            TextColor = Color.Black,
-            IsVisible = false,
-
-        };
-
-        public static Image arrowimage = new Image
-        {
-            Source = ImageSource.FromFile("Arrow.png"),
-            Scale = 0.1,
-            TranslationY = 58,
-            TranslationX = 160,
-
-        };
-
-        public static ImageButton homeicon = new ImageButton
-        {
-            Source = ImageSource.FromFile("FlippedArrow.png"),
-            Scale = 0.2,
-            TranslationY = -310, //Further negative is a higher image
-            TranslationX = -170,
-
-        };
-
-
-
-
-
+       
 
 
 
@@ -156,21 +71,21 @@ namespace BooksForAll
 
         public Reccomendation()
         {
-            arrowimage.Opacity = 0;
+          //  arrowimage.Opacity = 0;
 
             carouselView.ItemsSource = bookcovers;
 
             
 
             if (moreinfo) {
-                ReadMore.Clicked += OnButtonClicked;
+              //  ReadMore.Clicked += OnButtonClicked;
                 moreinfo = false;
             }
 
             if (clickhome)
             {
 
-                homeicon.Clicked += BacktoHome;
+              //  homeicon.Clicked += BacktoHome;
                 clickhome = false;
             }
 
@@ -203,6 +118,7 @@ namespace BooksForAll
 
             bookcovers.CollectionChanged += booksretrieved;
 
+            /*
 
             age.ItemsSource = agetypes;
 
@@ -248,6 +164,7 @@ namespace BooksForAll
                 checkiffilled();
             };
 
+            */
 
             carouselView.ItemSwiped += (sender, args) =>
             {
@@ -266,8 +183,8 @@ namespace BooksForAll
                 if (bookcovers.Count > 0)
                 {
                     disappearingbook = (BookCover)carouselView.SelectedItem;
-                    BookTitle.Text = disappearingbook.thisbook.booktitle;
-                    AuthorName.Text = disappearingbook.thisbook.authorname;
+                   // BookTitle.Text = disappearingbook.thisbook.booktitle;
+                   // AuthorName.Text = disappearingbook.thisbook.authorname;
                 }
 
             };
@@ -289,16 +206,8 @@ namespace BooksForAll
                 
                 Children = {
                    
-                    race,
-                    age,
-                    gender,
                     carouselView,
-                  //  homeicon,
-                   // arrowimage,
-                    generatebooks,
-                   // BookTitle,
-                   // AuthorName,
-                   ReadMore,
+                  
                     }
                 
             };
@@ -310,15 +219,16 @@ namespace BooksForAll
 
         public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
         {
-            generatebooks.Text = " ";
+           // generatebooks.Text = " ";
             if (firstbook)
             {
-                BookTitle.Text = bookcovers[0].thisbook.booktitle;
-                AuthorName.Text = bookcovers[0].thisbook.authorname;
+               // BookTitle.Text = bookcovers[0].thisbook.booktitle;
+               // AuthorName.Text = bookcovers[0].thisbook.authorname;
                 carouselView.SelectedItem = bookcovers[0];
                 swipedindex = 1;
                 firstbook = false;
-                arrowimage.IsEnabled = true;
+                // arrowimage.IsEnabled = true;
+                //  ReadMore.IsVisible = true;
                 FadeOutArrow();
             }
 
@@ -363,11 +273,11 @@ namespace BooksForAll
             {
                 if (bookcovers.Count == 0)
                 {
-                    generatebooks.Text = "Grabbing books...";
+                    //generatebooks.Text = "Grabbing books...";
                 }
                 else
                 {
-                    generatebooks.Text = "";
+                  //  generatebooks.Text = "";
                 }
 
                 if (bookcovers.Count > 0)
@@ -382,7 +292,7 @@ namespace BooksForAll
 
 
 
-                ReadMore.IsVisible = true;
+             
 
 
             }
@@ -390,9 +300,9 @@ namespace BooksForAll
         public static async void FadeOutArrow()
         {
 
-            arrowimage.Opacity = 1;
-            await arrowimage.TranslateTo(-100, 58, 1500);
-            await arrowimage.FadeTo(0, 1000);
+           // arrowimage.Opacity = 1;
+            //await arrowimage.TranslateTo(-100, 58, 1500);
+            //await arrowimage.FadeTo(0, 1000);
 
 
         }
