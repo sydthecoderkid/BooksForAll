@@ -93,7 +93,7 @@ namespace BooksForAll
             HorizontalOptions = LayoutOptions.StartAndExpand,
             Aspect = Aspect.AspectFit,
             
-             Margin = new Thickness(-100, -500, 0, 0), //Further negative in y to raise up image
+             Margin = new Thickness(-100, -100, 0, 0), //Further negative in y to raise up image
         };
 
 
@@ -112,9 +112,8 @@ namespace BooksForAll
             Text = "Fill in the tags to generate books!",
             VerticalOptions = LayoutOptions.End,
             HorizontalOptions = LayoutOptions.StartAndExpand,
-        
-            FontSize = 24,
-            Margin = 160,
+            FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
+            Margin = new Thickness(80, 160, 0, 0),
             TextColor = Color.DarkBlue,
         };
 
@@ -344,7 +343,7 @@ namespace BooksForAll
             {
                 if (bookcovers.Count == 0)
                 {
-                    generatebooks.FontSize = 23;
+                    Device.GetNamedSize(NamedSize.Title, typeof(Label));
                    generatebooks.Text = "Grabbing books...";
                 }
                 else
