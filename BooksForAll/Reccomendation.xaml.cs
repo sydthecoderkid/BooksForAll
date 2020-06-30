@@ -56,6 +56,7 @@ namespace BooksForAll
             VerticalOptions = LayoutOptions.Start,
              
             Margin = 40,
+            WidthRequest = 25,
 
         };
 
@@ -69,6 +70,7 @@ namespace BooksForAll
              VerticalOptions = LayoutOptions.Start,
              
             Margin = 40,
+            WidthRequest = 25,
 
         };
 
@@ -81,7 +83,18 @@ namespace BooksForAll
             TextColor = textcolor,
             VerticalOptions = LayoutOptions.Start,
              Margin = 40,
+             WidthRequest = 25,
         };
+
+        public static ImageButton homeicon = new ImageButton
+        {
+            Source = ImageSource.FromFile("House"),
+            Scale = 0.1,
+            VerticalOptions = LayoutOptions.Start,
+            HorizontalOptions = LayoutOptions.StartAndExpand,
+             Margin = new Thickness(-40, -10, 0, 0), //Further negative in y to raise up image
+        };
+
 
 
         public static CarouselView carouselView = new CarouselView
@@ -97,9 +110,9 @@ namespace BooksForAll
         {
             Text = "Fill in the tags to generate books!",
             VerticalOptions = LayoutOptions.End,
-            HorizontalOptions = LayoutOptions.Center,
+            HorizontalOptions = LayoutOptions.StartAndExpand,
             FontSize = 25,
-            Margin = 90,
+            Margin = 130,
             TextColor = Color.DarkBlue,
         };
 
@@ -254,16 +267,16 @@ namespace BooksForAll
                 Orientation = StackOrientation.Vertical,
 
                 Margin = new Thickness(0),
-                Spacing = -45,
+                Spacing = -60, //Go positively to increase spacing
                 
                 Children = {
+                  homeicon,
 
                     age,
                     race,
                     gender,
                     generatebooks,
                     carouselView,
-                     
                     }
                 
             };
