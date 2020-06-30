@@ -16,7 +16,15 @@ namespace BooksForAll
 
         public MainPage()
         {
-           
+          if(GetDeviceSize.IsASmallDevice())
+            {
+                Console.WriteLine("Small device");
+            }
+
+            else
+            {
+                Console.WriteLine("Large device");
+            }
             Button Explore = new Button
             {
 
