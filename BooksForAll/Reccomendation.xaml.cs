@@ -113,7 +113,7 @@ namespace BooksForAll
             VerticalOptions = LayoutOptions.End,
             HorizontalOptions = LayoutOptions.StartAndExpand,
             FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
-            Margin = new Thickness(80, 160, 0, 0),
+            Margin = new Thickness(100, 160, 0, 0),
             TextColor = Color.DarkBlue,
         };
 
