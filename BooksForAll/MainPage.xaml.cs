@@ -16,15 +16,11 @@ namespace BooksForAll
 
         public MainPage()
         {
-          if(GetDeviceSize.IsASmallDevice())
+            if (GetDeviceSize.IsLarge())
             {
-                Console.WriteLine("Small device");
+                Reccomendation.prodevice = true;
             }
-
-            else
-            {
-                Console.WriteLine("Large device");
-            }
+            
             Button Explore = new Button
             {
 

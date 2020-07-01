@@ -23,6 +23,7 @@ namespace BooksForAll
         private int bookswiped = 0;
         private int maxbooks = 2;
 
+        public static bool prodevice = false;
         public static bool moreinfo = true;
 
         public static bool clickhome = true;
@@ -88,12 +89,12 @@ namespace BooksForAll
         public static ImageButton homeicon = new ImageButton
         {
             Source = ImageSource.FromFile("House"),
-            Scale = 0.1,
+            Scale = 0.13,
             VerticalOptions = LayoutOptions.Start,
             HorizontalOptions = LayoutOptions.StartAndExpand,
             Aspect = Aspect.AspectFit,
             
-             Margin = new Thickness(-100, -100, 0, 0), //Further negative in y to raise up image
+             Margin = new Thickness(-100, -280, 0, 0), //Further negative in y to raise up image || Further positive in x to move image lect
         };
 
 
@@ -139,7 +140,11 @@ namespace BooksForAll
 
             carouselView.ItemsSource = bookcovers;
 
-            
+            if (prodevice)
+            {
+                homeicon.Scale = .2;
+                homeicon.Margin = new Thickness(-70, -230, 0, 0);
+            }
 
             if (moreinfo) {
               //  ReadMore.Clicked += OnButtonClicked;
