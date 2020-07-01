@@ -154,7 +154,7 @@ namespace BooksForAll
             if (clickhome)
             {
 
-              //  homeicon.Clicked += BacktoHome;
+               homeicon.Clicked += BacktoHome;
                 clickhome = false;
             }
 
