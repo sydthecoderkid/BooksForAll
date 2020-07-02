@@ -118,6 +118,16 @@ namespace BooksForAll
             TextColor = Color.DarkBlue,
         };
 
+        public static Label BookTitle = new Label
+        {
+            Text = "Book Title",
+            VerticalOptions = LayoutOptions.End,
+            HorizontalOptions = LayoutOptions.StartAndExpand,
+            FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
+            Margin = new Thickness(115, 635, 0, 0), //Go further positive for Y increase
+            TextColor = Color.DarkBlue,
+        };
+
 
 
 
@@ -281,7 +291,7 @@ namespace BooksForAll
                     gender,
                     generatebooks,
                     homeicon,
-
+                    BookTitle,
                     carouselView,
                     }
                 
@@ -363,14 +373,7 @@ namespace BooksForAll
                 }
 
                 
-                QueryDatabase.calldatabase();
-
-
-
-
-             
-
-
+                QueryDatabase.calldatabase(); //If all of the pickers are filled, call the database.
             }
         }
         public static async void FadeOutArrow()
