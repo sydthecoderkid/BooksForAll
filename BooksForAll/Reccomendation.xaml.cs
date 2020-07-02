@@ -124,7 +124,17 @@ namespace BooksForAll
             VerticalOptions = LayoutOptions.End,
             HorizontalOptions = LayoutOptions.StartAndExpand,
             FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
-            Margin = new Thickness(115, 635, 0, 0), //Go further positive for Y increase
+            Margin = new Thickness(130, 525, 0, 0), //Go further negative for Y increase
+            TextColor = Color.DarkBlue,
+        };
+
+        public static Label AuthorName = new Label
+        {
+            Text = "Author Name",
+            VerticalOptions = LayoutOptions.End,
+            HorizontalOptions = LayoutOptions.StartAndExpand,
+            FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
+            Margin = new Thickness(110, 200, 0, 0), //Go further negative for Y increase
             TextColor = Color.DarkBlue,
         };
 
@@ -154,6 +164,13 @@ namespace BooksForAll
             {
                 homeicon.Scale = .2;
                 homeicon.Margin = new Thickness(-70, -230, 0, 0);
+               //Go further negative for Y increase
+            }
+
+            else if (!prodevice)
+            {
+                BookTitle.Margin = new Thickness(130, 480, 0, 0);
+                AuthorName.Margin = new Thickness(110, 180, 0, 0);
             }
 
             if (moreinfo) {
@@ -262,8 +279,8 @@ namespace BooksForAll
                 if (bookcovers.Count > 0)
                 {
                     disappearingbook = (BookCover)carouselView.SelectedItem;
-                   // BookTitle.Text = disappearingbook.thisbook.booktitle;
-                   // AuthorName.Text = disappearingbook.thisbook.authorname;
+                    BookTitle.Text = disappearingbook.thisbook.booktitle;
+                    AuthorName.Text = disappearingbook.thisbook.authorname;
                 }
 
             };
@@ -292,6 +309,7 @@ namespace BooksForAll
                     generatebooks,
                     homeicon,
                     BookTitle,
+                    AuthorName,
                     carouselView,
                     }
                 
@@ -307,7 +325,7 @@ namespace BooksForAll
             generatebooks.Text = " ";
             if (firstbook)
             {
-               // BookTitle.Text = bookcovers[0].thisbook.booktitle;
+                BookTitle.Text = bookcovers[0].thisbook.booktitle;
                // AuthorName.Text = bookcovers[0].thisbook.authorname;
                 carouselView.SelectedItem = bookcovers[0];
                 swipedindex = 1;
