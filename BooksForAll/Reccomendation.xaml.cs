@@ -89,22 +89,21 @@ namespace BooksForAll
         public static ImageButton homeicon = new ImageButton
         {
             Source = ImageSource.FromFile("House"),
-            Scale = 0.13,
+            Scale = 0.15,
             VerticalOptions = LayoutOptions.Start,
             HorizontalOptions = LayoutOptions.StartAndExpand,
             Aspect = Aspect.AspectFit,
             
-             Margin = new Thickness(-100, -260, 0, 0), //Further negative in y to raise up image || Further positive in x to move image lect
+             Margin = new Thickness(-80, -180, 0, 0), //Further negative in y to raise up image || Further positive in x to move image lect
         };
 
 
 
         public static CarouselView carouselView = new CarouselView
         {
-           Margin = new Thickness(50, 60, 0, 0),
+           Margin = new Thickness(50, -60, 0, 0),
             VerticalOptions = LayoutOptions.Center,
-            
-            Scale = 4.5,
+            Scale = 3.5,
         };
 
 
@@ -124,7 +123,7 @@ namespace BooksForAll
             VerticalOptions = LayoutOptions.End,
             HorizontalOptions = LayoutOptions.StartAndExpand,
             FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
-            Margin = new Thickness(130, 525, 0, 0), //Go further negative for Y increase
+            Margin = new Thickness(120, 525, 0, 0), //Go further negative for Y increase
             TextColor = Color.DarkBlue,
         };
 
@@ -134,7 +133,7 @@ namespace BooksForAll
             VerticalOptions = LayoutOptions.End,
             HorizontalOptions = LayoutOptions.StartAndExpand,
             FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
-            Margin = new Thickness(110, 200, 0, 0), //Go further negative for Y increase
+            Margin = new Thickness(115, 200, 0, 0), //Go further negative for Y increase
             TextColor = Color.DarkBlue,
         };
 
@@ -163,14 +162,20 @@ namespace BooksForAll
             if (prodevice)
             {
                 homeicon.Scale = .2;
-                homeicon.Margin = new Thickness(-70, -230, 0, 0);
-               //Go further negative for Y increase
+                homeicon.Margin = new Thickness(-70, -200, 0, 0);
+               
+                //Go further negative for Y increase
             }
 
             else if (!prodevice)
             {
-                BookTitle.Margin = new Thickness(130, 480, 0, 0);
-                AuthorName.Margin = new Thickness(110, 180, 0, 0);
+
+                BookTitle.Margin = new Thickness(75, 545, 0, 0);
+                AuthorName.Margin = new Thickness(75, 190, 0, 0);
+                carouselView.Margin  = new Thickness(20, -100, 0, 0);
+
+                carouselView.Scale = 3.25;
+
             }
 
             if (moreinfo) {
@@ -326,7 +331,7 @@ namespace BooksForAll
             if (firstbook)
             {
                 BookTitle.Text = bookcovers[0].thisbook.booktitle;
-               // AuthorName.Text = bookcovers[0].thisbook.authorname;
+                AuthorName.Text = bookcovers[0].thisbook.authorname;
                 carouselView.SelectedItem = bookcovers[0];
                 swipedindex = 1;
                 firstbook = false;
