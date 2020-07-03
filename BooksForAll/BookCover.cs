@@ -21,7 +21,7 @@ namespace BooksForAll
             BorderColor = Color.LightGray;
             CornerRadius = 3;
             HeightRequest = 20;
-            WidthRequest = 2;
+            WidthRequest = 1;
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
             HasShadow = true;

@@ -94,17 +94,17 @@ namespace BooksForAll
             HorizontalOptions = LayoutOptions.StartAndExpand,
             Aspect = Aspect.AspectFit,
             
-             Margin = new Thickness(-100, -280, 0, 0), //Further negative in y to raise up image || Further positive in x to move image lect
+             Margin = new Thickness(-100, -260, 0, 0), //Further negative in y to raise up image || Further positive in x to move image lect
         };
 
 
 
         public static CarouselView carouselView = new CarouselView
         {
-           Margin = new Thickness(80, 40, 0, 0),
+           Margin = new Thickness(50, 60, 0, 0),
             VerticalOptions = LayoutOptions.Center,
             
-            Scale = 3,
+            Scale = 4.5,
         };
 
 
