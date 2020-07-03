@@ -20,8 +20,8 @@ namespace BooksForAll
             this.thisbook = thisbook;
             BorderColor = Color.LightGray;
             CornerRadius = 3;
-            HeightRequest = 65;
-            WidthRequest = 20;
+            HeightRequest = 20;
+            WidthRequest = 2;
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
             HasShadow = true;
