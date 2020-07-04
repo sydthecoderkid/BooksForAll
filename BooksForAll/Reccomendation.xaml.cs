@@ -134,8 +134,9 @@ namespace BooksForAll
             HorizontalOptions = LayoutOptions.StartAndExpand,
             FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
             Margin = new Thickness(115, 200, 0, 0), //Go further negative for Y increase
-            TextColor = Color.DarkBlue,
+            TextColor = Color.DarkSeaGreen,
         };
+
 
 
 
@@ -170,9 +171,9 @@ namespace BooksForAll
             else if (!prodevice)
             {
 
-                BookTitle.Margin = new Thickness(75, 545, 0, 0);
-                AuthorName.Margin = new Thickness(75, 190, 0, 0);
-                carouselView.Margin  = new Thickness(20, -100, 0, 0);
+                BookTitle.Margin = new Thickness(110, 350, 0, 0);
+                AuthorName.Margin = new Thickness(105, 170, 0, 0);
+                carouselView.Margin  = new Thickness(20, -80, 0, 0);
 
                 carouselView.Scale = 3.25;
 
