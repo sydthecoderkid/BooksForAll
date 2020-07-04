@@ -101,7 +101,7 @@ namespace BooksForAll
 
         public static CarouselView carouselView = new CarouselView
         {
-           Margin = new Thickness(50, -60, 0, 0),
+           Margin = new Thickness(-20, -140, 0, 0),
             VerticalOptions = LayoutOptions.Center,
             Scale = 3.5,
         };
@@ -123,7 +123,7 @@ namespace BooksForAll
             VerticalOptions = LayoutOptions.End,
             HorizontalOptions = LayoutOptions.StartAndExpand,
             FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
-            Margin = new Thickness(120, 525, 0, 0), //Go further negative for Y increase
+            Margin = new Thickness(115, 525, 0, 0), //Go further negative for Y increase
             TextColor = Color.DarkBlue,
         };
 
