@@ -1,8 +1,11 @@
 ﻿using System;
 using Xamarin.Essentials;
 
+
+
 namespace BooksForAll
 {
+    
     public class GetDeviceSize
     {
 
@@ -11,10 +14,19 @@ namespace BooksForAll
 
         public static bool IsLarge()
         {
-            string device = DeviceInfo.Name;
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
 
-            
-            return device.Contains("Pro") || device.Contains("Plus");
+            var width = mainDisplayInfo.Width;
+
+            var height = mainDisplayInfo.Height;
+
+            if(width >= 1080 && height >= 1920)
+            {
+                return true;
+            }
+
+
+            return false;
            
         }
     }
