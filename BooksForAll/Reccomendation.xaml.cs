@@ -45,7 +45,7 @@ namespace BooksForAll
 
         public static bool assignedlists = false;
 
-         
+        public static string booktitle;
 
 
       
@@ -138,6 +138,21 @@ namespace BooksForAll
         };
 
 
+        public static Button ReadMore = new Button
+        {
+
+            Margin = new Thickness(60, 400, 60, 20),
+            Text = "Read More",
+            Font = Font.SystemFontOfSize(NamedSize.Title),
+            HorizontalOptions = LayoutOptions.Center,
+            BackgroundColor = Color.LightBlue,
+            TextColor = Color.Black,
+            IsVisible = false,
+            Scale = .6,
+
+        };
+
+
 
 
 
@@ -180,7 +195,7 @@ namespace BooksForAll
             }
 
             if (moreinfo) {
-              //  ReadMore.Clicked += OnButtonClicked;
+                ReadMore.Clicked += OnButtonClicked;
                 moreinfo = false;
             }
 
@@ -214,7 +229,7 @@ namespace BooksForAll
 
             }
 
-
+ 
 
           
 
@@ -284,8 +299,10 @@ namespace BooksForAll
             {
                 if (bookcovers.Count > 0)
                 {
+
                     disappearingbook = (BookCover)carouselView.SelectedItem;
-                    BookTitle.Text = disappearingbook.thisbook.booktitle;
+                    booktitle = disappearingbook.thisbook.booktitle;
+                    BookTitle.Text = booktitle;
                     AuthorName.Text = disappearingbook.thisbook.authorname;
                 }
 
@@ -317,14 +334,20 @@ namespace BooksForAll
                     BookTitle,
                     AuthorName,
                     carouselView,
+                    ReadMore,
+
+
                     }
-                
+
             };
 
 
         }
 
-
+        private static void GetTitleSize()
+        {
+             
+        }
 
         public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -336,8 +359,9 @@ namespace BooksForAll
                 carouselView.SelectedItem = bookcovers[0];
                 swipedindex = 1;
                 firstbook = false;
+                ReadMore.IsVisible = true;
+                GetTitleSize();
                 // arrowimage.IsEnabled = true;
-                //  ReadMore.IsVisible = true;
                 FadeOutArrow();
             }
 
