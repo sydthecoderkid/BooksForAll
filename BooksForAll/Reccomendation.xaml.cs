@@ -94,7 +94,7 @@ namespace BooksForAll
             HorizontalOptions = LayoutOptions.StartAndExpand,
             Aspect = Aspect.AspectFit,
             
-             Margin = new Thickness(-90, -220, 0, 0), //Further negative in y to raise up image || Further positive in x to move image lect
+             Margin = new Thickness(-110, -245, 0, 0), //Further negative in y to raise up image || Further positive in x to move image lect
         };
 
 
@@ -161,8 +161,8 @@ namespace BooksForAll
             VerticalOptions = LayoutOptions.Start,
             HorizontalOptions = LayoutOptions.StartAndExpand,
             Aspect = Aspect.AspectFit,
-            IsEnabled = false,
-            Margin = new Thickness(0, 50, 0, 0), //Further negative in y to raise up image || Further positive in x to move image left
+            IsVisible = false,
+            Margin = new Thickness(55, -250, 0, 0), //Further negative in y to raise up image || Further positive in x to move image left
         };
 
 
@@ -190,7 +190,7 @@ namespace BooksForAll
             {
                 homeicon.Scale = .2;
                 homeicon.Margin = new Thickness(-70, -200, 0, 0);
-               
+                //arrowimage.Scale = 1;
                 //Go further negative for Y increase
             }
 
@@ -199,11 +199,11 @@ namespace BooksForAll
 
                 BookTitle.Margin = new Thickness(110, 380, 0, 0);
                 AuthorName.Margin = new Thickness(105, 190, 0, 0);
-                carouselView.Margin  = new Thickness(20, -95, 0, 0);
+                carouselView.Margin  = new Thickness(20, -70, 0, 0);
 
                 carouselView.Scale = 3.25;
 
-                ReadMore.Scale = .8;
+                
 
             }
 
@@ -365,16 +365,25 @@ namespace BooksForAll
 
         private static void GetTitleSize()
         {
-           
+
             if (booktitle.Length >= 25 && !prodevice)
             {
-                 
-                carouselView.Margin = new Thickness(-20, -120, 0, 0);
 
+                carouselView.Margin = new Thickness(-20, -100, 0, 0);
+                ReadMore.Margin = new Thickness(60, 400, 60, 20);
             }
+
+            else if (booktitle.Length >= 25 && prodevice)
+            {
+
+                carouselView.Margin = new Thickness(20, -135, 0, 0);
+                ReadMore.Margin = new Thickness(60, 425, 60, 20);
+            }
+
             else
             {
-                carouselView.Margin = new Thickness(-20, -100, 0, 0);
+                carouselView.Margin = new Thickness(-20, -70, 0, 0);
+                ReadMore.Margin = new Thickness(60, 400, 60, 20);
             }
              
             
@@ -393,7 +402,7 @@ namespace BooksForAll
                 firstbook = false;
                 ReadMore.IsVisible = true;
                 GetTitleSize();
-                // arrowimage.IsEnabled = true;
+                arrowimage.IsVisible = true;
                 FadeOutArrow();
             }
 
@@ -459,9 +468,9 @@ namespace BooksForAll
         public static async void FadeOutArrow()
         {
 
-           // arrowimage.Opacity = 1;
-            //await arrowimage.TranslateTo(-100, 58, 1500);
-            //await arrowimage.FadeTo(0, 1000);
+            arrowimage.Opacity = 1;
+            await arrowimage.TranslateTo(-100, arrowimage.Y, 1300);
+            await arrowimage.FadeTo(0, 1000);
 
 
         }
