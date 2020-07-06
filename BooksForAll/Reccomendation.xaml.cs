@@ -484,9 +484,16 @@ namespace BooksForAll
         }
 
         async void BacktoHome(object sender, EventArgs args)
-
+            
         {
                await Navigation.PushModalAsync(new MainPage());
+            bookcovers.Clear();
+            racepreference = null;
+            agepreference = null;
+            genderpreference = null;
+            ReadMore.IsVisible = false;
+            BookTitle.Text = "Book Title";
+            AuthorName.Text = "Author Name";
             return;
             
 
