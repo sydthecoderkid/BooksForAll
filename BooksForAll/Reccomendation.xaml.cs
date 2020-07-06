@@ -148,11 +148,22 @@ namespace BooksForAll
             BackgroundColor = Color.LightBlue,
             TextColor = Color.Black,
             IsVisible = false,
-            Scale = .6,
+             
 
         };
 
 
+
+        public static Image arrowimage = new Image
+        {
+            Source = ImageSource.FromFile("Arrow.png"),
+            Scale = 0.2,
+            VerticalOptions = LayoutOptions.Start,
+            HorizontalOptions = LayoutOptions.StartAndExpand,
+            Aspect = Aspect.AspectFit,
+            IsEnabled = false,
+            Margin = new Thickness(0, 50, 0, 0), //Further negative in y to raise up image || Further positive in x to move image left
+        };
 
 
 
@@ -191,6 +202,8 @@ namespace BooksForAll
                 carouselView.Margin  = new Thickness(20, -95, 0, 0);
 
                 carouselView.Scale = 3.25;
+
+                ReadMore.Scale = .8;
 
             }
 
@@ -302,6 +315,10 @@ namespace BooksForAll
 
                     disappearingbook = (BookCover)carouselView.SelectedItem;
                     booktitle = disappearingbook.thisbook.booktitle;
+                    if(booktitle.Length >= 5)
+                    {
+                       GetTitleSize();
+                    }
                     BookTitle.Text = booktitle;
                     AuthorName.Text = disappearingbook.thisbook.authorname;
                 }
@@ -329,12 +346,14 @@ namespace BooksForAll
                     age,
                     race,
                     gender,
+
                     generatebooks,
                     homeicon,
                     BookTitle,
                     AuthorName,
                     carouselView,
                     ReadMore,
+                      arrowimage,
 
 
                     }
@@ -346,7 +365,20 @@ namespace BooksForAll
 
         private static void GetTitleSize()
         {
+           
+            if (booktitle.Length >= 25 && !prodevice)
+            {
+                 
+                carouselView.Margin = new Thickness(-20, -120, 0, 0);
+
+            }
+            else
+            {
+                carouselView.Margin = new Thickness(-20, -100, 0, 0);
+            }
              
+            
+
         }
 
         public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
