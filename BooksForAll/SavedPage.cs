@@ -81,7 +81,10 @@ namespace BooksForAll
             
             backarrow.Clicked += backarrow_Clicked;
 
-
+            if (!Reccomendation.prodevice)
+            {
+                savedbookimages.Scale = 0.8;
+            }
 
             Content = new StackLayout
             {

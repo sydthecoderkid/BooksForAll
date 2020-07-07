@@ -10,20 +10,32 @@ namespace BooksForAll
 
         public CheckBox savebox = new CheckBox
         {
-            TranslationY = 40,
-            TranslationX = 90,
+            Scale = 1.5,
+            Margin = new Thickness(200, 90, 0, 0), //Further positive on the x to move right
         };
 
         public Label savelabel = new Label
         {
-            TranslationY = 10,
-            TranslationX = 70,
+            Margin = new Thickness(75, 0, 0, 0),//Go further negative for Y increase
+            Font = Font.SystemFontOfSize(NamedSize.Title),
+            FontAttributes = FontAttributes.Bold,
+            TextColor = Color.DarkBlue,
             Text = "Save Book",
         };
+
+       public Image bookimage = new Image
+        {
+           
+            Scale = 3.8,
+            TranslationY = -10,
+        };
+
 
         public BookInfo(BookCover bookcover)
         {
             string summary = bookcover.thisbook.summary;
+
+            bookimage.Source = bookcover.imagesource;
 
             string booktextone = "";
 
@@ -35,13 +47,16 @@ namespace BooksForAll
 
              int textheight = summary.Length;
 
-
+            if (!Reccomendation.prodevice)
+            {
+                bookimage.Scale = 2.7;
+            }
 
             this.bookcover = bookcover;
         int summaryheight = 140;
-
             if (summary.Length >= 1200)
             {
+                
                 int currentindex = 0;
                 int maxlength = (summary.Length);
                 booktextone = summary.Substring(0, (maxlength / 4));
@@ -59,6 +74,8 @@ namespace BooksForAll
                 
 
             }
+
+             
 
             else
             {
@@ -80,13 +97,6 @@ namespace BooksForAll
 
             };
 
-
-            Image bookimage = new Image
-            {
-                Source = bookcover.imagesource,
-                Scale = 3.8,
-                TranslationY = -10,
-            };
 
             
             ImageButton backbutton = new ImageButton
@@ -120,7 +130,6 @@ namespace BooksForAll
             if (SavedPage.savedBooks.Contains(bookcover))
             {
                 savebox.IsChecked = true;
-                Console.WriteLine("Already checked");
                 savelabel.Text = "Saved";
                 savelabel.TextColor = Color.Gray;
             }
@@ -156,7 +165,7 @@ namespace BooksForAll
                 Children = {
 
                     scrollView,
-
+                  
                 }
 
             };
@@ -192,11 +201,11 @@ namespace BooksForAll
 
              if (textheight >= 1200){
 
-                textheight = 1700;
+                textheight = 1750;
             }
             else
             {
-                textheight = 1000;
+                textheight = 1150;
             }
 
 
@@ -221,11 +230,6 @@ namespace BooksForAll
                 savelabel.TextColor = Color.Black;
                 SavedPage.savedBooks.Remove(bookcover);
             }
-
-
-
-            
-            return;
 
         }
 

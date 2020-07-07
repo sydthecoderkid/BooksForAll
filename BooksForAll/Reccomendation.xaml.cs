@@ -182,15 +182,32 @@ namespace BooksForAll
 
         public Reccomendation()
         {
-          //  arrowimage.Opacity = 0;
+             
+           if(agepreference != null)
+            {
+                 age.SelectedItem = agepreference;
+                
+            }
 
+           if(racepreference != null)
+            {
+                race.SelectedItem = racepreference;     //Checks on load if the pickers have been reset
+            }
+
+           if(genderpreference != null)
+            {
+                gender.SelectedItem = genderpreference;
+            }
             carouselView.ItemsSource = bookcovers;
 
+
+
+
+            
             if (prodevice)
             {
                 homeicon.Scale = .2;
                 homeicon.Margin = new Thickness(-70, -200, 0, 0);
-                //arrowimage.Scale = 1;
                 //Go further negative for Y increase
             }
 
