@@ -12,7 +12,7 @@ namespace BooksForAll
         {
             Scale = 1.5,
             
-            Margin = new Thickness(255, -44, 0, 0), //Further positive on the x to move right
+            Margin = new Thickness(255, -45, 0, 0), //Further positive on the x to move right
         };
 
         public Label savelabel = new Label
@@ -28,8 +28,9 @@ namespace BooksForAll
         {
            
             Scale = 3.9,
-            TranslationY = -10,
-        };
+            HorizontalOptions = LayoutOptions.Center,
+           Margin = new Thickness(0, 200, 0, 0),
+       };
 
 
         public BookInfo(BookCover bookcover)
@@ -54,7 +55,7 @@ namespace BooksForAll
             }
 
             this.bookcover = bookcover;
-        int summaryheight = 50;
+        int summaryheight = 400;
             if (summary.Length >= 1000)
             {
 
@@ -104,8 +105,7 @@ namespace BooksForAll
             {
                 Source = ImageSource.FromFile("FlippedArrow.png"),
                 Scale = 0.3,
-                TranslationY = 0,
-                TranslationX =-120,
+                Margin = new Thickness(-200, -300, 0, 0),
             };
 
             backbutton.Clicked += BackToReccomended;
@@ -113,8 +113,9 @@ namespace BooksForAll
             {
 
                 Text = "Synopsis",
-                Margin = new Thickness(0, -300, 0, 0),
+                Margin = new Thickness(0, 1300, 0, 0),
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.Start,
                 FontAttributes = FontAttributes.Bold,
                 Font = Font.SystemFontOfSize(NamedSize.Title),
                 
