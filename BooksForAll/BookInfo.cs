@@ -5,7 +5,7 @@ namespace BooksForAll
 {
     public class BookInfo : ContentPage
     {
-        public BookCover bookcover;
+        public static BookCover bookcover;
         private int timescalled = 0;
 
         public CheckBox savebox = new CheckBox
@@ -33,11 +33,15 @@ namespace BooksForAll
        };
 
 
-        public BookInfo(BookCover bookcover)
+        public BookInfo(BookCover passedbookcover)
         {
+
+            bookcover = passedbookcover;
+
             string summary = bookcover.thisbook.summary;
 
             bookimage.Source = bookcover.imagesource;
+
 
             string booktextone = "";
 
@@ -48,14 +52,25 @@ namespace BooksForAll
             string booktexfour = "";
 
              int textheight = summary.Length;
-
             if (!Reccomendation.prodevice)
             {
                 bookimage.Scale = 2.7;
             }
 
-            this.bookcover = bookcover;
-        int summaryheight = 400;
+            for(int i = 0; i < SavedPage.savedBooks.Count; i++)
+            {
+                if (SavedPage.savedBooks[i].thisbook.booktitle.Equals(bookcover.thisbook.booktitle)){
+                    bookcover = SavedPage.savedBooks[i];
+                }
+            }
+            if (SavedPage.savedBooks.Contains(bookcover)) {
+                savelabel.Text = "Saved";
+                savelabel.TextColor = Color.Gray;
+                savebox.IsChecked = true;
+            }
+
+
+        int summaryheight = 50;
             if (summary.Length >= 1000)
             {
 
@@ -105,7 +120,7 @@ namespace BooksForAll
             {
                 Source = ImageSource.FromFile("FlippedArrow.png"),
                 Scale = 0.3,
-                Margin = new Thickness(-200, -300, 0, 0),
+                Margin = new Thickness(-250, -300, 0, 0),
             };
 
             backbutton.Clicked += BackToReccomended;
@@ -113,9 +128,8 @@ namespace BooksForAll
             {
 
                 Text = "Synopsis",
-                Margin = new Thickness(0, 1300, 0, 0),
+                Margin = new Thickness(0, 300, 0, 0),
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.Start,
                 FontAttributes = FontAttributes.Bold,
                 Font = Font.SystemFontOfSize(NamedSize.Title),
                 
@@ -123,7 +137,7 @@ namespace BooksForAll
 
             if (Reccomendation.prodevice) {
 
-                Synopsis.Margin = new Thickness(0, -220, 0, 0);
+                Synopsis.Margin = new Thickness(0, -100, 0, 0);
 
             }
 
