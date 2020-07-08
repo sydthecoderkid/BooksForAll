@@ -11,12 +11,12 @@ namespace BooksForAll
         public CheckBox savebox = new CheckBox
         {
             Scale = 1.5,
-            Margin = new Thickness(200, 90, 0, 0), //Further positive on the x to move right
+            Margin = new Thickness(240, 45, 0, 0), //Further positive on the x to move right
         };
 
         public Label savelabel = new Label
         {
-            Margin = new Thickness(75, 0, 0, 0),//Go further negative for Y increase
+            Margin = new Thickness(75, -60, 0, 0),//Go further negative for Y increase
             Font = Font.SystemFontOfSize(NamedSize.Title),
             FontAttributes = FontAttributes.Bold,
             TextColor = Color.DarkBlue,
@@ -26,7 +26,7 @@ namespace BooksForAll
        public Image bookimage = new Image
         {
            
-            Scale = 3.8,
+            Scale = 3.9,
             TranslationY = -10,
         };
 
@@ -53,10 +53,10 @@ namespace BooksForAll
             }
 
             this.bookcover = bookcover;
-        int summaryheight = 140;
-            if (summary.Length >= 1200)
+        int summaryheight = 20;
+            if (summary.Length >= 1100)
             {
-                
+                summaryheight = 0;
                 int currentindex = 0;
                 int maxlength = (summary.Length);
                 booktextone = summary.Substring(0, (maxlength / 4));
@@ -91,10 +91,10 @@ namespace BooksForAll
             {
 
                 Text = summary,
-                TranslationY = 0,
-                FontSize = 18,
-                HorizontalOptions = LayoutOptions.Center,
 
+                Font = Font.SystemFontOfSize(NamedSize.Body),
+                HorizontalOptions = LayoutOptions.Center,
+                Margin = new Thickness(0, -20, 0 , 0),
             };
 
 
@@ -199,13 +199,13 @@ namespace BooksForAll
 
         public static int setheight(int textheight) {
 
-             if (textheight >= 1200){
+             if (textheight >= 1100){
 
-                textheight = 1750;
+                textheight = 1600;
             }
             else
             {
-                textheight = 1150;
+                textheight = 1000;
             }
 
 
