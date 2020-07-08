@@ -32,7 +32,7 @@ namespace BooksForAll
         public static BookCover disappearingbook;
 
 
-        private static bool firstbook = true;
+        private bool firstbook = true;
         public static string racepreference;
 
         public static string agepreference;
@@ -154,7 +154,7 @@ namespace BooksForAll
 
 
 
-        public static Image arrowimage = new Image
+        public Image arrowimage = new Image
         {
             Source = ImageSource.FromFile("Arrow.png"),
             Scale = 0.2,
@@ -407,7 +407,7 @@ namespace BooksForAll
 
         }
 
-        public static void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
+        public void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
         {
             generatebooks.Text = " ";
             if (firstbook)
@@ -482,7 +482,7 @@ namespace BooksForAll
                 QueryDatabase.calldatabase(); //If all of the pickers are filled, call the database.
             }
         }
-        public static async void FadeOutArrow()
+        public async void FadeOutArrow()
         {
 
             arrowimage.Opacity = 1;
@@ -504,6 +504,7 @@ namespace BooksForAll
             
         {
                await Navigation.PushModalAsync(new MainPage());
+            QueryDatabase.booksindexed = 0;
             bookcovers.Clear();
             racepreference = null;
             agepreference = null;
@@ -511,6 +512,7 @@ namespace BooksForAll
             ReadMore.IsVisible = false;
             BookTitle.Text = "Book Title";
             AuthorName.Text = "Author Name";
+            generatebooks.Text = "Fill in the tags to generate books!";
             return;
             
 
