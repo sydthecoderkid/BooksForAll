@@ -11,12 +11,12 @@ namespace BooksForAll
         public CheckBox savebox = new CheckBox
         {
             Scale = 1.5,
-            Margin = new Thickness(255, 85, 0, 0), //Further positive on the x to move right
+            Margin = new Thickness(255, 200, 0, 0), //Further positive on the x to move right
         };
 
         public Label savelabel = new Label
         {
-            Margin = new Thickness(85, -40, 0, 0),//Go further negative for Y increase
+            Margin = new Thickness(85, 230, 0, 0),//Go further negative for Y increase
             Font = Font.SystemFontOfSize(NamedSize.Title),
             FontAttributes = FontAttributes.Bold,
             TextColor = Color.DarkBlue,
@@ -53,9 +53,11 @@ namespace BooksForAll
             }
 
             this.bookcover = bookcover;
-        int summaryheight = 250;
-            if (summary.Length >= 1100)
+        int summaryheight = 50;
+            Console.WriteLine(summary.Length);
+            if (summary.Length >= 1000)
             {
+
                 int currentindex = 0;
                 int maxlength = (summary.Length);
                 booktextone = summary.Substring(0, (maxlength / 4));
@@ -91,7 +93,7 @@ namespace BooksForAll
 
                 Text = summary,
 
-                Font = Font.SystemFontOfSize(NamedSize.Body),
+                Font = Font.SystemFontOfSize(NamedSize.Default),
                 HorizontalOptions = LayoutOptions.Center,
                 Margin = new Thickness(0, -20, 0 , 0),
             };
@@ -198,7 +200,7 @@ namespace BooksForAll
 
         public static int setheight(int textheight) {
 
-             if (textheight >= 1100){
+             if (textheight >= 1000){
 
                 textheight = 1600;
             }

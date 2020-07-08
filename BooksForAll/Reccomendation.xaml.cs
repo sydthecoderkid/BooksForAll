@@ -32,7 +32,7 @@ namespace BooksForAll
         public static BookCover disappearingbook;
 
 
-        private bool firstbook = true;
+        private static bool  firstbook = true;
         public static string racepreference;
 
         public static string agepreference;
@@ -513,6 +513,7 @@ namespace BooksForAll
             BookTitle.Text = "Book Title";
             AuthorName.Text = "Author Name";
             generatebooks.Text = "Fill in the tags to generate books!";
+            firstbook = true;
             return;
             
 
