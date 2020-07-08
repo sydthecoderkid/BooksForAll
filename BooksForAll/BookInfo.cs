@@ -144,8 +144,9 @@ namespace BooksForAll
                     HeightRequest = textheight,
                     Children =
                     {
+                         bookimage,
+
                         backbutton,
-                        bookimage,
                          Synopsis,
                           savelabel,
                          savebox,
