@@ -12,7 +12,7 @@ namespace BooksForAll
         {
             Scale = 1.5,
             
-            Margin = new Thickness(255, -41.7, 0, 0), //Further positive on the x to move right
+            Margin = new Thickness(255, -44, 0, 0), //Further positive on the x to move right
         };
 
         public Label savelabel = new Label
@@ -197,11 +197,11 @@ namespace BooksForAll
 
              if (textheight >= 1000){
 
-                textheight = 1600;
+                textheight = 1600;     //Sets the height of the scrollview based on the height of the actual text
             }
             else
             {
-                textheight = 1000;
+                textheight = 1100;
             }
 
 
