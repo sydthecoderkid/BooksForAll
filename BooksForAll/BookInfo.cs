@@ -120,7 +120,12 @@ namespace BooksForAll
                 
             };
 
-           
+            if (Reccomendation.prodevice) {
+
+                Synopsis.Margin = new Thickness(0, -220, 0, 0);
+
+            }
+
             
 
 
