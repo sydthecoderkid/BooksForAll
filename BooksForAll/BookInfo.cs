@@ -11,15 +11,16 @@ namespace BooksForAll
         public CheckBox savebox = new CheckBox
         {
             Scale = 1.5,
-            Margin = new Thickness(255, 200, 0, 0), //Further positive on the x to move right
+            
+            Margin = new Thickness(255, -41.7, 0, 0), //Further positive on the x to move right
         };
 
         public Label savelabel = new Label
         {
-            Margin = new Thickness(85, 230, 0, 0),//Go further negative for Y increase
+            Margin = new Thickness(90, 400, 0, 0),//Go further negative for Y increase
             Font = Font.SystemFontOfSize(NamedSize.Title),
-            FontAttributes = FontAttributes.Bold,
             TextColor = Color.DarkBlue,
+            FontAttributes = FontAttributes.Bold,
             Text = "Save Book",
         };
 
@@ -54,7 +55,6 @@ namespace BooksForAll
 
             this.bookcover = bookcover;
         int summaryheight = 50;
-            Console.WriteLine(summary.Length);
             if (summary.Length >= 1000)
             {
 
@@ -128,12 +128,7 @@ namespace BooksForAll
             textheight = setheight(textheight);
             savebox.CheckedChanged += OnChecked;
 
-            if (SavedPage.savedBooks.Contains(bookcover))
-            {
-                savebox.IsChecked = true;
-                savelabel.Text = "Saved";
-                savelabel.TextColor = Color.Gray;
-            }
+
 
             ScrollView scrollView = new ScrollView
             {
@@ -147,8 +142,8 @@ namespace BooksForAll
                         backbutton,
                         bookimage,
                          Synopsis,
+                          savelabel,
                          savebox,
-                         savelabel,
                         new Label { Text = booktextone, TranslationY = summaryheight,  Margin = new Thickness (20)},
                         new Label {Text = booktextwo, TranslationY = summaryheight,  Margin = new Thickness (20)},
                         new Label {Text = booktextthree, TranslationY = summaryheight,  Margin = new Thickness (20)},
@@ -228,7 +223,7 @@ namespace BooksForAll
             else if(SavedPage.savedBooks.Contains(bookcover) && !savebox.IsChecked)
             {
                 savelabel.Text = "Save Book";
-                savelabel.TextColor = Color.Black;
+                savelabel.TextColor = Color.DarkBlue;
                 SavedPage.savedBooks.Remove(bookcover);
             }
 
