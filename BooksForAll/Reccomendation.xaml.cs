@@ -33,11 +33,18 @@ namespace BooksForAll
 
 
         private static bool  firstbook = true;
-        public static string racepreference;
+        public static string racepreference = "Race";
 
-        public static string agepreference;
+        public static string agepreference = "Age";
 
-        public static string genderpreference;
+        public static string genderpreference = "Gender";
+
+        public static string racepreferenceUP = "Race";
+
+        public static string agepreferenceUP = "Age";
+
+        public static string genderpreferenceUP = "Gender";
+
 
         public static Color textcolor = Color.DarkBlue;
 
@@ -51,7 +58,7 @@ namespace BooksForAll
       
         private Picker age = new Picker
         {
-            Title = "Age",
+            Title = agepreferenceUP,
             TitleColor = textcolor,
             TextColor = textcolor,
             VerticalOptions = LayoutOptions.Start,
@@ -64,7 +71,7 @@ namespace BooksForAll
 
         public Picker race = new Picker
         {
-            Title = "Race",
+            Title = racepreferenceUP,
             TitleColor = textcolor,
             TextColor = textcolor,
              VerticalOptions = LayoutOptions.Start,
@@ -78,7 +85,7 @@ namespace BooksForAll
 
         private Picker gender = new Picker
         {
-            Title = "Gender",
+            Title = genderpreferenceUP,
             TitleColor = textcolor,
             TextColor = textcolor,
             VerticalOptions = LayoutOptions.Start,
@@ -185,18 +192,18 @@ namespace BooksForAll
              
            if(agepreference != null)
             {
-                 age.SelectedItem = agepreference;
-                
+                 age.SelectedItem = agepreferenceUP;
+                 
             }
 
            if(racepreference != null)
             {
-                race.SelectedItem = racepreference;     //Checks on load if the pickers have been reset
+                race.SelectedItem = racepreferenceUP;     //Checks on load if the pickers have been reset
             }
 
            if(genderpreference != null)
             {
-                gender.SelectedItem = genderpreference;
+                gender.SelectedItem = genderpreferenceUP;
             }
             carouselView.ItemsSource = bookcovers;
 
@@ -279,6 +286,7 @@ namespace BooksForAll
                 QueryDatabase.anyrace = false;
 
                 racepreference = race.Items[race.SelectedIndex];
+                racepreferenceUP = racepreference;
                 racepreference = parsepreference(racepreference);
                 if (racepreference.Equals("Any"))
                 {
@@ -291,6 +299,7 @@ namespace BooksForAll
             {
                 QueryDatabase.anyage = false;
                 agepreference = age.Items[age.SelectedIndex];
+                agepreferenceUP = agepreference;
                 agepreference = parsepreference(agepreference);
                 if (agepreference.Equals("Any"))
                 {
@@ -303,6 +312,7 @@ namespace BooksForAll
             {
                 QueryDatabase.anygender = false;
                 genderpreference = gender.Items[gender.SelectedIndex];
+                genderpreferenceUP = genderpreference;
                 genderpreference = parsepreference(genderpreference);
                 if (genderpreference.Equals("Any"))
                 {
@@ -460,7 +470,7 @@ namespace BooksForAll
 
         void checkiffilled()
         {
-            if (racepreference != null && agepreference != null && genderpreference != null)
+            if (!racepreference.Equals("Race") && !agepreference.Equals("Age") && !genderpreference.Equals("Gender"))
             {
                 if (bookcovers.Count == 0)
                 {
@@ -506,9 +516,9 @@ namespace BooksForAll
                await Navigation.PushModalAsync(new MainPage());
             QueryDatabase.booksindexed = 0;
             bookcovers.Clear();
-            racepreference = null;
-            agepreference = null;
-            genderpreference = null;
+            racepreference = "Race";
+            agepreference = "Age";
+            genderpreference = "Gender";
             ReadMore.IsVisible = false;
             BookTitle.Text = "Book Title";
             AuthorName.Text = "Author Name";

@@ -12,12 +12,12 @@ namespace BooksForAll
         {
             Scale = 1.5,
             
-            Margin = new Thickness(255, -45, 0, 0), //Further positive on the x to move right
+            Margin = new Thickness(255, -43, 0, 0), //Further positive on the x to move right
         };
 
         public Label savelabel = new Label
         {
-            Margin = new Thickness(90, 400, 0, 0),//Go further negative for Y increase
+            Margin = new Thickness(90, 300, 0, 0),//Go further negative for Y increase
             Font = Font.SystemFontOfSize(NamedSize.Title),
             TextColor = Color.DarkBlue,
             FontAttributes = FontAttributes.Bold,
@@ -52,11 +52,7 @@ namespace BooksForAll
             string booktexfour = "";
 
              int textheight = summary.Length;
-            if (!Reccomendation.prodevice)
-            {
-                bookimage.Scale = 2.7;
-            }
-
+         
             for(int i = 0; i < SavedPage.savedBooks.Count; i++)
             {
                 if (SavedPage.savedBooks[i].thisbook.booktitle.Equals(bookcover.thisbook.booktitle)){
@@ -70,7 +66,8 @@ namespace BooksForAll
             }
 
 
-        int summaryheight = 50;
+         
+
             if (summary.Length >= 1000)
             {
 
@@ -119,8 +116,8 @@ namespace BooksForAll
             ImageButton backbutton = new ImageButton
             {
                 Source = ImageSource.FromFile("FlippedArrow.png"),
-                Scale = 0.3,
-                Margin = new Thickness(-250, -300, 0, 0),
+                Scale = .2,
+                Margin = new Thickness(-250, -350, 0, 0),
             };
 
             backbutton.Clicked += BackToReccomended;
@@ -128,20 +125,31 @@ namespace BooksForAll
             {
 
                 Text = "Synopsis",
-                Margin = new Thickness(0, 300, 0, 0),
+                Margin = new Thickness(0, -150, 0, 0),
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 FontAttributes = FontAttributes.Bold,
+                TextColor = Color.Black,
                 Font = Font.SystemFontOfSize(NamedSize.Title),
                 
             };
 
             if (Reccomendation.prodevice) {
 
-                Synopsis.Margin = new Thickness(0, -100, 0, 0);
+                Synopsis.Margin = new Thickness(0, -125, 0, 0);
+                savelabel.Margin = new Thickness(100, 346, 0, 0);
+                savebox.Margin = new Thickness(265, -45, 0, 0);
+                backbutton.Margin = new Thickness(-270, -300, 0, 0);
+                backbutton.Scale = .4;
 
             }
 
-            
+            if (!Reccomendation.prodevice)
+            {
+                bookimage.Scale = 2.7;
+            }
+
+
+
 
 
 
@@ -165,10 +173,10 @@ namespace BooksForAll
                          Synopsis,
                           savelabel,
                          savebox,
-                        new Label { Text = booktextone, TranslationY = summaryheight,  Margin = new Thickness (20)},
-                        new Label {Text = booktextwo, TranslationY = summaryheight,  Margin = new Thickness (20)},
-                        new Label {Text = booktextthree, TranslationY = summaryheight,  Margin = new Thickness (20)},
-                        new Label {Text = booktexfour, TranslationY = summaryheight,  Margin = new Thickness (20)},
+                        new Label { Text = booktextone,  Margin = new Thickness (20, 10, 0 , 0)},
+                        new Label {Text = booktextwo,  Margin = new Thickness (20, 20, 0 , 0)},
+                        new Label {Text = booktextthree,  Margin = new Thickness (20, 30, 0 , 0)},
+                        new Label {Text = booktexfour,  Margin = new Thickness (20, 40, 0 , 0)},
                     }
                 }
                 
