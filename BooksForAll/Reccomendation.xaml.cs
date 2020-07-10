@@ -420,8 +420,9 @@ namespace BooksForAll
         public void booksretrieved(object sender, NotifyCollectionChangedEventArgs e)
         {
             generatebooks.Text = " ";
-            if (firstbook)
+            if (firstbook && bookcovers.Count> 0)
             {
+                
                 BookTitle.Text = bookcovers[0].thisbook.booktitle;
                 AuthorName.Text = bookcovers[0].thisbook.authorname;
                 carouselView.SelectedItem = bookcovers[0];
