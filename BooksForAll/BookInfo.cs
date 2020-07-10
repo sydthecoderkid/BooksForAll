@@ -8,6 +8,8 @@ namespace BooksForAll
         public static BookCover bookcover;
         private int timescalled = 0;
 
+        public static bool fromrec;
+
         public CheckBox savebox = new CheckBox
         {
             Scale = 1.5,
@@ -202,11 +204,16 @@ namespace BooksForAll
         async void BackToReccomended(object sender, EventArgs e)
         {
 
-            if (timescalled == 0)
+
+            if (fromrec)
             {
                 await Navigation.PushModalAsync(new Reccomendation());
-                timescalled += 1;
             }
+            else {
+
+                await Navigation.PushModalAsync(new SavedPage());
+            }
+                
                 
             
         }

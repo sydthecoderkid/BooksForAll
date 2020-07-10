@@ -14,6 +14,8 @@ namespace BooksForAll
         public BookCover disappearingbook;
         public SavedPage()
         {
+            BookInfo.fromrec = false;
+
             Label Saved = new Label
             {
                 Text = "My Books",
@@ -39,40 +41,48 @@ namespace BooksForAll
             {
                  
                 Text = "Book Title",
-                FontSize = 20,
+                FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
                 TextColor = Color.DarkBlue,
+                Margin = new Thickness(125, 100, 0, 0),
             };
 
             Label author = new Label
             {
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center,
-                Text = "Author",
-                FontSize = 20,
-                TextColor = Color.DarkBlue,
+                Margin = new Thickness(125, 20, 0 ,0),
+                 Text = "Author",
+                FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
+                TextColor = Color.DarkSlateBlue,
             };
 
-            if (savedBooks.Count > 0)
-            {
-                NoBooks.Text = "";
-                
-            }
+           
             ImageButton backarrow = new ImageButton
             {
-                TranslationX = -85,
-                TranslationY = -25,
+                
                  Source = ImageSource.FromFile("FlippedArrow.png"),
-                 Scale = 0.3,
+                 Scale = 0.2,
+                Margin = new Thickness(-275, -120, 0, 0),
 
             };
 
             CarouselView savedbookimages = new CarouselView
             {
-               Scale = 3,
-                Margin = new Thickness(80, 40, 0, 0)
+               Scale = 4,
+                Margin = new Thickness(20, 40, 0, 0)
             };
 
-            
+            Button ReadMore = new Button
+            {
+
+                Margin = new Thickness(20, 0, 60, 20),
+                Text = "Read More",
+                Font = Font.SystemFontOfSize(NamedSize.Title),
+                HorizontalOptions = LayoutOptions.Center,
+                BackgroundColor = Color.LightBlue,
+                TextColor = Color.Black,
+            };
+
+            ReadMore.Clicked += OnButtonClicked;
+
 
             savedbookimages.ItemsSource = savedBooks;
 
@@ -83,7 +93,13 @@ namespace BooksForAll
 
             if (!Reccomendation.prodevice)
             {
-                savedbookimages.Scale = 0.8;
+                savedbookimages.Scale = 4;
+            }
+
+            if (savedBooks.Count > 0)
+            {
+                NoBooks.Text = "";
+
             }
 
             Content = new StackLayout
@@ -97,6 +113,7 @@ namespace BooksForAll
                     NoBooks,
                     booktitle,
                     author,
+                    ReadMore,
                 }
             };
 
@@ -118,6 +135,15 @@ namespace BooksForAll
 
         {
             await Navigation.PushModalAsync(new MainPage());
+
+        }
+
+        async void OnButtonClicked(object sender, EventArgs args)
+
+        {
+            await Navigation.PushModalAsync(new BookInfo(disappearingbook));
+
+            return;
 
         }
     }

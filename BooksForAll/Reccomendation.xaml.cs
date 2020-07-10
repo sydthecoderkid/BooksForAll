@@ -189,7 +189,7 @@ namespace BooksForAll
 
         public Reccomendation()
         {
-             
+            BookInfo.fromrec = true;
            if(agepreference != null)
             {
                  age.SelectedItem = agepreferenceUP;
