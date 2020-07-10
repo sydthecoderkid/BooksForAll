@@ -215,6 +215,7 @@ namespace BooksForAll
             {
                 homeicon.Scale = .2;
                 homeicon.Margin = new Thickness(-70, -200, 0, 0);
+                arrowimage.Scale = .4;
                 //Go further negative for Y increase
             }
 
@@ -517,9 +518,12 @@ namespace BooksForAll
                await Navigation.PushModalAsync(new MainPage());
             QueryDatabase.booksindexed = 0;
             bookcovers.Clear();
-            racepreference = "Race";
-            agepreference = "Age";
-            genderpreference = "Gender";
+            racepreferenceUP = "Race";
+            agepreferenceUP = "Age";
+            genderpreferenceUP = "Gender";
+            agepreference = null;
+            racepreference = null;
+            genderpreference = null;
             ReadMore.IsVisible = false;
             BookTitle.Text = "Book Title";
             AuthorName.Text = "Author Name";

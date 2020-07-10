@@ -22,7 +22,6 @@ namespace BooksForAll
 
             if(width >= 1080 && height >= 1920)
             {
-                Console.WriteLine("Pro");
                 return true;
                 
             }

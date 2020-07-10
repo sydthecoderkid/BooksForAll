@@ -79,6 +79,7 @@ namespace BooksForAll
                 HorizontalOptions = LayoutOptions.Center,
                 BackgroundColor = Color.LightBlue,
                 TextColor = Color.Black,
+                IsVisible = false,
             };
 
             ReadMore.Clicked += OnButtonClicked;
@@ -94,12 +95,23 @@ namespace BooksForAll
             if (!Reccomendation.prodevice)
             {
                 savedbookimages.Scale = 4;
+              
+            }
+
+            else if (Reccomendation.prodevice)
+            {
+                ReadMore.Margin = new Thickness(30, 40, 60, 20);
+                savedbookimages.Margin = new Thickness(20, 90, 0, 0);
+                booktitle.Margin = new Thickness(110, 100, 0, 0);
+                author.Margin = new Thickness(105, 20, 0, 0);
+                backarrow.Scale = .4;
+                backarrow.Margin = new Thickness(-275, -105, 0, 0);
             }
 
             if (savedBooks.Count > 0)
             {
                 NoBooks.Text = "";
-
+                ReadMore.IsVisible = true;
             }
 
             Content = new StackLayout
