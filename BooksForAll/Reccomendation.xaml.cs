@@ -33,11 +33,11 @@ namespace BooksForAll
 
 
         private static bool  firstbook = true;
-        public static string racepreference = "Race";
+        public static string racepreference = null;
 
-        public static string agepreference = "Age";
+        public static string agepreference = null;
 
-        public static string genderpreference = "Gender";
+        public static string genderpreference = null;
 
         public static string racepreferenceUP = "Race";
 
@@ -472,7 +472,7 @@ namespace BooksForAll
 
         void checkiffilled()
         {
-            if (!racepreference.Equals("Race") && !agepreference.Equals("Age") && !genderpreference.Equals("Gender"))
+            if (racepreference != null && agepreference != null && genderpreference != null)
             {
                 if (bookcovers.Count == 0)
                 {
