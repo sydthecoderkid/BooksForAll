@@ -16,13 +16,6 @@ namespace BooksForAll
         {
             BookInfo.fromrec = false;
 
-            CarouselView savedbookimages = new CarouselView
-            {
-                Scale = 4,
-                Margin = new Thickness(20, 40, 0, 0)
-            };
-            savedbookimages.ItemsSource = savedBooks;
-
             Label Saved = new Label
             {
                 Text = "My Books",
@@ -71,12 +64,16 @@ namespace BooksForAll
 
             };
 
-           
+            CarouselView savedbookimages = new CarouselView
+            {
+               Scale = 4,
+                Margin = new Thickness(20, 40, 0, 0)
+            };
 
             Button ReadMore = new Button
             {
 
-                Margin = new Thickness(20, 0, 60, 20),
+                Margin = new Thickness(40, 0, 60, 20),
                 Text = "Read More",
                 Font = Font.SystemFontOfSize(NamedSize.Title),
                 HorizontalOptions = LayoutOptions.Center,
@@ -88,7 +85,7 @@ namespace BooksForAll
             ReadMore.Clicked += OnButtonClicked;
 
 
-           
+            savedbookimages.ItemsSource = savedBooks;
 
 
 
