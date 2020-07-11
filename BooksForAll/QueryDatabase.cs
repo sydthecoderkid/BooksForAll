@@ -46,7 +46,13 @@ namespace BooksForAll
                     {
                         if (gender.Equals(Reccomendation.genderpreference) || anygender )
                         {
-                            
+                            for (int j = 0; j < Reccomendation.bookcovers.Count; j++)
+                            {
+                                if (Reccomendation.bookcovers[j].thisbook.booktitle.Equals(books.ElementAt(i).Object.booktitle)){
+                                    return;
+                                }
+
+                            }
                             Book thisbook = new Book();
 
                             thisbook.isbn = books.ElementAt(i).Object.isbn;
@@ -61,7 +67,7 @@ namespace BooksForAll
                     if (booksindexed % 5 == 0 && booksindexed > 0)
                     {
                       
-                        break;
+                        return;
                     }
                 }
 
