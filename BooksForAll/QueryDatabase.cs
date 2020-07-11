@@ -46,6 +46,7 @@ namespace BooksForAll
                     {
                         if (gender.Equals(Reccomendation.genderpreference) || anygender )
                         {
+                            
                             Book thisbook = new Book();
 
                             thisbook.isbn = books.ElementAt(i).Object.isbn;
@@ -59,14 +60,11 @@ namespace BooksForAll
                     }
                     if (booksindexed % 5 == 0 && booksindexed > 0)
                     {
-                        
-                       // Reccomendation.generatebooks.Text = "";
-                        return;
+                      
+                        break;
                     }
                 }
 
-
-               
             }
 
             

@@ -54,8 +54,10 @@ namespace BooksForAll
 
         public static string booktitle;
 
+        public static string authorname;
 
-      
+
+
         private Picker age = new Picker
         {
             Title = agepreferenceUP,
@@ -326,8 +328,7 @@ namespace BooksForAll
 
             carouselView.ItemSwiped += (sender, args) =>
             {
-
-
+                  
                 if (bookswiped % maxbooks == 0)
                 {
                     QueryDatabase.calldatabase();
@@ -343,12 +344,12 @@ namespace BooksForAll
 
                     disappearingbook = (BookCover)carouselView.SelectedItem;
                     booktitle = disappearingbook.thisbook.booktitle;
-                    if(booktitle.Length >= 5)
-                    {
-                       GetTitleSize();
-                    }
+                    authorname = disappearingbook.thisbook.authorname;
+
+                    GetTitleSize();
+                    
                     BookTitle.Text = booktitle;
-                    AuthorName.Text = disappearingbook.thisbook.authorname;
+                    AuthorName.Text = authorname;
                 }
 
             };
@@ -381,7 +382,7 @@ namespace BooksForAll
                     AuthorName,
                     carouselView,
                     ReadMore,
-                      arrowimage,
+                     arrowimage,
 
 
                     }
@@ -408,6 +409,13 @@ namespace BooksForAll
                 ReadMore.Margin = new Thickness(60, 425, 60, 20);
             }
 
+            else if (authorname.Length >= 20)
+            {
+                carouselView.Margin = new Thickness(20, -155, 0, 0);
+            }
+
+ 
+
             else
             {
                 carouselView.Margin = new Thickness(-20, -70, 0, 0);
@@ -427,6 +435,8 @@ namespace BooksForAll
                 BookTitle.Text = bookcovers[0].thisbook.booktitle;
                 AuthorName.Text = bookcovers[0].thisbook.authorname;
                 carouselView.SelectedItem = bookcovers[0];
+                booktitle = BookTitle.Text;
+                authorname = AuthorName.Text;
                 swipedindex = 1;
                 firstbook = false;
                 ReadMore.IsVisible = true;

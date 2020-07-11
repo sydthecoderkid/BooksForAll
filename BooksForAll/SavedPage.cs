@@ -16,6 +16,13 @@ namespace BooksForAll
         {
             BookInfo.fromrec = false;
 
+            CarouselView savedbookimages = new CarouselView
+            {
+                Scale = 4,
+                Margin = new Thickness(20, 40, 0, 0)
+            };
+            savedbookimages.ItemsSource = savedBooks;
+
             Label Saved = new Label
             {
                 Text = "My Books",
@@ -40,7 +47,7 @@ namespace BooksForAll
             Label booktitle = new Label
             {
                  
-                Text = "Book Title",
+                Text = "",
                 FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
                 TextColor = Color.DarkBlue,
                 Margin = new Thickness(125, 100, 0, 0),
@@ -49,7 +56,7 @@ namespace BooksForAll
             Label author = new Label
             {
                 Margin = new Thickness(125, 20, 0 ,0),
-                 Text = "Author",
+                 Text = "",
                 FontSize = Device.GetNamedSize(NamedSize.Title, typeof(Label)),
                 TextColor = Color.DarkSlateBlue,
             };
@@ -64,11 +71,7 @@ namespace BooksForAll
 
             };
 
-            CarouselView savedbookimages = new CarouselView
-            {
-               Scale = 4,
-                Margin = new Thickness(20, 40, 0, 0)
-            };
+           
 
             Button ReadMore = new Button
             {
@@ -85,7 +88,7 @@ namespace BooksForAll
             ReadMore.Clicked += OnButtonClicked;
 
 
-            savedbookimages.ItemsSource = savedBooks;
+           
 
 
 
@@ -105,7 +108,7 @@ namespace BooksForAll
                 booktitle.Margin = new Thickness(110, 100, 0, 0);
                 author.Margin = new Thickness(105, 20, 0, 0);
                 backarrow.Scale = .4;
-                backarrow.Margin = new Thickness(-275, -105, 0, 0);
+                backarrow.Margin = new Thickness(-265, -95, 0, 0);
             }
 
             if (savedBooks.Count > 0)
