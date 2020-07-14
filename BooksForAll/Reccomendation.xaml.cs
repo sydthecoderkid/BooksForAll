@@ -417,8 +417,8 @@ namespace BooksForAll
 
             else if (authorname.Length >= 20 && !prodevice)
             {
-                carouselView.Margin = new Thickness(20, -90, 0, 0);
-                ReadMore.Margin = new Thickness(75, 200, 140, 20);
+                carouselView.Margin = new Thickness(20, -70, 0, 0);
+                ReadMore.Margin = new Thickness(95, 400, 140, 20);
             }
 
 

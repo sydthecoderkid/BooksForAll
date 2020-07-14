@@ -20,7 +20,7 @@ namespace BooksForAll
     {
 
 
-        private static string API_KEY = "AIzaSyCzAEOcV1P3U_ky3c5LuB4tUYPGlNk8B6g";
+        private static string API_KEY = "AIzaSyDg-1oFOWXLWfqx25LYGkcpDU12XJWk9mo";
 
 
 
