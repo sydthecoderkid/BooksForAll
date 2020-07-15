@@ -56,6 +56,10 @@ namespace BooksForAll
 
         public static string authorname;
 
+        public static int titlelength;
+
+        public static int authorlength;
+
 
 
         private Picker age = new Picker
@@ -346,6 +350,10 @@ namespace BooksForAll
                     booktitle = disappearingbook.thisbook.booktitle;
                     authorname = disappearingbook.thisbook.authorname;
 
+                    titlelength = booktitle.Length;
+                    authorlength = authorname.Length;
+
+                    SetTitleLength();
                     GetTitleSize();
                     
                     BookTitle.Text = booktitle;
@@ -392,30 +400,41 @@ namespace BooksForAll
 
         }
 
+        private void SetTitleLength()
+        {
+            for(int i = 0; i< titlelength; i++)
+            {
+                if (char.IsPunctuation(booktitle[i]))
+                {
+                    titlelength -= 1;
+                }
+            }
+        }
+
         private static void GetTitleSize()
         {
 
-            if (booktitle.Length >= 25 && !prodevice)
+            if (titlelength >= 21 && !prodevice)
             {
 
                 carouselView.Margin = new Thickness(-20, -100, 0, 0);
                 ReadMore.Margin = new Thickness(60, 400, 60, 20);
             }
 
-            else if (booktitle.Length >= 25 && prodevice)
+            else if (titlelength >= 21 && prodevice)
             {
 
-                carouselView.Margin = new Thickness(20, -135, 0, 0);
+                carouselView.Margin = new Thickness(20, -100, 0, 0);
                 ReadMore.Margin = new Thickness(60, 425, 60, 20);
             }
 
-            else if (authorname.Length >= 20 && prodevice)
+            else if (authorlength >= 20 && prodevice)
             {
                 carouselView.Margin = new Thickness(20, -155, 0, 0);
-                ReadMore.Margin = new Thickness(70, 40, 70, 20);
+                ReadMore.Margin = new Thickness(70, 450, 70, 20);
             }
 
-            else if (authorname.Length >= 20 && !prodevice)
+            else if (authorlength >= 20 && !prodevice)
             {
                 carouselView.Margin = new Thickness(20, -70, 0, 0);
                 ReadMore.Margin = new Thickness(95, 400, 140, 20);
