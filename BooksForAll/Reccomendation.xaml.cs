@@ -409,26 +409,28 @@ namespace BooksForAll
                     titlelength -= 1;
                 }
             }
+
         }
 
         private static void GetTitleSize()
         {
+            
 
-            if (titlelength >= 21 && !prodevice)
+            if (titlelength >= 20 && !prodevice)
             {
 
                 carouselView.Margin = new Thickness(-20, -100, 0, 0);
                 ReadMore.Margin = new Thickness(60, 400, 60, 20);
             }
 
-            else if (titlelength >= 21 && prodevice)
+            else if (titlelength >= 20 && prodevice)
             {
 
                 carouselView.Margin = new Thickness(20, -100, 0, 0);
                 ReadMore.Margin = new Thickness(60, 425, 60, 20);
             }
 
-            else if (authorlength >= 20 && prodevice)
+             if (authorlength >= 20 && prodevice)
             {
                 carouselView.Margin = new Thickness(20, -155, 0, 0);
                 ReadMore.Margin = new Thickness(70, 450, 70, 20);
@@ -441,8 +443,9 @@ namespace BooksForAll
             }
 
 
+           
 
-            else
+            else if(authorlength < 20 && titlelength < 20)
             {
                 carouselView.Margin = new Thickness(-20, -70, 0, 0);
                 ReadMore.Margin = new Thickness(60, 400, 60, 20);
