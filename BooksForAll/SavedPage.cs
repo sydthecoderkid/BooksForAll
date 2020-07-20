@@ -23,7 +23,7 @@ namespace BooksForAll
                 TextColor = Color.Blue,
                 FontAttributes = FontAttributes.Bold,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Margin = new Thickness(0, 45, 0, 0)
+                Margin = new Thickness(0, 60, 0, 0)
 
             };
 
@@ -60,7 +60,7 @@ namespace BooksForAll
                 
                  Source = ImageSource.FromFile("FlippedArrow.png"),
                  Scale = 0.2,
-                Margin = new Thickness(-275, -120, 0, 0),
+                Margin = new Thickness(-275, -105, 0, 0),
 
             };
 
@@ -73,7 +73,7 @@ namespace BooksForAll
             Button ReadMore = new Button
             {
 
-                Margin = new Thickness(40, 0, 60, 20),
+                Margin = new Thickness(55, 0, 60, 20),
                 Text = "Read More",
                 Font = Font.SystemFontOfSize(NamedSize.Title),
                 HorizontalOptions = LayoutOptions.Center,

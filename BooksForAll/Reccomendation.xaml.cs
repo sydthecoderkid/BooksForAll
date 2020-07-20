@@ -419,7 +419,7 @@ namespace BooksForAll
             if (titlelength >= 20 && !prodevice)
             {
 
-                carouselView.Margin = new Thickness(-20, -100, 0, 0);
+                carouselView.Margin = new Thickness(-20, -75, 0, 0);
                 ReadMore.Margin = new Thickness(60, 400, 60, 20);
             }
 
@@ -432,26 +432,32 @@ namespace BooksForAll
 
              if (authorlength >= 20 && prodevice)
             {
-                carouselView.Margin = new Thickness(20, -155, 0, 0);
+                carouselView.Margin = new Thickness(5, -155, 0, 0);
                 ReadMore.Margin = new Thickness(70, 450, 70, 20);
             }
 
             else if (authorlength >= 20 && !prodevice)
             {
-                carouselView.Margin = new Thickness(20, -70, 0, 0);
+                carouselView.Margin = new Thickness(5, -75, 0, 0);
                 ReadMore.Margin = new Thickness(95, 400, 140, 20);
             }
 
 
            
 
-            else if(authorlength < 20 && titlelength < 20)
+            else if(authorlength < 20 && titlelength <20)
             {
                 carouselView.Margin = new Thickness(-20, -70, 0, 0);
                 ReadMore.Margin = new Thickness(60, 400, 60, 20);
             }
-             
-            
+
+            if (titlelength >= 30 && authorlength >= 20 && !prodevice)
+            {
+                carouselView.Margin = new Thickness(20, -135, 0, 0);
+                ReadMore.Margin = new Thickness(60, 435, 60, 20);
+            }
+
+
 
         }
 
